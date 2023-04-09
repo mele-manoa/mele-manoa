@@ -1,5 +1,5 @@
 /* Use Open Sans as the default sans serif font. */
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,700|Source+Code+Pro:300,400,500,700");
+@import url("https://fonts.googleapis.com/css?family=Trirong");
 
 /* Set up some CSS variables to theme the application. */
 :root {
@@ -11,12 +11,9 @@
  See https://getbootstrap.com/docs/5.2/customize/css-variables/
  */
 body {
-  --bs-light-rgb: var(--matr-navbar-bg-rgb);
-}
-
-/* Set the alert background on the signin and signup pages. */
-#signin-page .alert-light, #signup-page .alert-light {
-  --bs-alert-bg: var(--matr-navbar-bg);
+  background: url("https://fredericksymphony.org/wp-content/uploads/2019/08/FSOAug19-1.jpg") no-repeat center center fixed;
+  background-size: cover;
+  font-family: "Trirong", sans-serif;
 }
 
 /* Define custom styles */
@@ -25,4 +22,20 @@ body {
   color: var(--bs-dark);
   padding-top: 10px;
   padding-bottom: 20px;
+}
+
+#centerText {
+  height: 700px;
+}
+
+#button-sign-in {
+  margin-right: 10px;
+}
+
+#navbar {
+  background-color: #e3f2fd;
+}
+
+#button-sign-in, #button-register {
+  opacity: 50%;
 }

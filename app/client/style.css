@@ -1,12 +1,10 @@
-/* Use Open Sans as the default sans serif font. */
+/* Use Trirong as the default seif font. */
 @import url("https://fonts.googleapis.com/css?family=Trirong");
 
 /* Set up some CSS variables to theme the application. */
 :root {
   --matr-navbar-bg: #e3f2fd;
   --matr-navbar-bg-rgb: 236, 236, 236;
-  --matr-navbar-text-color: white;
-  --matr-navbar-highlight-text: darkblue;
 }
 
 /* Change bootstrap variable values.
@@ -15,15 +13,6 @@
 body {
   background: fixed center url("https://cdn.pixabay.com/photo/2017/09/05/06/40/piano-2716597_1280.jpg");
   background-size: cover;
-  font-family: "Trirong", sans-serif;
-}
-
-body .navbar {
-  --bs-navbar-active-color: var(--matr-navbar-highlight-text);
-  --bs-navbar-brand-color: var(--matr-navbar-text-color);
-  --bs-navbar-brand-hover-color: var(--matr-navbar-highlight-text);
-  --bs-navbar-color: var(--matr-navbar-text-color);
-  --bs-navbar-hover-color: var(--matr-navbar-highlight-text);
 }
 
 /* Define custom styles */
@@ -38,19 +27,23 @@ body .navbar {
   height: 600px;
 }
 
-#button-sign-in {
+#button-sign-in, #button-register {
   margin-right: 30px;
+  font-family: "Trirong", serif;
+  opacity: 60%;
+}
+
+#button-signin, #buttonregister {
+  font-family: "Trirong", serif;
+  opacity: 70%;
 }
 
 #navbar {
   background-color: #6BADD4FF;
 }
 
-#button-sign-in, #button-register {
-  opacity: 60%;
-}
-
 h1 {
   color: #ffffff;
+  font-family: "Trirong", serif;
 }
 

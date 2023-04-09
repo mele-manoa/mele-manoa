@@ -15,7 +15,7 @@ const Landing = () => {
         <Col className="d-flex flex-column justify-content-center">
           <h1 className="display-1"><strong>Welcome to</strong></h1>
           <Col className="align-middle text-center py-4">
-            <Image src="https://media.discordapp.net/attachments/1065010999972864131/1094719422440153270/image.png?width=2064&height=550" width="700px" />
+            <Image src="/images/mele-manoa-logo.png" width="700px" />
           </Col>
         </Col>
         <Nav className="justify-content-end">

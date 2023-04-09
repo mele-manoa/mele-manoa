@@ -3,7 +3,7 @@ import { Meteor } from 'meteor/meteor';
 import { useTracker } from 'meteor/react-meteor-data';
 import { NavLink } from 'react-router-dom';
 import { Roles } from 'meteor/alanning:roles';
-import { Button, Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
+import { Button, Container, Nav, Navbar, NavDropdown, Image } from 'react-bootstrap';
 
 const NavBar = () => {
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
@@ -15,7 +15,9 @@ const NavBar = () => {
     <Navbar className="navbar navbar-light" expand="lg" id="navbar">
       <Container>
         <Navbar.Brand as={NavLink} to="/">
-          <h2>Mele-Manoa</h2>
+          <Nav className="justify-content-start navbar-nav">
+            <Image src="https://media.discordapp.net/attachments/1065010999972864131/1094719422440153270/image.png?width=2064&height=550" width="200px" id="toplogo" />
+          </Nav>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
@@ -31,10 +33,10 @@ const NavBar = () => {
           <Nav className="justify-content-end">
             {currentUser === '' ? (
               <Container>
-                <Button className="btn btn-outline-light" id="button-sign-in" as={NavLink} to="/signin">
+                <Button className="btn btn-outline-secondary" id="button-sign-in" as={NavLink} to="/signin">
                   Sign in
                 </Button>
-                <Button className="btn btn-outline-light" id="button-register" as={NavLink} to="/signup">
+                <Button className="btn btn-outline-secondary" id="button-register" as={NavLink} to="/signup">
                   Register
                 </Button>
               </Container>

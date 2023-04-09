@@ -16,7 +16,7 @@ const NavBar = () => {
       <Container>
         <Navbar.Brand as={NavLink} to="/">
           <Nav className="justify-content-start navbar-nav">
-            <Image src="https://media.discordapp.net/attachments/1065010999972864131/1094719422440153270/image.png?width=2064&height=550" width="200px" id="toplogo" />
+            <Image src="https://media.discordapp.net/attachments/1065010999972864131/1094719422440153270/image.png?width=2064&height=550" width="200px" />
           </Nav>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />

@@ -1,5 +1,5 @@
-/* Use Trirong as the default seif font. */
-@import url("https://fonts.googleapis.com/css?family=Trirong");
+/* Use Crete+Round as the default seif font. */
+@import url("https://fonts.googleapis.com/css?family=Crete+Round");
 
 /* Set up some CSS variables to theme the application. */
 :root {
@@ -29,12 +29,12 @@ body {
 
 #button-sign-in, #button-register {
   margin-right: 30px;
-  font-family: "Trirong", serif;
+  font-family: "Crete Round", serif;
   opacity: 60%;
 }
 
 #button-signin, #buttonregister {
-  font-family: "Trirong", serif;
+  font-family: "Crete Round", serif;
   opacity: 70%;
 }
 
@@ -44,6 +44,6 @@ body {
 
 h1 {
   color: #ffffff;
-  font-family: "Trirong", serif;
+  font-family: "Crete Round", serif;
 }
 

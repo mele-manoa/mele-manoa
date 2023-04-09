@@ -3,7 +3,7 @@
 
 /* Set up some CSS variables to theme the application. */
 :root {
-  --matr-navbar-bg: #ECECEC;
+  --matr-navbar-bg: #e3f2fd;
   --matr-navbar-bg-rgb: 236, 236, 236;
 }
 
@@ -11,7 +11,7 @@
  See https://getbootstrap.com/docs/5.2/customize/css-variables/
  */
 body {
-  background: url("https://fredericksymphony.org/wp-content/uploads/2019/08/FSOAug19-1.jpg") no-repeat center center fixed;
+  background: fixed center url("https://cdn.pixabay.com/photo/2017/09/05/06/40/piano-2716597_1280.jpg");
   background-size: cover;
   font-family: "Trirong", sans-serif;
 }
@@ -25,11 +25,11 @@ body {
 }
 
 #centerText {
-  height: 700px;
+  height: 600px;
 }
 
 #button-sign-in {
-  margin-right: 10px;
+  margin-right: 30px;
 }
 
 #navbar {
@@ -38,4 +38,8 @@ body {
 
 #button-sign-in, #button-register {
   opacity: 50%;
+}
+
+h1 {
+  color: #e3f2fd;
 }

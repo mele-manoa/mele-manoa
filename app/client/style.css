@@ -1,5 +1,6 @@
-/* Use Crete+Round as the default seif font. */
+/* Use Crete+Round as the default serif font. */
 @import url("https://fonts.googleapis.com/css?family=Crete+Round");
+@import url('https://fonts.googleapis.com/css2?family=ABeeZee&display=swap');
 
 /* Set up some CSS variables to theme the application. */
 :root {
@@ -13,6 +14,7 @@
 body {
   background: fixed center url("/images/piano-background.png");
   background-size: cover;
+  font-family: 'ABeeZee', sans-serif;
 }
 
 /* Define custom styles */
@@ -23,18 +25,24 @@ body {
   padding-bottom: 20px;
 }
 
-#centerText {
+#landing-center {
   height: 600px;
 }
 
-#button-sign-in, #button-register, .buttons {
+#root .btn {
   border-color: white;
   background-color: rgba(0, 0, 0, 0.6);
   color: white;
 }
 
+#root .btn:hover {
+  border-color: white;
+  background-color: white;
+  color: black;
+}
+
 #navbar {
-  background-color: #6BADD4FF;
+  background-color: #6BACD4;
 }
 
 h1 {

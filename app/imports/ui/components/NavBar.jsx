@@ -33,11 +33,11 @@ const NavBar = () => {
           <Nav className="justify-content-end">
             {currentUser === '' ? (
               <Container>
-                <Button className="btn btn-light mx-3" id="button-sign-in" as={NavLink} to="/signin">
-                  <strong>Sign in</strong>
-                </Button>
-                <Button className="btn btn-light" id="button-register" as={NavLink} to="/signup">
+                <Button className="btn btn-light" as={NavLink} to="/signup">
                   <strong>Register</strong>
+                </Button>
+                <Button className="btn btn-light mx-3" as={NavLink} to="/signin">
+                  <strong>Sign in</strong>
                 </Button>
               </Container>
             ) : (

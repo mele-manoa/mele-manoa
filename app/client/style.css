@@ -30,12 +30,16 @@ body {
 #button-sign-in, #button-register {
   margin-right: 30px;
   font-family: "Crete Round", serif;
-  opacity: 60%;
+}
+
+#button-sign-in, #button-register, #button-signin, #buttonregister, .buttons {
+  border-color: white;
+  background: none;
+  color: white;
 }
 
 #button-signin, #buttonregister {
   font-family: "Crete Round", serif;
-  opacity: 70%;
 }
 
 #navbar {

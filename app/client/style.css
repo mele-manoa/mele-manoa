@@ -1,9 +1,10 @@
-/* Use Open Sans as the default sans serif font. */
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,700|Source+Code+Pro:300,400,500,700");
+/* Use Crete+Round as the default serif font. */
+@import url("https://fonts.googleapis.com/css?family=Crete+Round");
+@import url('https://fonts.googleapis.com/css2?family=ABeeZee&display=swap');
 
 /* Set up some CSS variables to theme the application. */
 :root {
-  --matr-navbar-bg: #ECECEC;
+  --matr-navbar-bg: #e3f2fd;
   --matr-navbar-bg-rgb: 236, 236, 236;
 }
 
@@ -11,12 +12,9 @@
  See https://getbootstrap.com/docs/5.2/customize/css-variables/
  */
 body {
-  --bs-light-rgb: var(--matr-navbar-bg-rgb);
-}
-
-/* Set the alert background on the signin and signup pages. */
-#signin-page .alert-light, #signup-page .alert-light {
-  --bs-alert-bg: var(--matr-navbar-bg);
+  background: fixed center url("/images/piano-background.png");
+  background-size: cover;
+  font-family: 'ABeeZee', sans-serif;
 }
 
 /* Define custom styles */
@@ -26,3 +24,29 @@ body {
   padding-top: 10px;
   padding-bottom: 20px;
 }
+
+#landing-center {
+  height: 600px;
+}
+
+#root .btn {
+  border-color: white;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+}
+
+#root .btn:hover {
+  border-color: white;
+  background-color: white;
+  color: black;
+}
+
+#navbar {
+  background-color: #6BACD4;
+}
+
+h1 {
+  color: #ffffff;
+  font-family: "Crete Round", serif;
+}
+

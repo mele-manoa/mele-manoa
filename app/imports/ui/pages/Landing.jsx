@@ -22,10 +22,10 @@ const Landing = () => {
           {currentUser === '' ? (
             <Col className="d-grid gap-2 col-6 mx-auto">
               <Button className="btn btn-light btn-lg py-3" id="button-register" as={NavLink} to="/signup">
-                Register
+                <strong>Register</strong>
               </Button>
               <Button className="btn btn-light btn-lg py-3" id="button-sign-in" as={NavLink} to="/signin">
-                Sign in
+                <strong>Sign in</strong>
               </Button>
             </Col>
           ) : ''}

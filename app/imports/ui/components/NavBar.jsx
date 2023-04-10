@@ -34,10 +34,10 @@ const NavBar = () => {
             {currentUser === '' ? (
               <Container>
                 <Button className="btn btn-light mx-3" id="button-sign-in" as={NavLink} to="/signin">
-                  Sign in
+                  <strong>Sign in</strong>
                 </Button>
                 <Button className="btn btn-light" id="button-register" as={NavLink} to="/signup">
-                  Register
+                  <strong>Register</strong>
                 </Button>
               </Container>
             ) : (

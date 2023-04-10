@@ -11,7 +11,7 @@
  See https://getbootstrap.com/docs/5.2/customize/css-variables/
  */
 body {
-  background: fixed center url("https://cdn.pixabay.com/photo/2017/09/05/06/40/piano-2716597_1280.jpg");
+  background: fixed center url("/images/piano-background.png");
   background-size: cover;
 }
 

@@ -27,18 +27,13 @@ body {
   height: 600px;
 }
 
-#button-sign-in, #button-register {
-  margin-right: 30px;
-  font-family: "Crete Round", serif;
-}
-
-#button-sign-in, #button-register, #button-signin, #buttonregister, .buttons {
+#button-sign-in, #button-register, .buttons {
   border-color: white;
   background: none;
   color: white;
 }
 
-#button-signin, #buttonregister {
+Button {
   font-family: "Crete Round", serif;
 }
 

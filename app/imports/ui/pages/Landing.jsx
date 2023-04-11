@@ -10,11 +10,11 @@ const Landing = () => {
     currentUser: Meteor.user() ? Meteor.user().username : '',
   }), []);
   return (
-    <Container fluid id="landing">
+    <Container fluid id="landing" className="px-0">
       <Container id="landing-center" className="d-flex align-items-center justify-content-center">
         <Row className="text-center">
           <Col className="d-flex flex-column justify-content-center">
-            <h1 className="display-1"><strong>Welcome to</strong></h1>
+            <h1 className="display-2"><strong>Welcome to</strong></h1>
             <Col className="align-middle text-center py-4">
               <Image src="/images/mele-manoa-logo.png" width="700px" />
             </Col>
@@ -42,9 +42,11 @@ const Landing = () => {
           </Nav>
         </Row>
       </Container>
-      <Container id="info" className="d-flex">
-        <Container><h1>What is Mele Manoa?</h1></Container>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <Container fluid id="info" className="mt-5">
+        <Container className="py-5">
+          <h1>What is Mele Manoa?</h1>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </Container>
       </Container>
     </Container>
   );

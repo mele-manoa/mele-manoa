@@ -46,7 +46,7 @@ const NavBar = () => {
                   {currentUser}
                 </Dropdown.Toggle>
                 <Dropdown.Menu>
-                  <Dropdown.Item id="navbar-sign-out" as={NavLink} to="/" onClick={() => Meteor.logout()}>
+                  <Dropdown.Item id="navbar-sign-out" href="/" onClick={() => Meteor.logout()}>
                     {' '}
                     Sign out
                   </Dropdown.Item>

@@ -21,7 +21,7 @@ const NavBar = () => {
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav id="nav-links" className="justify-content-start">
+          <Nav id="nav-links" className="justify-content-start mt-4 ms-3">
             {currentUser ? ([
               <Nav.Link id="add-stuff-nav" as={NavLink} to="/profile" key="profile">Profile</Nav.Link>,
               <Nav.Link id="list-stuff-nav" as={NavLink} to="/discover" key="discover">Discover</Nav.Link>,

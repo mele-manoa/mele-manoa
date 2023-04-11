@@ -18,6 +18,10 @@ body {
   color: #ffffff;
 }
 
+#root a {
+  color: #343434;
+}
+
 /* Define custom styles */
 .gray-background {
   background-color: var(--matr-navbar-bg);
@@ -40,6 +44,14 @@ body {
   border-color: white;
   background-color: white;
   color: black;
+}
+
+#root .on-white:hover {
+  border-color: black;
+}
+
+#root input:hover {
+  border-color: black;
 }
 
 #navbar {

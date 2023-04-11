@@ -30,6 +30,21 @@ body {
   padding-bottom: 20px;
 }
 
+#nav-links {
+  margin-top: 20px;
+  border-bottom: white 1px solid;
+  width: 50vw;
+  color: white;
+  font-size: 18px;
+}
+
+#nav-links a {
+  color: white;
+  padding: 0 20px 0 5px;
+}
+
+#nav-links a:hover { color: #343434; }
+
 #landing-center {
   height: 600px;
 }

@@ -21,7 +21,7 @@ const Landing = () => {
         <Nav className="justify-content-end">
           {currentUser === '' ? (
             <Col className="d-grid gap-2 col-6 mx-auto">
-              <Button className="btn btn-light btn-lg py-3" as={NavLink} to="/signup">
+              <Button className="btn btn-light btn-lg py-3" as={NavLink} to="/register">
                 <strong>Register</strong>
               </Button>
               <Button className="btn btn-light btn-lg py-3" as={NavLink} to="/signin">

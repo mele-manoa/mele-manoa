@@ -33,7 +33,7 @@ const NavBar = () => {
           <Nav className="justify-content-end">
             {currentUser === '' ? (
               <Container>
-                <Button className="btn btn-light" as={NavLink} to="/signup">
+                <Button className="btn btn-light" as={NavLink} to="/register">
                   <strong>Register</strong>
                 </Button>
                 <Button className="btn btn-light mx-3" as={NavLink} to="/signin">
@@ -46,7 +46,7 @@ const NavBar = () => {
                   {currentUser}
                 </Dropdown.Toggle>
                 <Dropdown.Menu>
-                  <Dropdown.Item id="navbar-sign-out" as={NavLink} to="/" onClick={() => Meteor.logout()}>
+                  <Dropdown.Item id="navbar-sign-out" href="/" onClick={() => Meteor.logout()}>
                     {' '}
                     Sign out
                   </Dropdown.Item>

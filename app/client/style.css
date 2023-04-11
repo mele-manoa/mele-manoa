@@ -44,6 +44,10 @@ body {
 
 #nav-links a:hover { color: #343434; }
 
+#landing {
+  overflow: auto;
+}
+
 #landing-center {
   height: 600px;
 }

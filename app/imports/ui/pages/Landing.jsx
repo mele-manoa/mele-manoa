@@ -10,27 +10,42 @@ const Landing = () => {
     currentUser: Meteor.user() ? Meteor.user().username : '',
   }), []);
   return (
-    <Container className="d-flex align-items-center justify-content-center" id="landing-center">
-      <Row className="text-center">
-        <Col className="d-flex flex-column justify-content-center">
-          <h1 className="display-1"><strong>Welcome to</strong></h1>
-          <Col className="align-middle text-center py-4">
-            <Image src="/images/mele-manoa-logo.png" width="700px" />
-          </Col>
-        </Col>
-        <Nav className="justify-content-end">
-          {currentUser === '' ? (
-            <Col className="d-grid gap-2 col-6 mx-auto">
-              <Button className="btn btn-light btn-lg py-3" as={NavLink} to="/register">
-                <strong>Register</strong>
-              </Button>
-              <Button className="btn btn-light btn-lg py-3" as={NavLink} to="/signin">
-                <strong>Sign in</strong>
-              </Button>
+    <Container fluid id="landing">
+      <Container id="landing-center" className="d-flex align-items-center justify-content-center">
+        <Row className="text-center">
+          <Col className="d-flex flex-column justify-content-center">
+            <h1 className="display-1"><strong>Welcome to</strong></h1>
+            <Col className="align-middle text-center py-4">
+              <Image src="/images/mele-manoa-logo.png" width="700px" />
             </Col>
-          ) : ''}
-        </Nav>
-      </Row>
+          </Col>
+          <Nav className="justify-content-end">
+            {currentUser === '' ? (
+              <Col className="d-grid gap-2 col-6 mx-auto">
+                <Button className="btn btn-light btn-lg py-3" as={NavLink} to="/register">
+                  <strong>Register</strong>
+                </Button>
+                <Button className="btn btn-light btn-lg py-3" as={NavLink} to="/signin">
+                  <strong>Sign in</strong>
+                </Button>
+              </Col>
+            ) : (
+              <Col className="d-grid gap-2 col-6 mx-auto">
+                <Button className="btn btn-light btn-lg py-3" as={NavLink} to="/discover">
+                  <strong>Discover Other Musicians</strong>
+                </Button>
+                <Button className="btn btn-light btn-lg py-3" as={NavLink} to="/profile">
+                  <strong>View Your Profile</strong>
+                </Button>
+              </Col>
+            )}
+          </Nav>
+        </Row>
+      </Container>
+      <Container id="info" className="d-flex">
+        <Container><h1>What is Mele Manoa?</h1></Container>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      </Container>
     </Container>
   );
 };

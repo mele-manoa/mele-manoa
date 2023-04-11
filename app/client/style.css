@@ -15,6 +15,7 @@ body {
   background: fixed center url("/images/piano-background.png");
   background-size: cover;
   font-family: 'ABeeZee', sans-serif;
+  color: #ffffff;
 }
 
 /* Define custom styles */
@@ -45,8 +46,8 @@ body {
   background-color: #6BACD4;
 }
 
-h1 {
-  color: #ffffff;
+h1, h2, h3 {
   font-family: "Crete Round", serif;
+  color: #ffffff;
 }
 

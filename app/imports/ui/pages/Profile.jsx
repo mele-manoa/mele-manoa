@@ -11,9 +11,8 @@ const Profile = () => {
     const rdy = subscription.ready();
     const profileItems = Users.collection.find({}).fetch();
     return {
-
-    }
-};
-}
+      ready: rdy,
+    };
+}, []);
 
 export default Profile;

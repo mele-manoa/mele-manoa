@@ -53,7 +53,7 @@ const SignIn = () => {
                 <TextField id="signin-form-email" name="email" placeholder="E-mail address" />
                 <TextField id="signin-form-password" name="password" placeholder="Password" type="password" />
                 <ErrorsField />
-                <input id="signin-form-submit" className="btn btn-light on-white" type="submit" />
+                <input id="signin-form-submit" className="btn btn-light on-white" type="submit" value="Sign In" />
               </AutoForm>
               <Alert variant="light" className="mt-3">
                 <Link to="/signup">Don‘t have an account? Register here!</Link>

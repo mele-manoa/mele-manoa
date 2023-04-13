@@ -8,6 +8,7 @@
     "core-js": "^3.28.0",
     "graphql": "^16.6.0",
     "meteor-node-stubs": "^1.2.5",
+    "mup": "^1.5.10",
     "prop-types": "^15.7.2",
     "react": "^18.2.0",
     "react-bootstrap": "^2.7.2",

@@ -3,7 +3,7 @@ import { Card, Col, Container, Row } from 'react-bootstrap';
 
 const Profile = () => (
   <Container id="profile" className="bg-white p-5">
-    <Row className="justify-content-center">
+    <Row>
       <Col>
         <h1>Your Profile</h1>
         <ul>
@@ -18,6 +18,9 @@ const Profile = () => (
       <Col>
         Image Goes here
       </Col>
+    </Row>
+    <Row>
+      <h3>Groups Name is a part of</h3>
     </Row>
   </Container>
 );

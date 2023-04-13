@@ -98,7 +98,7 @@ h1, h2, h3 {
   color: black;
 }
 
-#profile h1, #profile p {
+#profile h1, #profile h3, #profile p {
   color: black;
 }
 

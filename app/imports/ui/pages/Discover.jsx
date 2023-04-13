@@ -4,7 +4,7 @@ import { Container } from 'react-bootstrap';
 const Discover = () => {
   return (
     <Container id="discover" className="d-flex bg-white p-5">
-      <div id="discover-main" className="p-3 me-auto">
+      <div id="discover-main" className="me-auto">
         <h1>Discover</h1>
         <div id="discover-cards">
           <p>

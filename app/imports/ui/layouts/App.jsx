@@ -8,6 +8,7 @@ import NotFound from '../pages/NotFound';
 import Register from '../pages/Register';
 import SignIn from '../pages/SignIn';
 import Profile from '../pages/Profile';
+import Discover from '../pages/Discover';
 import NotAuthorized from '../pages/NotAuthorized';
 import NavBar from '../components/NavBar';
 import LoadingSpinner from '../components/LoadingSpinner';
@@ -23,6 +24,7 @@ const App = () => (
         <Route path="/register" element={<Register />} />
         <Route path="/home" element={<ProtectedRoute><Landing /></ProtectedRoute>} />
         <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
+        <Route path="/discover" element={<ProtectedRoute><Discover /></ProtectedRoute>} />
         <Route path="/notauthorized" element={<NotAuthorized />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

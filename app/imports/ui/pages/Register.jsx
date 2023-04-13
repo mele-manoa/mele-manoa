@@ -5,7 +5,7 @@ import { Accounts } from 'meteor/accounts-base';
 import { Alert, Card, Col, Container, Row } from 'react-bootstrap';
 import SimpleSchema from 'simpl-schema';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
-import { AutoForm, ErrorsField, SubmitField, TextField } from 'uniforms-bootstrap5';
+import { AutoForm, ErrorsField, TextField } from 'uniforms-bootstrap5';
 
 /**
  * SignUp component is similar to signin component, but we create a new user instead.
@@ -40,7 +40,7 @@ const Register = ({ location }) => {
     return <Navigate to={from} />;
   }
   return (
-    <Container id="signup-page" className="py-3">
+    <Container fluid id="register-page" className="py-3">
       <Row className="justify-content-center">
         <Col xs={5}>
           <Col className="text-center py-4">

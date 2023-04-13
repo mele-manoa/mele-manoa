@@ -11,31 +11,6 @@ const Profile = () => (
         </p>
       </div>
     </div>
-    <div id="profile-sidebar" className="p-4">
-      <p>Classified By</p>
-      <ul>
-        <li>Instruments</li>
-        <ul>
-          <li>Guitar</li>
-          <li>Bass</li>
-          <li>Drums</li>
-          <li>Vocals</li>
-          <li>Keyboard/Piano</li>
-          <li>Strings</li>
-          <li>Winds</li>
-          <li>Percussion</li>
-          <li>Brass</li>
-        </ul>
-        <li>Genre</li>
-        <li>Skill Level</li>
-        <ul>
-          <li>Beginner</li>
-          <li>Intermediate</li>
-          <li>Expert</li>
-          <li>Professional</li>
-        </ul>
-      </ul>
-    </div>
   </Container>
 );
 

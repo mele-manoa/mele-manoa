@@ -22,6 +22,10 @@ body {
   color: #343434;
 }
 
+#root p {
+  color: #ffffff;
+}
+
 /* Define custom styles */
 .gray-background {
   background-color: var(--matr-navbar-bg);
@@ -30,8 +34,30 @@ body {
   padding-bottom: 20px;
 }
 
+#nav-links {
+  border-bottom: white 1px solid;
+  width: 50vw;
+  color: white;
+  font-size: 18px;
+}
+
+#nav-links a {
+  color: white;
+  padding: 0 30px 0 10px;
+}
+
+#nav-links a:hover { color: #343434; }
+
+#landing {
+  overflow: auto;
+}
+
 #landing-center {
   height: 600px;
+}
+
+#info {
+  background-color: #6BACD4;
 }
 
 #root .btn {
@@ -61,5 +87,6 @@ body {
 h1, h2, h3 {
   font-family: "Crete Round", serif;
   color: #ffffff;
+  display: block;
 }
 

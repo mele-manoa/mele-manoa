@@ -21,15 +21,21 @@ const NavBar = () => {
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto justify-content-start">
-            {currentUser ? ([
-              <Nav.Link id="add-stuff-nav" as={NavLink} to="/add" key="add">Add Stuff</Nav.Link>,
-              <Nav.Link id="list-stuff-nav" as={NavLink} to="/list" key="list">List Stuff</Nav.Link>,
-            ]) : ''}
-            {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
-              <Nav.Link id="list-stuff-admin-nav" as={NavLink} to="/admin" key="admin">Admin</Nav.Link>
-            ) : ''}
-          </Nav>
+          {currentUser !== '' ? (
+            <Nav id="nav-links" className="justify-content-start mt-4 ms-3">
+              {currentUser ? ([
+                <Nav.Link id="add-stuff-nav" as={NavLink} to="/profile" key="profile">Profile</Nav.Link>,
+                <Nav.Link id="list-stuff-nav" as={NavLink} to="/discover" key="discover">Discover</Nav.Link>,
+                <Nav.Link id="list-stuff-nav" as={NavLink} to="/groups" key="groups">Groups</Nav.Link>,
+              ]) : ''}
+              {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
+                <Nav.Link id="list-stuff-admin-nav" as={NavLink} to="/admin" key="admin">Admin</Nav.Link>
+              ) : ''}
+            </Nav>
+          ) : (
+            <Nav />
+          )}
+          <Nav className="m-auto" />
           <Nav className="justify-content-end">
             {currentUser === '' ? (
               <Container>

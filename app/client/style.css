@@ -15,7 +15,7 @@ body {
   background: fixed center url("/images/piano-background.png");
   background-size: cover;
   font-family: 'ABeeZee', sans-serif;
-  color: #ffffff;
+  color: black;
 }
 
 #root a {
@@ -60,6 +60,10 @@ body {
   background-color: #6BACD4;
 }
 
+#discover {
+  min-height: 100vh;
+}
+
 #root .btn {
   border-color: white;
   background-color: rgba(0, 0, 0, 0.6);
@@ -90,3 +94,12 @@ h1, h2, h3 {
   display: block;
 }
 
+#discover h1, #discover p {
+  color: black;
+}
+
+#discover-sidebar {
+  border: 1px solid black;
+  border-radius: 5px;
+  width: 300px;
+}

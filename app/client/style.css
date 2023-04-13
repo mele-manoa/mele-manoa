@@ -98,7 +98,11 @@ h1, h2, h3 {
   color: black;
 }
 
-#discover-sidebar {
+#profile h1, #profile p {
+  color: black;
+}
+
+#discover-sidebar, #profile-sidebar {
   border: 1px solid black;
   border-radius: 5px;
   width: 300px;

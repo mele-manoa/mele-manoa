@@ -11,7 +11,7 @@ const Profile = () => (
         </p>
       </div>
     </div>
-    <div id="sidebar" className="p-4">
+    <div id="profile-sidebar" className="p-4">
       <p>Classified By</p>
       <ul>
         <li>Instruments</li>

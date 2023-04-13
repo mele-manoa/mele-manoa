@@ -60,7 +60,7 @@ body {
   background-color: #6BACD4;
 }
 
-#discover {
+#discover, #profile {
   min-height: 100vh;
 }
 

@@ -10,7 +10,10 @@ const Discover = () => {
     genre: 'Folk',
     skill: 'Professional',
     informalJam: true,
-    seekingBand: false,
+    seekingBand: true,
+    youtube: 'https://www.youtube.com/watch?v=nq6jS2-XDeA&pp=ygUMa2FzcydzIHRoZW1l',
+    soundcloud: 'https://soundcloud.com/gamechops/kass-theme',
+    instagram: '/',
     _id: '5',
   };
 

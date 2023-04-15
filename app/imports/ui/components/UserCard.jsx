@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Card, Image, Badge, Button } from 'react-bootstrap';
+import { Card, Image, Badge, Button, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import { Youtube, CloudyFill, Instagram } from 'react-bootstrap-icons';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
@@ -28,11 +28,21 @@ const UserCard = ({ info }) => (
     <Card.Footer>
       { [info.youtube, info.soundcloud, info.instagram].map((link) => (
         link !== '' || null ? (
-          <Button href={link} className="on-white me-1" variant="secondary" size="sm">
-            { link === info.youtube ? (<Youtube />) : '' }
-            { link === info.soundcloud ? (<CloudyFill />) : '' }
-            { link === info.instagram ? (<Instagram />) : '' }
-          </Button>
+          <OverlayTrigger
+            overlay={(
+              <Tooltip>
+                { link === info.youtube ? (<strong>Youtube</strong>) : '' }
+                { link === info.soundcloud ? (<strong>SoundCloud</strong>) : '' }
+                { link === info.instagram ? (<strong>Instagram</strong>) : '' }
+              </Tooltip>
+            )}
+          >
+            <Button href={link} className="on-white me-1" variant="secondary" size="sm">
+              { link === info.youtube ? (<Youtube />) : '' }
+              { link === info.soundcloud ? (<CloudyFill />) : '' }
+              { link === info.instagram ? (<Instagram />) : '' }
+            </Button>
+          </OverlayTrigger>
         ) : ''
       ))}
     </Card.Footer>

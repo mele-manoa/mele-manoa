@@ -5,7 +5,7 @@ import { Youtube, CloudyFill, Instagram } from 'react-bootstrap-icons'
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 const UserCard = ({ info }) => (
-  <Card className="m-3">
+  <Card id="user-card" className="m-3">
     <Card.Body className="d-flex">
       <div id="user-card-info" className="me-3">
         <Card.Title>{info.name}</Card.Title>
@@ -22,20 +22,20 @@ const UserCard = ({ info }) => (
             <Badge bg="light" text="dark">Seeking a Band</Badge>
           ) : ''}
         </Card.Text>
-        <Card.Text>
-          { info.youtube !== '' || null ? (
-            <Button href={info.youtube} className="on-white me-1" variant="secondary" size="sm"><Youtube /></Button>
-          ) : ''}
-          { info.soundcloud !== '' || null ? (
-            <Button href={info.soundcloud} className="on-white me-1" variant="secondary" size="sm"><CloudyFill /></Button>
-          ) : ''}
-          { info.instagram !== '' || null ? (
-            <Button href={info.instagram} className="on-white me-1" variant="secondary" size="sm"><Instagram /></Button>
-          ) : ''}
-        </Card.Text>
       </div>
       <Image id="user-image" className="float-right" src={info.image} thumbnail />
     </Card.Body>
+    <Card.Footer>
+      { info.youtube !== '' || null ? (
+        <Button href={info.youtube} className="on-white me-1" variant="secondary" size="sm"><Youtube /></Button>
+      ) : ''}
+      { info.soundcloud !== '' || null ? (
+        <Button href={info.soundcloud} className="on-white me-1" variant="secondary" size="sm"><CloudyFill /></Button>
+      ) : ''}
+      { info.instagram !== '' || null ? (
+        <Button href={info.instagram} className="on-white me-1" variant="secondary" size="sm"><Instagram /></Button>
+      ) : ''}
+    </Card.Footer>
   </Card>
 );
 

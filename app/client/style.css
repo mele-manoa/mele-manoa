@@ -108,9 +108,14 @@ h1, h2, h3 {
   width: 300px;
 }
 
+#user-card {
+  height: 275px;
+}
+
 #user-image {
-  width: 150px;
+  max-width: 150px;
   height: fit-content;
+  max-height: 190px;
 }
 
 #user-card-info {

@@ -109,5 +109,9 @@ h1, h2, h3 {
 }
 
 #user-image {
+  width: 150px;
+}
+
+#user-card-info {
   width: 200px;
 }

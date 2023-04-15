@@ -21,10 +21,8 @@ const Discover = () => {
     <Container id="discover" className="d-flex bg-white p-5">
       <div id="discover-main" className="p-3 me-auto">
         <h1>Discover</h1>
-        <div id="discover-cards">
-          <p>
-            All the musicians go here
-          </p>
+        <div id="discover-cards" className="d-flex">
+          <UserCard info={testUser} />
           <UserCard info={testUser} />
         </div>
       </div>

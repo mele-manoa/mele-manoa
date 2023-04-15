@@ -4,28 +4,23 @@ import { Card, Row, Col, Image, Badge } from 'react-bootstrap';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 const UserCard = ({ info }) => (
-  <Card>
-    <Card.Body>
-      <Row>
-        <Col>
-          <Card.Title>{info.name}</Card.Title>
-          <Card.Subtitle>{info.instrument}</Card.Subtitle>
-          <br />
-          <Card.Text>
-            Preferred Genre: {info.genre} <br />
-            Skill Level: {info.skill}
-          </Card.Text>
-          { info.informalJam === true ? (
-            <Card.Text><Badge bg="light" text="dark">Available for Informal Jam</Badge></Card.Text>
-          ) : ''}
-          { info.seekingBand === true ? (
-            <Badge bg="light" text="dark">Seeking a Band</Badge>
-          ) : ''}
-        </Col>
-        <Col>
-          <Card.Text><Image id="user-image" src={info.image} thumbnail /></Card.Text>
-        </Col>
-      </Row>
+  <Card className="m-3">
+    <Card.Body className="d-flex">
+      <div id="user-card-info" className="me-3">
+        <Card.Title>{info.name}</Card.Title>
+        <Card.Subtitle>{info.instrument}</Card.Subtitle>
+        <Card.Text>
+          Preferred Genre: {info.genre} <br />
+          Skill Level: {info.skill}
+        </Card.Text>
+        { info.informalJam === true ? (
+          <Badge bg="light" text="dark">Available for Informal Jam</Badge>
+        ) : ''}
+        { info.seekingBand === true ? (
+          <Badge bg="light" text="dark">Seeking a Band</Badge>
+        ) : ''}
+      </div>
+      <Image id="user-image" className="float-right" src={info.image} thumbnail />
     </Card.Body>
   </Card>
 );

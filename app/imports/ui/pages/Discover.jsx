@@ -17,13 +17,27 @@ const Discover = () => {
     _id: '5',
   };
 
+  const testUser2 = {
+    name: 'Mikau',
+    image: 'https://cdn.wikimg.net/en/zeldawiki/images/thumb/3/3e/MM3D_Mikau_Model.png/478px-MM3D_Mikau_Model.png',
+    instrument: 'Guitar',
+    genre: 'Rock',
+    skill: 'Professional',
+    informalJam: true,
+    seekingBand: false,
+    youtube: 'https://www.youtube.com/watch?v=nq6jS2-XDeA&pp=ygUMa2FzcydzIHRoZW1l',
+    soundcloud: 'https://soundcloud.com/gamechops/kass-theme',
+    instagram: '/',
+    _id: '6',
+  };
+
   return (
     <Container id="discover" className="d-flex bg-white p-5">
       <div id="discover-main" className="p-3 me-auto">
         <h1>Discover</h1>
         <div id="discover-cards" className="d-flex">
           <UserCard info={testUser} />
-          <UserCard info={testUser} />
+          <UserCard info={testUser2} />
         </div>
       </div>
       <div id="discover-sidebar" className="p-3">

@@ -110,6 +110,7 @@ h1, h2, h3 {
 
 #user-image {
   width: 150px;
+  height: fit-content;
 }
 
 #user-card-info {

@@ -2,22 +2,20 @@ import { Mongo } from 'meteor/mongo';
 import SimpleSchema from 'simpl-schema';
 import { Tracker } from 'meteor/tracker';
 
-class UsersCollection {
+class GroupsCollection {
   constructor() {
-    this.name = 'UsersCollection';
+    this.name = 'GroupsCollection';
     this.collection = new Mongo.Collection(this.name);
 
     this.schema = new SimpleSchema({
       name: String,
-      instrument: ['guitar', 'bass', 'drums', 'vocals', 'piano', 'strings', 'winds', 'percussion', 'brass', 'other'],
       genre: ['rock', 'jazz', 'EDM', 'dubstep', 'country', 'pop', 'classical', 'rhythm and blues'],
+      members: [],
       skill: ['beginner', 'intermediate', 'expert', 'professional'],
-      InformalJam: Boolean,
-      BandSeeking: Boolean,
-      Image: String,
+      OpenToMember: Boolean,
     }, { tracker: Tracker });
     this.collection.attachSchema(this.schema);
   }
 }
 
-export const Users = new UsersCollection();
+export const Users = new GroupsCollection();

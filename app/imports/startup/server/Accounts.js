@@ -10,6 +10,13 @@ const createUser = (email, password, role) => {
     username: email,
     email: email,
     password: password,
+    name: String,
+    instrument: ['guitar', 'bass', 'drums', 'vocals', 'piano', 'strings', 'winds', 'percussion', 'brass', 'other'],
+    genre: ['rock', 'jazz', 'EDM', 'dubstep', 'country', 'pop', 'classical', 'rhythm and blues'],
+    skill: ['beginner', 'intermediate', 'expert', 'professional'],
+    InformalJam: Boolean,
+    BandSeeking: Boolean,
+    Image: String,
   });
   if (role === 'admin') {
     Roles.createRole(role, { unlessExists: true });

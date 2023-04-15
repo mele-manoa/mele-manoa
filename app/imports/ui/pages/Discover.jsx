@@ -1,44 +1,14 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
-import UserCard from '../components/UserCard';
+// import UserCard from '../components/UserCard';
 
 const Discover = () => {
-  const testUser = {
-    name: 'Kass',
-    image: 'https://cdn.wikimg.net/en/zeldawiki/images/thumb/5/57/BotW_Kass_Artwork.png/474px-BotW_Kass_Artwork.png',
-    instrument: 'Accordion',
-    genre: 'Folk',
-    skill: 'Professional',
-    informalJam: true,
-    seekingBand: true,
-    youtube: 'https://www.youtube.com/watch?v=nq6jS2-XDeA&pp=ygUMa2FzcydzIHRoZW1l',
-    soundcloud: 'https://soundcloud.com/gamechops/kass-theme',
-    instagram: '/',
-    _id: '5',
-  };
-
-  const testUser2 = {
-    name: 'Mikau',
-    image: 'https://cdn.wikimg.net/en/zeldawiki/images/thumb/3/3e/MM3D_Mikau_Model.png/478px-MM3D_Mikau_Model.png',
-    instrument: 'Guitar',
-    genre: 'Rock',
-    skill: 'Professional',
-    informalJam: true,
-    seekingBand: false,
-    youtube: 'https://www.youtube.com/watch?v=nq6jS2-XDeA&pp=ygUMa2FzcydzIHRoZW1l',
-    soundcloud: '',
-    instagram: '',
-    _id: '6',
-  };
 
   return (
     <Container id="discover" className="d-flex bg-white p-5">
       <div id="discover-main" className="p-3 me-auto">
         <h1>Discover</h1>
-        <div id="discover-cards" className="d-flex">
-          <UserCard info={testUser} />
-          <UserCard info={testUser2} />
-        </div>
+        <div id="discover-cards" className="d-flex" />
       </div>
       <div id="discover-sidebar" className="p-3">
         <p>Filter By</p>

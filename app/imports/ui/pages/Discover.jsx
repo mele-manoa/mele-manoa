@@ -26,8 +26,8 @@ const Discover = () => {
     informalJam: true,
     seekingBand: false,
     youtube: 'https://www.youtube.com/watch?v=nq6jS2-XDeA&pp=ygUMa2FzcydzIHRoZW1l',
-    soundcloud: 'https://soundcloud.com/gamechops/kass-theme',
-    instagram: '/',
+    soundcloud: '',
+    instagram: '',
     _id: '6',
   };
 

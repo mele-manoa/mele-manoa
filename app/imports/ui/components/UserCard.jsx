@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Card, Image, Badge, Button } from 'react-bootstrap';
+import { Youtube, CloudyFill, Instagram } from 'react-bootstrap-icons'
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 const UserCard = ({ info }) => (
@@ -23,7 +24,13 @@ const UserCard = ({ info }) => (
         </Card.Text>
         <Card.Text>
           { info.youtube !== '' || null ? (
-            <Button href={info.youtube} className="on-white" variant="secondary" size="sm">Youtube</Button>
+            <Button href={info.youtube} className="on-white me-1" variant="secondary" size="sm"><Youtube /></Button>
+          ) : ''}
+          { info.soundcloud !== '' || null ? (
+            <Button href={info.soundcloud} className="on-white me-1" variant="secondary" size="sm"><CloudyFill /></Button>
+          ) : ''}
+          { info.instagram !== '' || null ? (
+            <Button href={info.instagram} className="on-white me-1" variant="secondary" size="sm"><Instagram /></Button>
           ) : ''}
         </Card.Text>
       </div>

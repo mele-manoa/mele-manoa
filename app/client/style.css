@@ -107,3 +107,17 @@ h1, h2, h3 {
   border-radius: 5px;
   width: 300px;
 }
+
+#user-card {
+  height: 275px;
+}
+
+#user-image {
+  max-width: 150px;
+  height: fit-content;
+  max-height: 190px;
+}
+
+#user-card-info {
+  width: 200px;
+}

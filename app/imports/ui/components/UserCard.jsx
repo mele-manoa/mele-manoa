@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Card, Image, Badge, Button } from 'react-bootstrap';
-import { Youtube, CloudyFill, Instagram } from 'react-bootstrap-icons'
+import { Youtube, CloudyFill, Instagram } from 'react-bootstrap-icons';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 const UserCard = ({ info }) => (
@@ -26,15 +26,15 @@ const UserCard = ({ info }) => (
       <Image id="user-image" className="float-right" src={info.image} thumbnail />
     </Card.Body>
     <Card.Footer>
-      { info.youtube !== '' || null ? (
-        <Button href={info.youtube} className="on-white me-1" variant="secondary" size="sm"><Youtube /></Button>
-      ) : ''}
-      { info.soundcloud !== '' || null ? (
-        <Button href={info.soundcloud} className="on-white me-1" variant="secondary" size="sm"><CloudyFill /></Button>
-      ) : ''}
-      { info.instagram !== '' || null ? (
-        <Button href={info.instagram} className="on-white me-1" variant="secondary" size="sm"><Instagram /></Button>
-      ) : ''}
+      { [info.youtube, info.soundcloud, info.instagram].map((link) => (
+        link !== '' || null ? (
+          <Button href={link} className="on-white me-1" variant="secondary" size="sm">
+            { link === info.youtube ? (<Youtube />) : '' }
+            { link === info.soundcloud ? (<CloudyFill />) : '' }
+            { link === info.instagram ? (<Instagram />) : '' }
+          </Button>
+        ) : ''
+      ))}
     </Card.Footer>
   </Card>
 );

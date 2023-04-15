@@ -10,13 +10,19 @@ const createUser = (email, password, role) => {
     username: email,
     email: email,
     password: password,
-    name: String,
-    instrument: ['guitar', 'bass', 'drums', 'vocals', 'piano', 'strings', 'winds', 'percussion', 'brass', 'other'],
-    genre: ['rock', 'jazz', 'EDM', 'dubstep', 'country', 'pop', 'classical', 'rhythm and blues'],
-    skill: ['beginner', 'intermediate', 'expert', 'professional'],
-    InformalJam: Boolean,
-    BandSeeking: Boolean,
+    Name: String,
     Image: String,
+    Instrument: ['Guitar', 'Bass', 'Drums', 'Vocals', 'Piano', 'Strings', 'Winds', 'Percussion', 'Brass', 'Other'],
+    Genre: ['Rock', 'Jazz', 'EDM', 'Dubstep', 'Country', 'Pop', 'Classical', 'RhythmAndBlues'],
+    Skill: ['Beginner', 'Intermediate', 'Expert', 'Professional'],
+    InformalJam: Boolean,
+    SeekingBand: Boolean,
+    Youtube: { type: String, optional: true },
+    Soundcloud: { type: String, optional: true },
+    Instagram: { type: String, optional: true },
+
+
+
   });
   if (role === 'admin') {
     Roles.createRole(role, { unlessExists: true });

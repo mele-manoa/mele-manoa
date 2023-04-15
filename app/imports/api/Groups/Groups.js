@@ -8,10 +8,10 @@ class GroupsCollection {
     this.collection = new Mongo.Collection(this.name);
 
     this.schema = new SimpleSchema({
-      name: String,
-      genre: ['rock', 'jazz', 'EDM', 'dubstep', 'country', 'pop', 'classical', 'rhythm and blues'],
-      members: [],
-      skill: ['beginner', 'intermediate', 'expert', 'professional'],
+      Name: String,
+      Genre: ['Rock', 'Jazz', 'EDM', 'Dubstep', 'Country', 'Pop', 'Classical', 'RhythmAndBlues'],
+      Members: [],
+      Skill: ['Beginner', 'Intermediate', 'Expert', 'Professional'],
       OpenToMember: Boolean,
     }, { tracker: Tracker });
     this.collection.attachSchema(this.schema);

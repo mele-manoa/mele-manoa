@@ -1,7 +1,19 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
+import UserCard from '../components/UserCard';
 
 const Discover = () => {
+  const testUser = {
+    name: 'Kass',
+    image: 'https://cdn.wikimg.net/en/zeldawiki/images/thumb/5/57/BotW_Kass_Artwork.png/474px-BotW_Kass_Artwork.png',
+    instrument: 'Accordion',
+    genre: 'Folk',
+    skill: 'Professional',
+    informalJam: true,
+    seekingBand: false,
+    _id: '5',
+  };
+
   return (
     <Container id="discover" className="d-flex bg-white p-5">
       <div id="discover-main" className="p-3 me-auto">
@@ -10,6 +22,7 @@ const Discover = () => {
           <p>
             All the musicians go here
           </p>
+          <UserCard info={testUser} />
         </div>
       </div>
       <div id="discover-sidebar" className="p-3">

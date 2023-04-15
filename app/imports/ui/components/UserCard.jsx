@@ -10,14 +10,15 @@ const UserCard = ({ info }) => (
         <Col>
           <Card.Title>{info.name}</Card.Title>
           <Card.Subtitle>{info.instrument}</Card.Subtitle>
+          <br />
+          <Card.Text>
+            Preferred Genre: {info.genre} <br />
+            Skill Level: {info.skill}
+          </Card.Text>
         </Col>
         <Col>
-          <Image src={info.image} />
+          <Image id="user-image" src={info.image} thumbnail />
         </Col>
-      </Row>
-      <Row>
-        <Card.Text>Preferred Genre: {info.genre}</Card.Text>
-        <Card.Text>Skill Level: {info.skill}</Card.Text>
       </Row>
     </Card.Body>
   </Card>

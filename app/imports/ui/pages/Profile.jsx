@@ -1,6 +1,6 @@
 import React from 'react';
-import { Card, Col, Container, Row, Image, ListGroup, Badge, OverlayTrigger, Tooltip, Button } from 'react-bootstrap';
-import { CheckLg, CloudyFill, Instagram, XLg, Youtube } from 'react-bootstrap-icons';
+import { Card, Col, Container, Row, Image, Badge, Button } from 'react-bootstrap';
+import { CheckLg, XLg } from 'react-bootstrap-icons';
 
 const Profile = () => {
   const info = {
@@ -20,35 +20,31 @@ const Profile = () => {
   return (
     <Container id="profile" className="bg-white p-5">
       <h1>Profile</h1>
-      <Card>
-        <Card.Body>
-          <Row>
-            <Col>
-              <Card.Title>{info.name}</Card.Title>
-              <Card.Title><Badge bg="secondary">{info.instrument}</Badge></Card.Title>
-              <Card.Text>
-                Preferred Genre: {info.genre} <br />
-                Skill Level: {info.skill}
-              </Card.Text>
-              <Card.Text>
-                { info.informalJam === true ? (
-                  <Badge bg="success" className="me-1"><CheckLg /></Badge>
-                ) : (
-                  <Badge bg="warning" className="me-1"><XLg /></Badge>
-                )}
-                Open to Informal Jam <br />
-                { info.seekingBand === true ? (
-                  <Badge bg="success" className="me-1"><CheckLg /></Badge>
-                ) : (
-                  <Badge bg="danger" className="me-1"><XLg /></Badge>
-                )}
-                Seeking a band
-              </Card.Text>
-            </Col>
-            <Col>
-              <Image id="profile-image" src={info.image} thumbnail />
-            </Col>
-          </Row>
+      <Card id="profile-card">
+        <Card.Body className="d-flex">
+          <div className="me-auto">
+            <Card.Title>{info.name}</Card.Title>
+            <Card.Title><Badge bg="secondary">{info.instrument}</Badge></Card.Title>
+            <Card.Text>
+              Preferred Genre: {info.genre} <br />
+              Skill Level: {info.skill}
+            </Card.Text>
+            <Card.Text>
+              { info.informalJam === true ? (
+                <Badge bg="success" className="me-1"><CheckLg /></Badge>
+              ) : (
+                <Badge bg="warning" className="me-1"><XLg /></Badge>
+              )}
+              Open to Informal Jam <br />
+              { info.seekingBand === true ? (
+                <Badge bg="success" className="me-1"><CheckLg /></Badge>
+              ) : (
+                <Badge bg="danger" className="me-1"><XLg /></Badge>
+              )}
+              Seeking a band
+            </Card.Text>
+          </div>
+          <Image id="profile-image" className="float-right" src={info.image} thumbnail />
         </Card.Body>
         <Card.Footer className="d-flex">
           <div className="me-auto">

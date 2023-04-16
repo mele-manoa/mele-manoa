@@ -103,6 +103,10 @@ h1, h2, h3 {
   color: black;
 }
 
+#profile-card {
+  width: 800px;
+}
+
 #profile-image {
   max-width: 300px;
   height: fit-content;

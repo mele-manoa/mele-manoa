@@ -1,6 +1,6 @@
 import React from 'react';
-import { Card, Col, Container, Row, Image, ListGroup, Badge } from 'react-bootstrap';
-import { CheckLg, XLg } from 'react-bootstrap-icons';
+import { Card, Col, Container, Row, Image, ListGroup, Badge, OverlayTrigger, Tooltip, Button } from 'react-bootstrap';
+import { CheckLg, CloudyFill, Instagram, XLg, Youtube } from 'react-bootstrap-icons';
 
 const Profile = () => {
   const info = {
@@ -45,6 +45,20 @@ const Profile = () => {
                 Seeking a band
               </Card.Text>
             </Card.Body>
+            <Card.Footer className="d-flex">
+              <div className="me-auto">
+                { [info.youtube, info.soundcloud, info.instagram].map((link) => (
+                  link !== '' || null ? (
+                    <Button href={link} className="on-white me-1" variant="secondary">
+                      { link === info.youtube ? 'Youtube' : '' }
+                      { link === info.soundcloud ? 'SoundCloud' : '' }
+                      { link === info.instagram ? 'Instagram' : '' }
+                    </Button>
+                  ) : ''
+                ))}
+              </div>
+              <Button className="blue on-white">Edit</Button>
+            </Card.Footer>
           </Card>
         </Col>
         <Col>

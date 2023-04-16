@@ -82,11 +82,11 @@ body {
 }
 
 #root .on-white:hover {
-  border-color: black;
+  border-color: rgba(0, 0, 0, 0.6);
 }
 
 #root input:hover {
-  border-color: black;
+  border-color: rgba(0, 0, 0, 0.6);
 }
 
 #navbar {

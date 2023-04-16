@@ -19,11 +19,11 @@ const Profile = () => {
 
   return (
     <Container id="profile" className="bg-white p-5">
-      <Row>
-        <Col>
-          <h1>Profile</h1>
-          <Card>
-            <Card.Body>
+      <h1>Profile</h1>
+      <Card>
+        <Card.Body>
+          <Row>
+            <Col>
               <Card.Title>{info.name}</Card.Title>
               <Card.Title><Badge bg="secondary">{info.instrument}</Badge></Card.Title>
               <Card.Text>
@@ -44,27 +44,27 @@ const Profile = () => {
                 )}
                 Seeking a band
               </Card.Text>
-            </Card.Body>
-            <Card.Footer className="d-flex">
-              <div className="me-auto">
-                { [info.youtube, info.soundcloud, info.instagram].map((link) => (
-                  link !== '' || null ? (
-                    <Button href={link} className="on-white me-1" variant="secondary">
-                      { link === info.youtube ? 'Youtube' : '' }
-                      { link === info.soundcloud ? 'SoundCloud' : '' }
-                      { link === info.instagram ? 'Instagram' : '' }
-                    </Button>
-                  ) : ''
-                ))}
-              </div>
-              <Button className="blue on-white">Edit</Button>
-            </Card.Footer>
-          </Card>
-        </Col>
-        <Col>
-          <Image id="profile-image" src={info.image} thumbnail />
-        </Col>
-      </Row>
+            </Col>
+            <Col>
+              <Image id="profile-image" src={info.image} thumbnail />
+            </Col>
+          </Row>
+        </Card.Body>
+        <Card.Footer className="d-flex">
+          <div className="me-auto">
+            { [info.youtube, info.soundcloud, info.instagram].map((link) => (
+              link !== '' || null ? (
+                <Button href={link} className="on-white me-1" variant="secondary">
+                  { link === info.youtube ? 'Youtube' : '' }
+                  { link === info.soundcloud ? 'SoundCloud' : '' }
+                  { link === info.instagram ? 'Instagram' : '' }
+                </Button>
+              ) : ''
+            ))}
+          </div>
+          <Button className="blue on-white">Edit</Button>
+        </Card.Footer>
+      </Card>
       <Row>
         <h3>Groups</h3>
       </Row>

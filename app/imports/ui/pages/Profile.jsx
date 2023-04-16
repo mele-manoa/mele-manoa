@@ -21,7 +21,7 @@ const Profile = () => {
     <Container id="profile" className="bg-white p-5">
       <Row>
         <Col>
-          <h1>Your Profile</h1>
+          <h1>Profile</h1>
           <Card>
             <Card.Body>
               <Card.Title>{info.name}</Card.Title>

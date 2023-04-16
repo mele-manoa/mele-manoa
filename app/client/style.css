@@ -94,11 +94,17 @@ h1, h2, h3 {
   display: block;
 }
 
-#discover h1, #discover p {
+#profile h1, #profile h3, #profile p {
   color: black;
 }
 
-#profile h1, #profile h3, #profile p {
+#profile-image {
+  max-width: 300px;
+  height: fit-content;
+  max-height: 300px;
+}
+
+#discover h1, #discover p {
   color: black;
 }
 

@@ -1,5 +1,6 @@
 import React from 'react';
-import { Card, Col, Container, Row, Image } from 'react-bootstrap';
+import { Card, Col, Container, Row, Image, ListGroup, Badge } from 'react-bootstrap';
+import { CheckLg, XLg } from 'react-bootstrap-icons';
 
 const Profile = () => {
   const info = {
@@ -9,7 +10,7 @@ const Profile = () => {
     genre: 'Folk',
     skill: 'Professional',
     informalJam: true,
-    seekingBand: true,
+    seekingBand: false,
     youtube: 'https://www.youtube.com/watch?v=nq6jS2-XDeA&pp=ygUMa2FzcydzIHRoZW1l',
     soundcloud: 'https://soundcloud.com/gamechops/kass-theme',
     instagram: '/',
@@ -21,24 +22,40 @@ const Profile = () => {
       <Row>
         <Col>
           <h1>Your Profile</h1>
-          <ul>
-            <li>{info.name}</li>
-            <li>{info.instrument}</li>
-            <li>{info.genre}</li>
-            <li>{info.skill}</li>
-            <li>Open to Informal Jam</li>
-            <li>Seeking a band</li>
-          </ul>
+          <Card>
+            <Card.Body>
+              <Card.Title>{info.name}</Card.Title>
+              <Card.Title><Badge bg="secondary">{info.instrument}</Badge></Card.Title>
+              <Card.Text>
+                Preferred Genre: {info.genre} <br />
+                Skill Level: {info.skill}
+              </Card.Text>
+              <Card.Text>
+                { info.informalJam === true ? (
+                  <Badge bg="success" className="me-1"><CheckLg /></Badge>
+                ) : (
+                  <Badge bg="warning" className="me-1"><XLg /></Badge>
+                )}
+                Open to Informal Jam <br />
+                { info.seekingBand === true ? (
+                  <Badge bg="success" className="me-1"><CheckLg /></Badge>
+                ) : (
+                  <Badge bg="danger" className="me-1"><XLg /></Badge>
+                )}
+                Seeking a band
+              </Card.Text>
+            </Card.Body>
+          </Card>
         </Col>
         <Col>
           <Image id="profile-image" src={info.image} thumbnail />
         </Col>
       </Row>
       <Row>
-        <h3>Groups Name is a part of</h3>
+        <h3>Groups</h3>
       </Row>
     </Container>
-  )
+  );
 };
 
 export default Profile;

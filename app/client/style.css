@@ -104,7 +104,8 @@ h1, h2, h3 {
 }
 
 #profile-card {
-  width: 800px;
+  width: 700px;
+  height: 400px;
 }
 
 #profile-image {

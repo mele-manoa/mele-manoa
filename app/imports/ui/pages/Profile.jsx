@@ -1,6 +1,7 @@
 import React from 'react';
 import { Card, Container, Row, Col, Image, Badge, Button } from 'react-bootstrap';
 import { CheckLg, XLg } from 'react-bootstrap-icons';
+import UserCard from '../components/UserCard';
 
 const Profile = () => {
   const info = {
@@ -66,6 +67,13 @@ const Profile = () => {
         </Col>
         <Col>
           <h3>Groups</h3>
+          <Card id="profile-groups">
+            <UserCard info={info} />
+            <UserCard info={info} />
+            <UserCard info={info} />
+            <UserCard info={info} />
+            <UserCard info={info} />
+          </Card>
         </Col>
       </Row>
     </Container>

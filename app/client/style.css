@@ -114,6 +114,11 @@ h1, h2, h3 {
   max-height: 300px;
 }
 
+#profile-groups {
+  height: calc(100vh - 270px);
+  overflow: auto;
+}
+
 #discover h1, #discover p {
   color: black;
 }

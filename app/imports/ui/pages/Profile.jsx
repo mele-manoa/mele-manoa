@@ -23,6 +23,7 @@ const Profile = () => {
       <h1>Profile</h1>
       <Row>
         <Col>
+          <h3>Info</h3>
           <Card id="profile-card">
             <Card.Body className="d-flex">
               <div className="me-auto">
@@ -68,10 +69,6 @@ const Profile = () => {
         <Col>
           <h3>Groups</h3>
           <Card id="profile-groups">
-            <UserCard info={info} />
-            <UserCard info={info} />
-            <UserCard info={info} />
-            <UserCard info={info} />
             <UserCard info={info} />
           </Card>
         </Col>

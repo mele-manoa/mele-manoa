@@ -3,6 +3,8 @@ import { Container, Accordion, ListGroup } from 'react-bootstrap';
 // import UserCard from '../components/UserCard';
 
 const Groups = () => {
+  const genres = ['Rock', 'Jazz', 'EDM', 'Dubstep', 'Country', 'Pop', 'Classical', 'RhythmAndBlues'];
+  const skill = ['Beginner', 'Intermediate', 'Expert', 'Professional'];
 
   return (
     <Container id="groups" className="d-flex bg-white p-5">
@@ -19,14 +21,7 @@ const Groups = () => {
                 <Accordion.Header>Genres</Accordion.Header>
                 <Accordion.Body className="p-0">
                   <ListGroup variant="flush">
-                    <ListGroup.Item>Rock</ListGroup.Item>
-                    <ListGroup.Item>Jazz</ListGroup.Item>
-                    <ListGroup.Item>EDM</ListGroup.Item>
-                    <ListGroup.Item>Dubstep</ListGroup.Item>
-                    <ListGroup.Item>Country</ListGroup.Item>
-                    <ListGroup.Item>Pop</ListGroup.Item>
-                    <ListGroup.Item>Classical</ListGroup.Item>
-                    <ListGroup.Item>Rhythm And Blues</ListGroup.Item>
+                    {genres.map((genre) => (<ListGroup.Item>{genre}</ListGroup.Item>))}
                   </ListGroup>
                 </Accordion.Body>
               </Accordion.Item>
@@ -34,10 +29,7 @@ const Groups = () => {
                 <Accordion.Header>Skill Level</Accordion.Header>
                 <Accordion.Body className="p-0">
                   <ListGroup variant="flush">
-                    <ListGroup.Item>Beginner</ListGroup.Item>
-                    <ListGroup.Item>Intermediate</ListGroup.Item>
-                    <ListGroup.Item>Expert</ListGroup.Item>
-                    <ListGroup.Item>Professional</ListGroup.Item>
+                    {skill.map((level) => (<ListGroup.Item>{level}</ListGroup.Item>))}
                   </ListGroup>
                 </Accordion.Body>
               </Accordion.Item>

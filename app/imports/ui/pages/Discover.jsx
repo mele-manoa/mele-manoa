@@ -141,7 +141,7 @@ const Discover = () => {
             id="jam-item"
             action
             className="active"
-            onClick={() => { changeSeekingState(); }}
+            onClick={() => { changeJamState(); }}
           >
             Looking for Informal Jam
           </ListGroup.Item>
@@ -149,7 +149,7 @@ const Discover = () => {
             id="seeking-item"
             action
             className="active"
-            onClick={() => { changeJamState(); }}
+            onClick={() => { changeSeekingState(); }}
           >
             Seeking Band Member
           </ListGroup.Item>

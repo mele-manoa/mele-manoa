@@ -133,20 +133,20 @@ h1, h2, h3, h4, h5 {
   width: 200px;
 }
 
-#groups .accordion-button {
+#groups .accordion-button, #discover .accordion-button {
   background-color: rgba(107, 171, 212, 0.1);
 }
 
-#groups .list-group-item-action:hover {
+#groups .list-group-item-action:hover, #discover .list-group-item-action:hover {
   background-color: var(--bs-list-group-border-color)
 }
 
-#groups .active {
+#groups .active, #discover .active {
   background-color: rgba(107, 171, 212, 0.4);
   border-color: var(--bs-list-group-border-color);
   color: black
 }
 
-#groups .active:hover {
+#groups .active:hover, #discover .active:hover {
   background-color: rgba(107, 171, 212, 0.6);
 }

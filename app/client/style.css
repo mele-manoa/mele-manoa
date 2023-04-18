@@ -18,12 +18,14 @@ body {
   color: black;
 }
 
-#root a {
-  color: #343434;
+h1, h2, h3 {
+  font-family: "Crete Round", serif;
+  color: black;
+  display: block;
 }
 
-#root p {
-  color: #ffffff;
+#root a {
+  color: #343434;
 }
 
 /* Define custom styles */
@@ -54,6 +56,10 @@ body {
 
 #landing-center {
   height: 600px;
+}
+
+#landing h1, #landing p {
+  color: white;
 }
 
 #info {
@@ -93,16 +99,6 @@ body {
   background-color: #6BACD4;
 }
 
-h1, h2, h3 {
-  font-family: "Crete Round", serif;
-  color: #ffffff;
-  display: block;
-}
-
-#profile h1, #profile h3, #profile p {
-  color: black;
-}
-
 #profile-card {
   height: 400px;
 }
@@ -116,10 +112,6 @@ h1, h2, h3 {
 #profile-groups {
   height: calc(100vh - 270px);
   overflow: auto;
-}
-
-#discover h1, #discover p {
-  color: black;
 }
 
 #discover-sidebar, #groups-sidebar {
@@ -140,8 +132,4 @@ h1, h2, h3 {
 
 #user-card-info {
   width: 200px;
-}
-
-#groups h1, #groups p {
-  color: black;
 }

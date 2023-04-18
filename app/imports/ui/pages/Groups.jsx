@@ -1,18 +1,20 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Container, Accordion, ListGroup } from 'react-bootstrap';
 // import UserCard from '../components/UserCard';
 
 const Groups = () => {
-  const [checked, setChecked] = useState(false);
   const check = [];
   for (let i = 0; i < 8; i++) {
-    check[i] = false;
+    check[i] = true;
   }
+  const genreList = document.getElementById('genre-group').children;
 
   const genres = ['Rock', 'Jazz', 'EDM', 'Dubstep', 'Country', 'Pop', 'Classical', 'RhythmAndBlues'];
   const skill = ['Beginner', 'Intermediate', 'Expert', 'Professional'];
 
   const changeState = (key) => {
+    const child = genreList.item(key);
+    check[key] === true ? (child.classList.add('active')) : (child.classList.remove('active'));
     check[key] = !check[key];
   };
   return (
@@ -29,13 +31,13 @@ const Groups = () => {
               <Accordion.Item eventKey="0">
                 <Accordion.Header>Genres</Accordion.Header>
                 <Accordion.Body className="p-0">
-                  <ListGroup variant="flush">
+                  <ListGroup id="genre-group" variant="flush">
                     {genres.map((genre, key) => (
                       <ListGroup.Item
                         action
                         key={key}
-                        active={check[key]}
-                        onClick={() => { console.log([check[key], changeState(key)]); }}
+                        className="active"
+                        onClick={() => { changeState(key); }}
                       >
                         {genre}
                       </ListGroup.Item>

@@ -12,31 +12,39 @@ const Groups = () => {
       </div>
       <div id="groups-sidebar" className="p-3">
         <h4>Filter By</h4>
-        <Accordion defaultActiveKey="0">
-          <Accordion.Item eventKey="0">
-            <Accordion.Header>Genres</Accordion.Header>
-            <Accordion.Body>
-              <ListGroup className="m-0">
-                <ListGroup.Item>Rock</ListGroup.Item>
-                <ListGroup.Item>Jazz</ListGroup.Item>
-                <ListGroup.Item>EDM</ListGroup.Item>
-                <ListGroup.Item>Dubstep</ListGroup.Item>
-                <ListGroup.Item>Country</ListGroup.Item>
-                <ListGroup.Item>Pop</ListGroup.Item>
-                <ListGroup.Item>Classical</ListGroup.Item>
-                <ListGroup.Item>Rhythm And Blues</ListGroup.Item>
-              </ListGroup>
-            </Accordion.Body>
-          </Accordion.Item>
-        </Accordion>
-        <h5>Skill Level</h5>
         <ListGroup>
-          <ListGroup.Item>Beginner</ListGroup.Item>
-          <ListGroup.Item>Intermediate</ListGroup.Item>
-          <ListGroup.Item>Expert</ListGroup.Item>
-          <ListGroup.Item>Professional</ListGroup.Item>
+          <ListGroup.Item className="p-0">
+            <Accordion defaultActiveKey="0" flush>
+              <Accordion.Item eventKey="0">
+                <Accordion.Header>Genres</Accordion.Header>
+                <Accordion.Body className="p-0">
+                  <ListGroup variant="flush">
+                    <ListGroup.Item>Rock</ListGroup.Item>
+                    <ListGroup.Item>Jazz</ListGroup.Item>
+                    <ListGroup.Item>EDM</ListGroup.Item>
+                    <ListGroup.Item>Dubstep</ListGroup.Item>
+                    <ListGroup.Item>Country</ListGroup.Item>
+                    <ListGroup.Item>Pop</ListGroup.Item>
+                    <ListGroup.Item>Classical</ListGroup.Item>
+                    <ListGroup.Item>Rhythm And Blues</ListGroup.Item>
+                  </ListGroup>
+                </Accordion.Body>
+              </Accordion.Item>
+              <Accordion.Item eventKey="1">
+                <Accordion.Header>Skill Level</Accordion.Header>
+                <Accordion.Body className="p-0">
+                  <ListGroup variant="flush">
+                    <ListGroup.Item>Beginner</ListGroup.Item>
+                    <ListGroup.Item>Intermediate</ListGroup.Item>
+                    <ListGroup.Item>Expert</ListGroup.Item>
+                    <ListGroup.Item>Professional</ListGroup.Item>
+                  </ListGroup>
+                </Accordion.Body>
+              </Accordion.Item>
+            </Accordion>
+          </ListGroup.Item>
+          <ListGroup.Item>Seeking Band Member</ListGroup.Item>
         </ListGroup>
-        <h5>Seeking Band Member</h5>
       </div>
     </Container>
   );

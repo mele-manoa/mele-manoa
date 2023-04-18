@@ -68,22 +68,22 @@ h1, h2, h3, h4, h5 {
 #discover, #profile, #groups {
   min-height: calc(100vh - 80px);
 }
-
+/*
 #root .btn {
   border-color: white;
   background-color: rgba(0, 0, 0, 0.6);
   color: white;
 }
 
-#root .blue {
-  border-color: #6BACD4;
-  background-color: #6BACD4;
-}
-
 #root .btn:hover {
   border-color: white;
   background-color: white;
   color: black;
+}
+*/
+#root .blue {
+  border-color: #6BACD4;
+  background-color: #6BACD4;
 }
 
 #root .on-white:hover {

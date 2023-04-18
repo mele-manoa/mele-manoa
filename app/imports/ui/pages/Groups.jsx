@@ -4,9 +4,17 @@ import { Container, Accordion, ListGroup } from 'react-bootstrap';
 
 const Groups = () => {
   const [checked, setChecked] = useState(false);
+  const check = [];
+  for (let i = 0; i < 8; i++) {
+    check[i] = false;
+  }
+
   const genres = ['Rock', 'Jazz', 'EDM', 'Dubstep', 'Country', 'Pop', 'Classical', 'RhythmAndBlues'];
   const skill = ['Beginner', 'Intermediate', 'Expert', 'Professional'];
 
+  const changeState = (key) => {
+    check[key] = !check[key];
+  };
   return (
     <Container id="groups" className="d-flex bg-white p-5">
       <div id="groups-main" className="me-auto">
@@ -26,8 +34,8 @@ const Groups = () => {
                       <ListGroup.Item
                         action
                         key={key}
-                        active={checked}
-                        onClick={() => setChecked(!checked)}
+                        active={check[key]}
+                        onClick={() => { console.log([check[key], changeState(key)]); }}
                       >
                         {genre}
                       </ListGroup.Item>

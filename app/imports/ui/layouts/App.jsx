@@ -9,6 +9,7 @@ import Register from '../pages/Register';
 import SignIn from '../pages/SignIn';
 import Profile from '../pages/Profile';
 import Discover from '../pages/Discover';
+import Groups from '../pages/Groups';
 import NotAuthorized from '../pages/NotAuthorized';
 import NavBar from '../components/NavBar';
 import LoadingSpinner from '../components/LoadingSpinner';
@@ -25,6 +26,7 @@ const App = () => (
         <Route path="/home" element={<ProtectedRoute><Landing /></ProtectedRoute>} />
         <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
         <Route path="/discover" element={<ProtectedRoute><Discover /></ProtectedRoute>} />
+        <Route path="/groups" element={<ProtectedRoute><Groups /></ProtectedRoute>} />
         <Route path="/notauthorized" element={<NotAuthorized />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

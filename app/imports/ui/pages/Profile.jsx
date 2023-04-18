@@ -22,7 +22,7 @@ const Profile = () => {
     <Container id="profile" className="bg-white p-5">
       <h1>Profile</h1>
       <Row>
-        <Col>
+        <Col xs={8}>
           <h3>Info</h3>
           <Card id="profile-card">
             <Card.Body className="d-flex">
@@ -66,10 +66,9 @@ const Profile = () => {
             </Card.Footer>
           </Card>
         </Col>
-        <Col>
+        <Col xs={4}>
           <h3>Groups</h3>
           <Card id="profile-groups">
-            <UserCard info={info} />
           </Card>
         </Col>
       </Row>

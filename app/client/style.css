@@ -150,3 +150,17 @@ h1, h2, h3, h4, h5 {
 #groups .active:hover, #discover .active:hover {
   background-color: rgba(107, 171, 212, 0.6);
 }
+
+#group-card {
+  height: 275px;
+}
+
+#group-image {
+  max-width: 150px;
+  height: fit-content;
+  max-height: 190px;
+}
+
+#group-card-info {
+  width: 200px;
+}

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Accordion, ListGroup } from 'react-bootstrap';
-// import UserCard from '../components/UserCard';
+import GroupCard from '../components/GroupCard';
 
 const Groups = () => {
   const genres = ['Rock', 'Jazz', 'EDM', 'Dubstep', 'Country', 'Pop', 'Classical', 'Rhythm And Blues'];
@@ -47,11 +47,21 @@ const Groups = () => {
     seekingState = !seekingState;
   };
 
+  const test = {
+    name: "The Indigo-Go's",
+    image: 'https://cdn.wikimg.net/en/zeldawiki/images/2/2a/MM_Indigo-Go%27s_Artwork.png?20221027043746',
+    genre: 'Rock',
+    members: ['Mikau', 'Lulu', 'Evan', 'Japas', 'Tijo', 'Toto'],
+    openToMember: true,
+  };
+
   return (
     <Container id="groups" className="d-flex bg-white p-5">
       <div id="groups-main" className="me-auto">
         <h1>Groups</h1>
-        <div id="groups-cards" className="d-flex" />
+        <div id="groups-cards" className="d-flex">
+          <GroupCard info={test} />
+        </div>
       </div>
       <div id="groups-sidebar" className="p-3">
         <h4>Filter By</h4>

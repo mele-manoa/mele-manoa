@@ -10,8 +10,12 @@ const GroupCard = ({ info }) => (
         <Card.Title>{info.name}</Card.Title>
         <Card.Text><Badge bg="secondary">{info.genre}</Badge></Card.Text>
         <Card.Text>
-          Members
-          {info.members.map((member) => (member))}
+          Members: {info.members.map((member) => {
+            if (member !== info.members[info.members.length - 1]) {
+              return <span>{member}, </span>;
+            }
+            return member;
+          })}
         </Card.Text>
         <Card.Text>
           { info.openToMember === true ? (

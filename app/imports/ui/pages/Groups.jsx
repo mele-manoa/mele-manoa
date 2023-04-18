@@ -1,8 +1,10 @@
-import React from 'react';
-import { Container, Accordion, ListGroup } from 'react-bootstrap';
+import React, { useState } from 'react';
+import { Container, Accordion, ListGroup, ToggleButton } from 'react-bootstrap';
 // import UserCard from '../components/UserCard';
 
 const Groups = () => {
+  const [checked, setChecked] = useState(false);
+
   const genres = ['Rock', 'Jazz', 'EDM', 'Dubstep', 'Country', 'Pop', 'Classical', 'RhythmAndBlues'];
   const skill = ['Beginner', 'Intermediate', 'Expert', 'Professional'];
 
@@ -21,7 +23,20 @@ const Groups = () => {
                 <Accordion.Header>Genres</Accordion.Header>
                 <Accordion.Body className="p-0">
                   <ListGroup variant="flush">
-                    {genres.map((genre) => (<ListGroup.Item>{genre}</ListGroup.Item>))}
+                    {genres.map((genre) => (
+                      <ToggleButton
+                        id="toggle-check"
+                        type="checkbox"
+                        variant="secondary"
+                        checked={checked}
+                        value="1"
+                        onChange={(e) => (
+                          setChecked(e.currentTarget.checked)
+                        )}
+                      >
+                        {genre}
+                      </ToggleButton>
+                    ))}
                   </ListGroup>
                 </Accordion.Body>
               </Accordion.Item>

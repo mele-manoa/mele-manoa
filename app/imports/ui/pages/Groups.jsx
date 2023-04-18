@@ -3,18 +3,17 @@ import { Container, Accordion, ListGroup } from 'react-bootstrap';
 // import UserCard from '../components/UserCard';
 
 const Groups = () => {
+  const genres = ['Rock', 'Jazz', 'EDM', 'Dubstep', 'Country', 'Pop', 'Classical', 'RhythmAndBlues'];
+  const skill = ['Beginner', 'Intermediate', 'Expert', 'Professional'];
+
   const check = [];
   for (let i = 0; i < 8; i++) {
     check[i] = true;
   }
-  const genreList = document.getElementById('genre-group').children;
 
-  const genres = ['Rock', 'Jazz', 'EDM', 'Dubstep', 'Country', 'Pop', 'Classical', 'RhythmAndBlues'];
-  const skill = ['Beginner', 'Intermediate', 'Expert', 'Professional'];
-
-  const changeState = (key) => {
-    const child = genreList.item(key);
-    check[key] === true ? (child.classList.add('active')) : (child.classList.remove('active'));
+  const changeStateGenre = (key) => {
+    const child = document.getElementById('genre-group').children.item(key);
+    check[key] === false ? (child.classList.add('active')) : (child.classList.remove('active'));
     check[key] = !check[key];
   };
   return (

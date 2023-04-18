@@ -61,13 +61,18 @@ body {
 }
 
 #discover, #profile {
-  min-height: 100vh;
+  min-height: calc(100vh - 80px);
 }
 
 #root .btn {
   border-color: white;
   background-color: rgba(0, 0, 0, 0.6);
   color: white;
+}
+
+#root .blue {
+  border-color: #6BACD4;
+  background-color: #6BACD4;
 }
 
 #root .btn:hover {
@@ -77,11 +82,11 @@ body {
 }
 
 #root .on-white:hover {
-  border-color: black;
+  border-color: rgba(0, 0, 0, 0.6);
 }
 
 #root input:hover {
-  border-color: black;
+  border-color: rgba(0, 0, 0, 0.6);
 }
 
 #navbar {
@@ -94,11 +99,26 @@ h1, h2, h3 {
   display: block;
 }
 
-#discover h1, #discover p {
+#profile h1, #profile h3, #profile p {
   color: black;
 }
 
-#profile h2, #profile p {
+#profile-card {
+  height: 400px;
+}
+
+#profile-image {
+  max-width: 300px;
+  height: fit-content;
+  max-height: 300px;
+}
+
+#profile-groups {
+  height: calc(100vh - 270px);
+  overflow: auto;
+}
+
+#discover h1, #discover p {
   color: black;
 }
 

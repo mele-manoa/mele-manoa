@@ -3,19 +3,50 @@ import { Container, Accordion, ListGroup } from 'react-bootstrap';
 // import UserCard from '../components/UserCard';
 
 const Groups = () => {
-  const genres = ['Rock', 'Jazz', 'EDM', 'Dubstep', 'Country', 'Pop', 'Classical', 'RhythmAndBlues'];
+  const genres = ['Rock', 'Jazz', 'EDM', 'Dubstep', 'Country', 'Pop', 'Classical', 'Rhythm And Blues'];
   const skill = ['Beginner', 'Intermediate', 'Expert', 'Professional'];
 
-  const check = [];
-  for (let i = 0; i < 8; i++) {
-    check[i] = true;
+  const genreState = [];
+  for (let i = 0; i < genres.length; i++) {
+    genreState[i] = true;
   }
 
-  const changeStateGenre = (key) => {
+  const skillState = [];
+  for (let i = 0; i < skill.length; i++) {
+    skillState[i] = true;
+  }
+  let seekingState = true;
+
+  const changeGenreState = (key) => {
     const child = document.getElementById('genre-group').children.item(key);
-    check[key] === false ? (child.classList.add('active')) : (child.classList.remove('active'));
-    check[key] = !check[key];
+    if (genreState[key] === false) {
+      child.classList.add('active');
+    } else {
+      child.classList.remove('active');
+    }
+    genreState[key] = !genreState[key];
   };
+
+  const changeSkillState = (key) => {
+    const child = document.getElementById('skill-group').children.item(key);
+    if (skillState[key] === false) {
+      child.classList.add('active');
+    } else {
+      child.classList.remove('active');
+    }
+    skillState[key] = !skillState[key];
+  };
+
+  const changeSeekingState = () => {
+    const seeking = document.getElementById('seeking-item');
+    if (seekingState === false) {
+      seeking.classList.add('active');
+    } else {
+      seeking.classList.remove('active');
+    }
+    seekingState = !seekingState;
+  };
+
   return (
     <Container id="groups" className="d-flex bg-white p-5">
       <div id="groups-main" className="me-auto">
@@ -36,7 +67,7 @@ const Groups = () => {
                         action
                         key={key}
                         className="active"
-                        onClick={() => { changeState(key); }}
+                        onClick={() => { changeGenreState(key); }}
                       >
                         {genre}
                       </ListGroup.Item>
@@ -47,14 +78,30 @@ const Groups = () => {
               <Accordion.Item eventKey="1">
                 <Accordion.Header>Skill Level</Accordion.Header>
                 <Accordion.Body className="p-0">
-                  <ListGroup variant="flush">
-                    {skill.map((level) => (<ListGroup.Item>{level}</ListGroup.Item>))}
+                  <ListGroup id="skill-group" variant="flush">
+                    {skill.map((level, key) => (
+                      <ListGroup.Item
+                        action
+                        key={key}
+                        className="active"
+                        onClick={() => { changeSkillState(key); }}
+                      >
+                        {level}
+                      </ListGroup.Item>
+                    ))}
                   </ListGroup>
                 </Accordion.Body>
               </Accordion.Item>
             </Accordion>
           </ListGroup.Item>
-          <ListGroup.Item>Seeking Band Member</ListGroup.Item>
+          <ListGroup.Item
+            id="seeking-item"
+            action
+            className="active"
+            onClick={() => { changeSeekingState(); }}
+          >
+            Seeking Band Member
+          </ListGroup.Item>
         </ListGroup>
       </div>
     </Container>

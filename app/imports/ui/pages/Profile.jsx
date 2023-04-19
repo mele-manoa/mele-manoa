@@ -1,6 +1,7 @@
 import React from 'react';
 import { Card, Container, Row, Col, Image, Badge, Button } from 'react-bootstrap';
 import { CheckLg, XLg } from 'react-bootstrap-icons';
+import { Link } from 'react-router-dom';
 import UserCard from '../components/UserCard';
 
 const Profile = () => {
@@ -62,7 +63,7 @@ const Profile = () => {
                   ) : ''
                 ))}
               </div>
-              <Button className="blue on-white">Edit</Button>
+              <Link to="/edit"><Button className="blue on-white">Edit</Button></Link>
             </Card.Footer>
           </Card>
         </Col>

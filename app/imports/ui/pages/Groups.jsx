@@ -52,14 +52,15 @@ const Groups = () => {
     image: 'https://cdn.wikimg.net/en/zeldawiki/images/2/2a/MM_Indigo-Go%27s_Artwork.png?20221027043746',
     genre: 'Rock',
     members: ['Mikau', 'Lulu', 'Evan', 'Japas', 'Tijo', 'Toto'],
-    openToMember: false,
+    openToMember: true,
   };
 
   return (
     <Container id="groups" className="d-flex bg-white p-5">
-      <div id="groups-main" className="me-auto">
+      <div id="groups-main">
         <h1>Groups</h1>
-        <div id="groups-cards" className="d-flex">
+        <div id="groups-cards" className="d-flex flex-wrap">
+          <GroupCard info={test} />
           <GroupCard info={test} />
           <GroupCard info={test} />
 

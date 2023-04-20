@@ -1,10 +1,9 @@
 import { Mongo } from 'meteor/mongo';
 import SimpleSchema from 'simpl-schema';
-import { Tracker } from 'meteor/tracker';
 
-class AccountsCollection {
+class PeopleCollection {
   constructor() {
-    this.name = 'AccountsCollection';
+    this.name = 'PeopleCollection';
     this.collection = new Mongo.Collection(this.name);
 
     this.schema = new SimpleSchema({
@@ -19,9 +18,13 @@ class AccountsCollection {
       youtube: { type: String, optional: true },
       soundcloud: { type: String, optional: true },
       instagram: { type: String, optional: true },
-    }, { tracker: Tracker });
+    });
+    // Attach the schema to the collection, so all attempts to insert a document are checked against schema.
     this.collection.attachSchema(this.schema);
+    // Define names for publications and subscriptions
+    this.userPublicationName = `${this.name}.publication.user`;
+    this.adminPublicationName = `${this.name}.publication.admin`;
   }
 }
 
-export const Users = new AccountsCollection();
+export const People = new PeopleCollection();

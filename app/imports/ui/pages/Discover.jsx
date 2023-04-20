@@ -10,8 +10,6 @@ const Discover = () => {
   const instruments = ['Guitar', 'Bass', 'Drums', 'Vocals', 'Piano', 'Strings', 'Winds', 'Percussion', 'Brass', 'Other'];
   const genres = ['Rock', 'Jazz', 'EDM', 'Dubstep', 'Country', 'Pop', 'Classical', 'Rhythm And Blues'];
   const skill = ['Beginner', 'Intermediate', 'Expert', 'Professional'];
-
-
   const instrumentState = [];
   for (let i = 0; i < instruments.length; i++) {
     instrumentState[i] = true;

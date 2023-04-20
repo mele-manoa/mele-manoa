@@ -1,8 +1,13 @@
 {
   "defaultAccounts": [
+    { "email": "admin@foo.com", "password": "changeme", "role": "admin" },
+    { "email": "john@foo.com", "password": "changeme" },
+    { "email": "takatat9@hawaii.edu", "password": "gobows" },
+    { "email": "kendalo@hawaii.edu", "password": "changeme2" }
+  ],
+
+  "defaultPeople": [
     { "email": "admin@foo.com",
-      "password": "changeme",
-      "role": "admin",
       "name": "Default Admin",
       "image": "https://cdn.pixabay.com/photo/2021/02/12/13/43/among-us-6008615__340.png",
       "instrument": ["Other"],
@@ -12,7 +17,6 @@
       "seekingBand": "True"
     },
     { "email": "john@foo.com",
-      "password": "changeme",
       "name": "John Foo",
       "image": "",
       "instrument": ["Guitar", "Bass"],
@@ -22,7 +26,6 @@
       "seekingBand": "False"
     },
     { "email": "takatat9@hawaii.edu",
-      "password": "gobows",
       "name": "Tevin",
       "image": "",
       "instrument": ["Drums", "Piano", "Percussion"],
@@ -32,7 +35,6 @@
       "seekingBand": "False"
     },
     { "email": "kendalo@hawaii.edu",
-      "password": "changeme2",
       "name": "Kendal",
       "image": "",
       "instrument": ["Other"],

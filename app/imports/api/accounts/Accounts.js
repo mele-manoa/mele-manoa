@@ -24,4 +24,4 @@ class AccountsCollection {
   }
 }
 
-export const Accounts = new AccountsCollection();
+export const Users = new AccountsCollection();

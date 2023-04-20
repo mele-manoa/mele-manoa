@@ -1,7 +1,7 @@
 import React from 'react';
 import { Accordion, Container, ListGroup } from 'react-bootstrap';
 // import UserCard from '../components/UserCard';
-
+//filter function
 const Discover = () => {
   const instruments = ['Guitar', 'Bass', 'Drums', 'Vocals', 'Piano', 'Strings', 'Winds', 'Percussion', 'Brass', 'Other'];
   const genres = ['Rock', 'Jazz', 'EDM', 'Dubstep', 'Country', 'Pop', 'Classical', 'Rhythm And Blues'];

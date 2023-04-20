@@ -52,7 +52,7 @@ const Groups = () => {
     image: 'https://cdn.wikimg.net/en/zeldawiki/images/2/2a/MM_Indigo-Go%27s_Artwork.png?20221027043746',
     genre: 'Rock',
     members: ['Mikau', 'Lulu', 'Evan', 'Japas', 'Tijo', 'Toto'],
-    openToMember: true,
+    openToMember: false,
   };
 
   return (
@@ -61,6 +61,8 @@ const Groups = () => {
         <h1>Groups</h1>
         <div id="groups-cards" className="d-flex">
           <GroupCard info={test} />
+          <GroupCard info={test} />
+
         </div>
       </div>
       <div id="groups-sidebar" className="p-3">

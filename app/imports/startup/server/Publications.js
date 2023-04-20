@@ -6,8 +6,7 @@ import { People } from '../../api/people/People';
 // If logged in, then publish documents owned by this user. Otherwise publish nothing.
 Meteor.publish(People.userPublicationName, function () {
   if (this.userId) {
-    const email = Meteor.users.findOne(this.userId).email;
-    return People.collection.find({ email: email });
+    return People.collection.find();
   }
   return this.ready();
 });

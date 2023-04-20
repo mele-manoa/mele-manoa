@@ -7,8 +7,8 @@ class PeopleCollection {
     this.collection = new Mongo.Collection(this.name);
 
     this.schema = new SimpleSchema({
-      name: String,
       email: String,
+      name: String,
       image: String,
       instrument: {
         type: String,

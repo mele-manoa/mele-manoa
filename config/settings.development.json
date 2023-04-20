@@ -10,38 +10,38 @@
     { "email": "admin@foo.com",
       "name": "Default Admin",
       "image": "https://cdn.pixabay.com/photo/2021/02/12/13/43/among-us-6008615__340.png",
-      "instrument": ["Other"],
-      "genre": ["EDM", "Dubstep"],
-      "skill": ["Professional"],
-      "informalJam": "True",
-      "seekingBand": "True"
+      "instrument": "Other",
+      "genre": "Dubstep",
+      "skill": "Professional",
+      "informalJam": "true",
+      "seekingBand": "true"
     },
     { "email": "john@foo.com",
       "name": "John Foo",
       "image": "/",
-      "instrument": ["Guitar", "Bass"],
-      "genre": ["Rock", "RhythmAndBlues"],
-      "skill": ["Intermediate"],
-      "informalJam": "True",
-      "seekingBand": "False"
+      "instrument": "Guitar",
+      "genre": "Rock",
+      "skill": "Intermediate",
+      "informalJam": "true",
+      "seekingBand": "false"
     },
     { "email": "takatat9@hawaii.edu",
       "name": "Tevin",
       "image": "/",
-      "instrument": ["Drums", "Piano", "Percussion"],
-      "genre": ["Jazz", "Classical"],
-      "skill": ["Expert"],
-      "informalJam": "True",
-      "seekingBand": "False"
+      "instrument": "Drums",
+      "genre": "Jazz",
+      "skill": "Expert",
+      "informalJam": "true",
+      "seekingBand": "false"
     },
     { "email": "kendalo@hawaii.edu",
       "name": "Kendal",
       "image": "/",
-      "instrument": ["Other"],
-      "genre": ["Country"],
-      "skill": ["Expert"],
-      "informalJam": "True",
-      "seekingBand": "True"
+      "instrument": "Other",
+      "genre": "Country",
+      "skill": "Expert",
+      "informalJam": "true",
+      "seekingBand": "true"
     }
   ]
 }

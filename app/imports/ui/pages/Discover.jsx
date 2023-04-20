@@ -86,7 +86,7 @@ const Discover = () => {
     // Get the Stuff documents
     const peopleInfo = People.collection.find({}).fetch();
     return {
-      stuffs: peopleInfo,
+      people: peopleInfo,
       ready: rdy,
     };
   }, []);

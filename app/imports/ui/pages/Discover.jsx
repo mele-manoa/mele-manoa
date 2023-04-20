@@ -1,9 +1,10 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { useTracker } from 'meteor/react-meteor-data';
-import { Accounts } from '../../api/account/Accounts';
 import { Accordion, Container, ListGroup } from 'react-bootstrap';
-// import UserCard from '../components/UserCard';
+import { Accounts } from '../../api/account/Accounts';
+import LoadingSpinner from '../components/LoadingSpinner';
+import UserCard from '../components/UserCard';
 
 const Discover = () => {
   const instruments = ['Guitar', 'Bass', 'Drums', 'Vocals', 'Piano', 'Strings', 'Winds', 'Percussion', 'Brass', 'Other'];
@@ -25,22 +26,6 @@ const Discover = () => {
   }
   let jamState = true;
   let seekingState = true;
-
-  // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
-  const { ready, stuffs } = useTracker(() => {
-    // Note that this subscription will get cleaned up
-    // when your component is unmounted or deps change.
-    // Get access to Stuff documents.
-    const subscription = Meteor.subscribe(Stuffs.userPublicationName);
-    // Determine if the subscription is ready
-    const rdy = subscription.ready();
-    // Get the Stuff documents
-    const stuffItems = Stuffs.collection.find({}).fetch();
-    return {
-      stuffs: stuffItems,
-      ready: rdy,
-    };
-  }, []);
   const changeInstrumentState = (key) => {
     const child = document.getElementById('instrument-group').children.item(key);
     if (instrumentState[key] === false) {
@@ -91,11 +76,29 @@ const Discover = () => {
     jamState = !jamState;
   };
 
-  return (
+  // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
+  const { ready, accounts } = useTracker(() => {
+    // Note that this subscription will get cleaned up
+    // when your component is unmounted or deps change.
+    // Get access to Stuff documents.
+    const subscription = Meteor.subscribe(Accounts.userPublicationName);
+    // Determine if the subscription is ready
+    const rdy = subscription.ready();
+    // Get the Stuff documents
+    const accountUsers = Accounts.collection.find({}).fetch();
+    return {
+      accounts: accountUsers,
+      ready: rdy,
+    };
+  }, []);
+
+  return (ready ? (
     <Container id="discover" className="d-flex bg-white p-5">
       <div id="discover-main" className="me-auto">
         <h1>Discover</h1>
-        <div id="discover-cards" className="d-flex" />
+        <div id="discover-cards" className="d-flex">
+          {accounts.map((account) => <UserCard key={account._id} info={account} />)}
+        </div>
       </div>
       <div id="discover-sidebar" className="p-3">
         <h4>Filter By</h4>
@@ -174,7 +177,7 @@ const Discover = () => {
         </ListGroup>
       </div>
     </Container>
-  );
+  ) : <LoadingSpinner />);
 };
 
 export default Discover;

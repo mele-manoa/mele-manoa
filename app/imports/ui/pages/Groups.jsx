@@ -49,7 +49,7 @@ const Groups = () => {
 
   return (
     <Container id="groups" className="d-flex bg-white p-5">
-      <div id="groups-main">
+      <div id="groups-main" className="me-auto">
         <h1>Groups</h1>
         <div id="groups-cards" className="d-flex flex-wrap" />
       </div>

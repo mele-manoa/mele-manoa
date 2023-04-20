@@ -1,23 +1,23 @@
 import React from 'react';
 import swal from 'sweetalert';
 import { Card, Col, Container, Row } from 'react-bootstrap';
-import { AutoForm, ErrorsField, HiddenField, SubmitField, TextField } from 'uniforms-bootstrap5';
+import { AutoForm, ErrorsField, HiddenField, TextField, SubmitField } from 'uniforms-bootstrap5';
 import { Meteor } from 'meteor/meteor';
 import { useTracker } from 'meteor/react-meteor-data';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import { useParams } from 'react-router';
 import LoadingSpinner from '../components/LoadingSpinner';
-import * as Accounts from '../../api/accounts/Accounts';
+import { People } from '../../api/people/People';
 
-const bridge = new SimpleSchema2Bridge(Accounts.schema);
+const bridge = new SimpleSchema2Bridge(People.schema);
 
 /* Renders the EditStuff page for editing a single document. */
 const EditProfile = () => {
   const { _id } = useParams();
   const { doc, ready } = useTracker(() => {
-    const subscription = Meteor.subscribe(Accounts.userPublicationName);
+    const subscription = Meteor.subscribe(People.userPublicationName);
     const rdy = subscription.ready();
-    const document = Accounts.collection.findOne(_id);
+    const document = People.collection.findOne(_id);
     return {
       doc: document,
       ready: rdy,
@@ -26,8 +26,8 @@ const EditProfile = () => {
   // console.log('EditProfile', doc, ready);
   // On successful submit, insert the data.
   const submit = (data) => {
-    const { name, email, instrument, genre, skill } = data;
-    Accounts.collection.update(_id, { $set: { name, email, instrument, genre, skill } }, (error) => (error ?
+    const { email, name, image, instrument, genre, skill } = data;
+    People.collection.update(_id, { $set: { email, name, image, instrument, genre, skill } }, (error) => (error ?
       swal('Error', error.message, 'error') :
       swal('Success', 'Item updated successfully', 'success')));
   };
@@ -48,6 +48,9 @@ const EditProfile = () => {
                 </Row>
                 <Row>
                   <Col><TextField name="instrument" /></Col>
+                </Row>
+                <Row>
+                  <Col><TextField name="image" /></Col>
                 </Row>
                 <Row>
                   <Col><TextField name="genre" /></Col>

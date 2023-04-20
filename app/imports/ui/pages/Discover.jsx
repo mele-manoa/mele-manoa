@@ -92,9 +92,9 @@ const Discover = () => {
   }, []);
   return (ready ? (
     <Container id="discover" className="d-flex bg-white p-5">
-      <div id="discover-main" className="me-auto">
+      <div id="discover-main">
         <h1>Discover</h1>
-        <div id="discover-cards" className="d-flex">
+        <div id="discover-cards" className="d-flex flex-wrap">
           {people.map((person) => <UserCard key={person._id} info={person} />)}
         </div>
       </div>

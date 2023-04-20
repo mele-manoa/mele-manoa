@@ -1,13 +1,15 @@
 import React from 'react';
+import { Meteor } from 'meteor/meteor';
 import { Accordion, Container, ListGroup } from 'react-bootstrap';
-// import UserCard from '../components/UserCard';
+import { useTracker } from 'meteor/react-meteor-data';
+import { People } from '../../api/people/People';
+import UserCard from '../components/UserCard';
+import LoadingSpinner from '../components/LoadingSpinner';
 
 const Discover = () => {
   const instruments = ['Guitar', 'Bass', 'Drums', 'Vocals', 'Piano', 'Strings', 'Winds', 'Percussion', 'Brass', 'Other'];
   const genres = ['Rock', 'Jazz', 'EDM', 'Dubstep', 'Country', 'Pop', 'Classical', 'Rhythm And Blues'];
   const skill = ['Beginner', 'Intermediate', 'Expert', 'Professional'];
-
-
   const instrumentState = [];
   for (let i = 0; i < instruments.length; i++) {
     instrumentState[i] = true;
@@ -72,12 +74,27 @@ const Discover = () => {
     }
     jamState = !jamState;
   };
-
-  return (
+  const { ready, people } = useTracker(() => {
+    // Note that this subscription will get cleaned up
+    // when your component is unmounted or deps change.
+    // Get access to Stuff documents.
+    const subscription = Meteor.subscribe(People.userPublicationName);
+    // Determine if the subscription is ready
+    const rdy = subscription.ready();
+    // Get the Stuff documents
+    const peopleInfo = People.collection.find({}).fetch();
+    return {
+      people: peopleInfo,
+      ready: rdy,
+    };
+  }, []);
+  return (ready ? (
     <Container id="discover" className="d-flex bg-white p-5">
-      <div id="discover-main" className="me-auto">
+      <div id="discover-main">
         <h1>Discover</h1>
-        <div id="discover-cards" className="d-flex" />
+        <div id="discover-cards" className="d-flex flex-wrap">
+          {people.map((person) => <UserCard key={person._id} info={person} />)}
+        </div>
       </div>
       <div id="discover-sidebar" className="p-3">
         <h4>Filter By</h4>
@@ -156,7 +173,7 @@ const Discover = () => {
         </ListGroup>
       </div>
     </Container>
-  );
+  ) : <LoadingSpinner />);
 };
 
 export default Discover;

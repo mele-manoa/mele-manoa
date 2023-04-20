@@ -5,7 +5,6 @@ import { AutoForm, ErrorsField, HiddenField, TextField, SubmitField } from 'unif
 import { Meteor } from 'meteor/meteor';
 import { useTracker } from 'meteor/react-meteor-data';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
-import { useParams } from 'react-router';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { People } from '../../api/people/People';
 
@@ -13,21 +12,20 @@ const bridge = new SimpleSchema2Bridge(People.schema);
 
 /* Renders the EditStuff page for editing a single document. */
 const EditProfile = () => {
-  const { _id } = useParams();
   const { doc, ready } = useTracker(() => {
     const subscription = Meteor.subscribe(People.userPublicationName);
     const rdy = subscription.ready();
-    const document = People.collection.findOne(_id);
+    const document = People.collection.findOne();
     return {
       doc: document,
       ready: rdy,
     };
-  }, [_id]);
+  });
   // console.log('EditProfile', doc, ready);
   // On successful submit, insert the data.
   const submit = (data) => {
     const { email, name, image, instrument, genre, skill } = data;
-    People.collection.update(_id, { $set: { email, name, image, instrument, genre, skill } }, (error) => (error ?
+    People.collection.update({ $set: { email, name, image, instrument, genre, skill } }, (error) => (error ?
       swal('Error', error.message, 'error') :
       swal('Success', 'Item updated successfully', 'success')));
   };

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Accordion, ListGroup } from 'react-bootstrap';
-// import UserCard from '../components/UserCard';
+// import GroupCard from '../components/GroupCard';
 
 const Groups = () => {
   const genres = ['Rock', 'Jazz', 'EDM', 'Dubstep', 'Country', 'Pop', 'Classical', 'Rhythm And Blues'];
@@ -51,7 +51,7 @@ const Groups = () => {
     <Container id="groups" className="d-flex bg-white p-5">
       <div id="groups-main" className="me-auto">
         <h1>Groups</h1>
-        <div id="groups-cards" className="d-flex" />
+        <div id="groups-cards" className="d-flex flex-wrap" />
       </div>
       <div id="groups-sidebar" className="p-3">
         <h4>Filter By</h4>

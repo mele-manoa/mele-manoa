@@ -9,6 +9,7 @@ class GroupsCollection {
 
     this.schema = new SimpleSchema({
       name: String,
+      image: String,
       genre: ['Rock', 'Jazz', 'EDM', 'Dubstep', 'Country', 'Pop', 'Classical', 'RhythmAndBlues'],
       members: [],
       skill: ['Beginner', 'Intermediate', 'Expert', 'Professional'],

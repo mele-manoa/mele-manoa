@@ -6,6 +6,7 @@ import { Accounts } from '../../api/account/Accounts';
 Meteor.publish(Accounts.userPublicationName, function () {
   if (this.userId) {
     const email = Meteor.users.findOne(this.userId).email;
+    console.log(email);
     return Accounts.collection.find({ email: email });
   }
   return this.ready();

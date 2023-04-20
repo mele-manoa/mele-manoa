@@ -65,9 +65,8 @@ h1, h2, h3, h4, h5 {
   background-color: #6BACD4;
 }
 
-#discover, #discover-content, #profile, #groups {
+#discover, #profile, #groups {
   min-height: calc(100vh - 80px);
-  width: 100vw;
 }
 
 #root .btn {

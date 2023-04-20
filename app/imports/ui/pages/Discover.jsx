@@ -1,4 +1,7 @@
 import React from 'react';
+import { Meteor } from 'meteor/meteor';
+import { useTracker } from 'meteor/react-meteor-data';
+import { Accounts } from '../../api/account/Accounts';
 import { Accordion, Container, ListGroup } from 'react-bootstrap';
 // import UserCard from '../components/UserCard';
 
@@ -23,6 +26,21 @@ const Discover = () => {
   let jamState = true;
   let seekingState = true;
 
+  // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
+  const { ready, stuffs } = useTracker(() => {
+    // Note that this subscription will get cleaned up
+    // when your component is unmounted or deps change.
+    // Get access to Stuff documents.
+    const subscription = Meteor.subscribe(Stuffs.userPublicationName);
+    // Determine if the subscription is ready
+    const rdy = subscription.ready();
+    // Get the Stuff documents
+    const stuffItems = Stuffs.collection.find({}).fetch();
+    return {
+      stuffs: stuffItems,
+      ready: rdy,
+    };
+  }, []);
   const changeInstrumentState = (key) => {
     const child = document.getElementById('instrument-group').children.item(key);
     if (instrumentState[key] === false) {

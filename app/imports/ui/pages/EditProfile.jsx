@@ -1,41 +1,62 @@
 import React from 'react';
-import swal from 'sweetalert';
 import { Card, Col, Container, Row } from 'react-bootstrap';
 import { AutoForm, ErrorsField, HiddenField, TextField, SubmitField } from 'uniforms-bootstrap5';
-import { Meteor } from 'meteor/meteor';
-import { useTracker } from 'meteor/react-meteor-data';
+import swal from 'sweetalert';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
-import LoadingSpinner from '../components/LoadingSpinner';
+import SimpleSchema from 'simpl-schema';
 import { People } from '../../api/people/People';
 
-const bridge = new SimpleSchema2Bridge(People.schema);
+const formSchema = new SimpleSchema({
+  email: String,
+  name: String,
+  image: String,
+  instrument: {
+    type: String,
+    allowedValues: String,
+    defaultValue: 0,
+  },
+  genre: {
+    type: String,
+    allowedValues: String,
+    defaultValue: 0,
+  },
+  skill: {
+    type: String,
+    allowedValues: String,
+    defaultValue: 0,
+  },
+  informalJam: Boolean,
+  seekingBand: Boolean,
+  youtube: String,
+  soundcloud: String,
+  instagram: String,
+});
+
+const bridge = new SimpleSchema2Bridge(formSchema);
 
 /* Renders the EditStuff page for editing a single document. */
 const EditProfile = () => {
-  const { doc, ready } = useTracker(() => {
-    const subscription = Meteor.subscribe(People.userPublicationName);
-    const rdy = subscription.ready();
-    const document = People.collection.findOne();
-    return {
-      doc: document,
-      ready: rdy,
-    };
-  });
-  // console.log('EditProfile', doc, ready);
-  // On successful submit, insert the data.
   const submit = (data) => {
-    const { email, name, image, instrument, genre, skill } = data;
-    People.collection.update({ $set: { email, name, image, instrument, genre, skill } }, (error) => (error ?
-      swal('Error', error.message, 'error') :
-      swal('Success', 'Item updated successfully', 'success')));
+    const { email, name, image, instrument, genre, skill, informalJam, seekingband, youtube, soundcloud, instagram } = data;
+    People.collection.insert(
+      { email, name, image, instrument, genre, skill, informalJam, seekingband, youtube, soundcloud, instagram },
+      (error) => {
+        if (error) {
+          swal('Error', error.message, 'error');
+        } else {
+          swal('Success');
+        }
+      },
+    );
   };
 
-  return ready ? (
+  const fRef = null;
+  return (
     <Container className="py-3">
       <Row className="justify-content-center">
         <Col xs={10}>
           <Col className="text-center"><h2>Edit Profile</h2></Col>
-          <AutoForm schema={bridge} onSubmit={data => submit(data)} model={doc}>
+          <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => submit(data, fRef)}>
             <Card>
               <Card.Body>
                 <Row>
@@ -65,7 +86,7 @@ const EditProfile = () => {
         </Col>
       </Row>
     </Container>
-  ) : <LoadingSpinner />;
+  );
 };
 
 export default EditProfile;

@@ -26,7 +26,7 @@ const App = () => (
         <Route path="/register" element={<Register />} />
         <Route path="/home" element={<ProtectedRoute><Landing /></ProtectedRoute>} />
         <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
-        <Route path="/editprofile" element={<ProtectedRoute><EditProfile /></ProtectedRoute>} />
+        <Route path="/editprofile/:_id" element={<ProtectedRoute><EditProfile /></ProtectedRoute>} />
         <Route path="/discover" element={<ProtectedRoute><Discover /></ProtectedRoute>} />
         <Route path="/groups" element={<ProtectedRoute><Groups /></ProtectedRoute>} />
         <Route path="/notauthorized" element={<NotAuthorized />} />

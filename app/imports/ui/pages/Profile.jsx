@@ -63,14 +63,13 @@ const Profile = () => {
                   ) : ''
                 ))}
               </div>
-              <Link to="/edit"><Button className="blue on-white">Edit</Button></Link>
+              <Link to="/editprofile/"><Button className="blue on-white">Edit</Button></Link>
             </Card.Footer>
           </Card>
         </Col>
         <Col xs={4}>
           <h3>Groups</h3>
-          <Card id="profile-groups">
-          </Card>
+          <Card id="profile-groups" />
         </Col>
       </Row>
     </Container>

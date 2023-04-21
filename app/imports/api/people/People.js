@@ -25,8 +25,16 @@ class PeopleCollection {
         allowedValues: ['Beginner', 'Intermediate', 'Expert', 'Professional'],
         defaultValue: 'Beginner',
       },
-      informalJam: Boolean,
-      seekingBand: Boolean,
+      informalJam: {
+        type: Boolean,
+        allowedValues: [true, false],
+        defaultValue: false,
+      },
+      seekingBand: {
+        type: Boolean,
+        allowedValues: [true, false],
+        defaultValue: false,
+      },
       youtube: { type: String, optional: true },
       soundcloud: { type: String, optional: true },
       instagram: { type: String, optional: true },

@@ -1,5 +1,6 @@
 import React from 'react';
-import { Card, Col, Container, Row } from 'react-bootstrap';
+import { Card, Col, Container, Row, Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import { AutoForm, ErrorsField, TextField, SubmitField, SelectField, BoolField } from 'uniforms-bootstrap5';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import SimpleSchema from 'simpl-schema';
@@ -44,26 +45,33 @@ const EditProfile = () => {
             <Card>
               <Card.Body>
                 <Row>
-                  <Col><TextField name="name" showInlineError placeholder="name" /></Col>
+                  <Col><TextField name="name" /></Col>
+                  <Col><TextField name="instrument" /></Col>
                 </Row>
                 <Row>
-                  <Col><TextField name="instrument" /></Col>
-                  <Col><TextField name="image" showInlineError placeholder="profile image URL" /></Col>
+                  <Col><TextField name="image" help="Enter image URL" /></Col>
                 </Row>
                 <Row>
                   <Col><SelectField name="genre" /></Col>
                   <Col><SelectField name="skill" /></Col>
                 </Row>
                 <Row>
-                  <Col><BoolField name="informalJam" appearance="checkbox" /></Col>
-                  <Col><BoolField name="seekingBand" appearance="checkbox" /></Col>
+                  <Col className="d-flex">
+                    <BoolField name="informalJam" appearance="checkbox" />
+                    <BoolField name="seekingBand" appearance="checkbox" className="ms-3" />
+                  </Col>
                 </Row>
                 <Row>
                   <Col><TextField name="youtube" /></Col>
                   <Col><TextField name="soundcloud" /></Col>
                   <Col><TextField name="instagram" /></Col>
                 </Row>
-                <SubmitField value="Submit" />
+                <Row>
+                  <Col className="d-flex">
+                    <SubmitField value="Submit" />
+                    <Link to="/profile"><Button className="blue on-white ms-3">Cancel</Button></Link>
+                  </Col>
+                </Row>
                 <ErrorsField />
               </Card.Body>
             </Card>

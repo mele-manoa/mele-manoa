@@ -1,6 +1,5 @@
 import React from 'react';
 import { Card, Col, Container, Row, Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
 import { AutoForm, ErrorsField, TextField, SubmitField, SelectField, BoolField } from 'uniforms-bootstrap5';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import SimpleSchema from 'simpl-schema';
@@ -40,7 +39,7 @@ const EditProfile = () => {
     <Container id="edit-profile" className="bg-white p-5">
       <Row className="justify-content-center">
         <Col xs={10}>
-          <Col className="text-center"><h2>Edit Profile</h2></Col>
+          <Col><h2>Edit Profile</h2></Col>
           <AutoForm schema={bridge} onSubmit={console.log('submit')}>
             <Card>
               <Card.Body>
@@ -69,7 +68,7 @@ const EditProfile = () => {
                 <Row>
                   <Col className="d-flex">
                     <SubmitField value="Submit" />
-                    <Link to="/profile"><Button className="blue on-white ms-3">Cancel</Button></Link>
+                    <Button href="/profile" className="blue on-white ms-3">Cancel</Button>
                   </Col>
                 </Row>
                 <ErrorsField />

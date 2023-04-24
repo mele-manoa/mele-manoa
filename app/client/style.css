@@ -18,12 +18,13 @@ body {
   color: black;
 }
 
-#root a {
-  color: #343434;
+h1, h2, h3, h4, h5 {
+  font-family: "Crete Round", serif;
+  color: black;
 }
 
-#root p {
-  color: #ffffff;
+#root a {
+  color: #343434;
 }
 
 /* Define custom styles */
@@ -56,12 +57,16 @@ body {
   height: 600px;
 }
 
+#landing h1, #landing p {
+  color: white;
+}
+
 #info {
   background-color: #6BACD4;
 }
 
-#discover, #profile {
-  min-height: 100vh;
+#discover, #profile, #groups, #edit-profile {
+  min-height: calc(100vh - 80px);
 }
 
 #root .btn {
@@ -76,34 +81,44 @@ body {
   color: black;
 }
 
+#root .blue {
+  border-color: #6BACD4;
+  background-color: #6BACD4;
+}
+
 #root .on-white:hover {
-  border-color: black;
+  border-color: rgba(0, 0, 0, 0.6);
 }
 
 #root input:hover {
-  border-color: black;
+  border-color: rgba(0, 0, 0, 0.6);
 }
 
 #navbar {
   background-color: #6BACD4;
 }
 
-h1, h2, h3 {
-  font-family: "Crete Round", serif;
-  color: #ffffff;
-  display: block;
+#profile-card {
+  height: 400px;
 }
 
-#discover h1, #discover p {
-  color: black;
+#profile-image {
+  max-width: 300px;
+  height: fit-content;
+  max-height: 300px;
 }
 
-#profile h2, #profile p {
-  color: black;
+#profile-groups {
+  height: calc(100vh - 270px);
+  overflow: auto;
 }
 
-#discover-sidebar, #profile-sidebar {
-  border: 1px solid black;
+#discover-main, #groups-main {
+  max-width: calc(85vw - 300px);
+}
+
+#discover-sidebar, #groups-sidebar {
+  border: 1px solid #343434;
   border-radius: 5px;
   width: 300px;
 }
@@ -119,5 +134,37 @@ h1, h2, h3 {
 }
 
 #user-card-info {
+  width: 200px;
+}
+
+#groups .accordion-button, #discover .accordion-button {
+  background-color: rgba(107, 171, 212, 0.1);
+}
+
+#groups .list-group-item-action:hover, #discover .list-group-item-action:hover {
+  background-color: var(--bs-list-group-border-color)
+}
+
+#groups .active, #discover .active {
+  background-color: rgba(107, 171, 212, 0.4);
+  border-color: var(--bs-list-group-border-color);
+  color: black
+}
+
+#groups .active:hover, #discover .active:hover {
+  background-color: rgba(107, 171, 212, 0.6);
+}
+
+#group-card {
+  height: 275px;
+}
+
+#group-image {
+  max-width: 150px;
+  height: fit-content;
+  max-height: 190px;
+}
+
+#group-card-info {
   width: 200px;
 }

@@ -1,39 +1,21 @@
 import React from 'react';
-import { Meteor } from 'meteor/meteor';
-import { Accordion, Container, ListGroup } from 'react-bootstrap';
-import { useTracker } from 'meteor/react-meteor-data';
-import { People } from '../../api/people/People';
-import UserCard from '../components/UserCard';
-import LoadingSpinner from '../components/LoadingSpinner';
+import { Container, Accordion, ListGroup } from 'react-bootstrap';
+// import GroupCard from '../components/GroupCard';
 
-const Discover = () => {
-  const instruments = ['Guitar', 'Bass', 'Drums', 'Vocals', 'Piano', 'Strings', 'Winds', 'Percussion', 'Brass', 'Other'];
+const Groups = () => {
   const genres = ['Rock', 'Jazz', 'EDM', 'Dubstep', 'Country', 'Pop', 'Classical', 'Rhythm And Blues'];
   const skill = ['Beginner', 'Intermediate', 'Expert', 'Professional'];
-  const instrumentState = [];
-  for (let i = 0; i < instruments.length; i++) {
-    instrumentState[i] = true;
-  }
+
   const genreState = [];
   for (let i = 0; i < genres.length; i++) {
     genreState[i] = true;
   }
+
   const skillState = [];
   for (let i = 0; i < skill.length; i++) {
     skillState[i] = true;
   }
-  let jamState = true;
   let seekingState = true;
-
-  const changeInstrumentState = (key) => {
-    const child = document.getElementById('instrument-group').children.item(key);
-    if (instrumentState[key] === false) {
-      child.classList.add('active');
-    } else {
-      child.classList.remove('active');
-    }
-    instrumentState[key] = !instrumentState[key];
-  };
 
   const changeGenreState = (key) => {
     const child = document.getElementById('genre-group').children.item(key);
@@ -65,60 +47,18 @@ const Discover = () => {
     seekingState = !seekingState;
   };
 
-  const changeJamState = () => {
-    const jam = document.getElementById('jam-item');
-    if (jamState === false) {
-      jam.classList.add('active');
-    } else {
-      jam.classList.remove('active');
-    }
-    jamState = !jamState;
-  };
-  const { ready, people } = useTracker(() => {
-    // Note that this subscription will get cleaned up
-    // when your component is unmounted or deps change.
-    // Get access to Stuff documents.
-    const subscription = Meteor.subscribe(People.userPublicationName);
-    // Determine if the subscription is ready
-    const rdy = subscription.ready();
-    // Get the Stuff documents
-    const peopleInfo = People.collection.find({}).fetch();
-    return {
-      people: peopleInfo,
-      ready: rdy,
-    };
-  }, []);
-  return (ready ? (
-    <Container id="discover" className="d-flex bg-white p-5">
-      <div id="discover-main" className="me-auto">
-        <h1>Discover</h1>
-        <div id="discover-cards" className="d-flex flex-wrap">
-          {people.map((person) => <UserCard key={person._id} info={person} />)}
-        </div>
+  return (
+    <Container id="groups" className="d-flex bg-white p-5">
+      <div id="groups-main" className="me-auto">
+        <h1>Groups</h1>
+        <div id="groups-cards" className="d-flex flex-wrap" />
       </div>
-      <div id="discover-sidebar" className="p-3">
+      <div id="groups-sidebar" className="p-3">
         <h4>Filter By</h4>
         <ListGroup>
           <ListGroup.Item className="p-0">
             <Accordion defaultActiveKey="0" flush>
               <Accordion.Item eventKey="0">
-                <Accordion.Header>Instruments</Accordion.Header>
-                <Accordion.Body className="p-0">
-                  <ListGroup id="instrument-group" variant="flush">
-                    {instruments.map((instrument, key) => (
-                      <ListGroup.Item
-                        action
-                        key={key}
-                        className="active"
-                        onClick={() => { changeInstrumentState(key); }}
-                      >
-                        {instrument}
-                      </ListGroup.Item>
-                    ))}
-                  </ListGroup>
-                </Accordion.Body>
-              </Accordion.Item>
-              <Accordion.Item eventKey="1">
                 <Accordion.Header>Genres</Accordion.Header>
                 <Accordion.Body className="p-0">
                   <ListGroup id="genre-group" variant="flush">
@@ -135,7 +75,7 @@ const Discover = () => {
                   </ListGroup>
                 </Accordion.Body>
               </Accordion.Item>
-              <Accordion.Item eventKey="2">
+              <Accordion.Item eventKey="1">
                 <Accordion.Header>Skill Level</Accordion.Header>
                 <Accordion.Body className="p-0">
                   <ListGroup id="skill-group" variant="flush">
@@ -155,14 +95,6 @@ const Discover = () => {
             </Accordion>
           </ListGroup.Item>
           <ListGroup.Item
-            id="jam-item"
-            action
-            className="active"
-            onClick={() => { changeJamState(); }}
-          >
-            Looking for Informal Jam
-          </ListGroup.Item>
-          <ListGroup.Item
             id="seeking-item"
             action
             className="active"
@@ -173,7 +105,7 @@ const Discover = () => {
         </ListGroup>
       </div>
     </Container>
-  ) : <LoadingSpinner />);
+  );
 };
 
-export default Discover;
+export default Groups;

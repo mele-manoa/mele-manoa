@@ -1,6 +1,47 @@
 {
   "defaultAccounts": [
     { "email": "admin@foo.com", "password": "changeme", "role": "admin" },
-    { "email": "john@foo.com", "password": "changeme" }
+    { "email": "john@foo.com", "password": "changeme" },
+    { "email": "takatat9@hawaii.edu", "password": "gobows" },
+    { "email": "kendalo@hawaii.edu", "password": "changeme2" }
+  ],
+
+  "defaultPeople": [
+    { "email": "admin@foo.com",
+      "name": "Default Admin",
+      "image": "https://cdn.pixabay.com/photo/2021/02/12/13/43/among-us-6008615__340.png",
+      "instrument": "Other",
+      "genre": "Dubstep",
+      "skill": "Professional",
+      "informalJam": "true",
+      "seekingBand": "true"
+    },
+    { "email": "john@foo.com",
+      "name": "John Foo",
+      "image": "/",
+      "instrument": "Guitar",
+      "genre": "Rock",
+      "skill": "Intermediate",
+      "informalJam": "true",
+      "seekingBand": "false"
+    },
+    { "email": "takatat9@hawaii.edu",
+      "name": "Tevin",
+      "image": "/",
+      "instrument": "Drums",
+      "genre": "Jazz",
+      "skill": "Expert",
+      "informalJam": "true",
+      "seekingBand": "false"
+    },
+    { "email": "kendalo@hawaii.edu",
+      "name": "Kendal",
+      "image": "/",
+      "instrument": "Other",
+      "genre": "Country",
+      "skill": "Expert",
+      "informalJam": "true",
+      "seekingBand": "true"
+    }
   ]
 }

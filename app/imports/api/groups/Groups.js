@@ -1,6 +1,5 @@
 import { Mongo } from 'meteor/mongo';
 import SimpleSchema from 'simpl-schema';
-import { Tracker } from 'meteor/tracker';
 
 class GroupsCollection {
   constructor() {
@@ -10,13 +9,31 @@ class GroupsCollection {
     this.schema = new SimpleSchema({
       name: String,
       image: String,
-      genre: ['Rock', 'Jazz', 'EDM', 'Dubstep', 'Country', 'Pop', 'Classical', 'RhythmAndBlues'],
-      members: [],
-      skill: ['Beginner', 'Intermediate', 'Expert', 'Professional'],
-      openToMember: Boolean,
-    }, { tracker: Tracker });
+      genre: {
+        type: String,
+        allowedValues: ['Rock', 'Jazz', 'EDM', 'Dubstep', 'Country', 'Pop', 'Classical', 'RhythmAndBlues'],
+        defaultValue: 'Rock',
+      },
+      members: {
+        type: Array,
+        defaultValue: ['John Doe'], // Add a default member here
+      },
+      'members.$': String, // Define the array items as strings
+      skill: {
+        type: String,
+        allowedValues: ['Beginner', 'Intermediate', 'Expert', 'Professional'],
+        defaultValue: 'Beginner',
+      },
+      openToMember: {
+        type: Boolean,
+        allowedValues: [true, false],
+        defaultValue: false,
+      },
+    });
     this.collection.attachSchema(this.schema);
+    this.userPublicationName = `${this.name}.publication.user`;
+    this.adminPublicationName = `${this.name}.publication.admin`;
   }
 }
 
-export const Users = new GroupsCollection();
+export const Groups = new GroupsCollection();

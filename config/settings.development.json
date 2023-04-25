@@ -44,5 +44,16 @@
       "informalJam": "true",
       "seekingBand": "true"
     }
+  ],
+
+  "defaultGroups": [
+    {
+      "name": "My Band",
+      "image": "https://cdn.pixabay.com/photo/2021/02/12/13/43/among-us-6008615__340.png",
+      "genre": "Jazz",
+      "members": [],
+      "skill": "Intermediate",
+      "openToMember": "true"
+    }
   ]
 }

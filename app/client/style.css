@@ -114,7 +114,7 @@ h1, h2, h3, h4, h5 {
 }
 
 #discover-main {
-  max-width: calc(85vw - 300px);
+  width: calc(85vw - 300px);
 }
 
 #discover-sidebar, #groups-sidebar {

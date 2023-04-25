@@ -95,7 +95,11 @@ const Discover = () => {
         <h1>Discover</h1>
         <div id="discover-cards" className="d-flex flex-wrap">
           {/* {people.map((person) => <UserCard key={person._id} info={person} />)} */}
-          { people.filter(person => person.genre === filter || person.instrument === filter || person.skill === filter).map(person => <UserCard key={person._id} info={person} />) }
+          {filter ?
+            people.filter(person => person.genre === filter || person.instrument === filter || person.skill === filter)
+              .map(person => <UserCard key={person._id} info={person} />)
+            :
+            people.map((person) => <UserCard key={person._id} info={person} />)}
         </div>
       </div>
       <div id="discover-sidebar" className="p-3">

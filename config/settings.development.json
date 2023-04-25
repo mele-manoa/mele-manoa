@@ -23,7 +23,8 @@
       "genre": "Rock",
       "skill": "Intermediate",
       "informalJam": "true",
-      "seekingBand": "false"
+      "seekingBand": "false",
+      "youtube": "www.youtube.com"
     },
     { "email": "takatat9@hawaii.edu",
       "name": "Tevin",

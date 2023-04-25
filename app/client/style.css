@@ -113,8 +113,13 @@ h1, h2, h3, h4, h5 {
   overflow: auto;
 }
 
+
 #discover-main, #groups-main {
   max-width: calc(85vw - 300px);
+}
+
+#discover-main {
+  width: calc(85vw - 300px);
 }
 
 #discover-sidebar, #groups-sidebar {

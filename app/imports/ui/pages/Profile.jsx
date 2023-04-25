@@ -8,18 +8,22 @@ import { People } from '../../api/people/People';
 import LoadingSpinner from '../components/LoadingSpinner';
 
 const Profile = () => {
-  const infoIsNullString = (thisInfo) => {
+  const infoIsNullString = (thisInfo, placeholder) => {
     try {
-      return (<p>{thisInfo}</p>);
+      return ({thisInfo});
     } catch (err) {
-      return (<p>Name</p>);
+      return ({placeholder});
+    }
   };
 
   const infoIsNullBool = (thisInfo) => {
     try {
-      return thisInfo;
+      if (thisInfo === true) {
+        return (<Badge bg="success" className="me-1"><CheckLg /></Badge>);
+      }
+      return (<Badge bg="warning" className="me-1"><XLg /></Badge>);
     } catch (err) {
-      return false;
+      return (<Badge bg="warning" className="me-1"><XLg /></Badge>);
     }
   };
 
@@ -41,30 +45,20 @@ const Profile = () => {
           <Card id="profile-card">
             <Card.Body className="d-flex">
               <div className="me-auto">
-                {
-                  () => { infoIsNullString(info.name); }
-                }
-                <Card.Title><Badge bg="secondary">{() => { infoIsNullString(info.instrument); }}</Badge></Card.Title>
+                <Card.Title>{() => { infoIsNullString(info.name, 'Name'); }}</Card.Title>
+                <Card.Title><Badge bg="secondary">{() => { infoIsNullString(info.instrument, 'Instrument'); }}</Badge></Card.Title>
                 <Card.Text>
-                  Preferred Genre: { () => { infoIsNullString(info.genre); } } <br />
-                  Skill Level: { () => { infoIsNullString(info.skill); } }
+                  Preferred Genre: { () => { infoIsNullString(info.genre, 'Genre'); } } <br />
+                  Skill Level: { () => { infoIsNullString(info.skill, 'Beginner'); } }
                 </Card.Text>
                 <Card.Text>
-                  {info.informalJam === true ? (
-                    <Badge bg="success" className="me-1"><CheckLg /></Badge>
-                  ) : (
-                    <Badge bg="warning" className="me-1"><XLg /></Badge>
-                  )}
+                  { () => { infoIsNullBool(info.informalJam); } }
                   Open to Informal Jam <br />
-                  {info.seekingBand === true ? (
-                    <Badge bg="success" className="me-1"><CheckLg /></Badge>
-                  ) : (
-                    <Badge bg="danger" className="me-1"><XLg /></Badge>
-                  )}
+                  { () => { infoIsNullBool(info.seekingBand); } }
                   Seeking a band
                 </Card.Text>
               </div>
-              <Image id="profile-image" className="float-right" src={info.image} thumbnail />
+              <Image id="profile-image" className="float-right" src={() => { infoIsNullString(info.image, ''); }} thumbnail />
             </Card.Body>
             <Card.Footer className="d-flex">
               <div className="me-auto">

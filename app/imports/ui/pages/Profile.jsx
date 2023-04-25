@@ -8,6 +8,20 @@ import { People } from '../../api/people/People';
 import LoadingSpinner from '../components/LoadingSpinner';
 
 const Profile = () => {
+  const infoIsNullString = (thisInfo) => {
+    try {
+      return (<p>{thisInfo}</p>);
+    } catch (err) {
+      return (<p>Name</p>);
+  };
+
+  const infoIsNullBool = (thisInfo) => {
+    try {
+      return thisInfo;
+    } catch (err) {
+      return false;
+    }
+  };
 
   const { ready, email } = useTracker(() => {
     // Ensure that minimongo is populated with all collections prior to running render().
@@ -27,11 +41,13 @@ const Profile = () => {
           <Card id="profile-card">
             <Card.Body className="d-flex">
               <div className="me-auto">
-                <Card.Title>{info.name}</Card.Title>
-                <Card.Title><Badge bg="secondary">{info.instrument}</Badge></Card.Title>
+                {
+                  () => { infoIsNullString(info.name); }
+                }
+                <Card.Title><Badge bg="secondary">{() => { infoIsNullString(info.instrument); }}</Badge></Card.Title>
                 <Card.Text>
-                  Preferred Genre: {info.genre} <br />
-                  Skill Level: {info.skill}
+                  Preferred Genre: { () => { infoIsNullString(info.genre); } } <br />
+                  Skill Level: { () => { infoIsNullString(info.skill); } }
                 </Card.Text>
                 <Card.Text>
                   {info.informalJam === true ? (

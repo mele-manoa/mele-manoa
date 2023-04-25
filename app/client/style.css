@@ -57,7 +57,7 @@ h1, h2, h3, h4, h5 {
   height: 600px;
 }
 
-#landing h1, #landing p {
+#landing h1, #landing p, #signin-page h2, #register-page h2 {
   color: white;
 }
 

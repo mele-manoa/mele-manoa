@@ -10,9 +10,24 @@ import LoadingSpinner from '../components/LoadingSpinner';
 const Profile = () => {
   const infoIsNullString = (thisInfo, placeholder) => {
     try {
-      return ({thisInfo});
+      return (({ thisInfo }));
     } catch (err) {
-      return ({placeholder});
+      return ({ placeholder });
+    }
+  };
+
+  const infoIsNullExtras = (thisInfo, type) => {
+    try {
+      if (thisInfo !== '' || null) {
+        return (
+          <Button href={thisInfo} className="on-white me-1" variant="secondary">
+            {type}
+          </Button>
+        );
+      }
+      return '';
+    } catch (err) {
+      return '';
     }
   };
 
@@ -62,27 +77,9 @@ const Profile = () => {
             </Card.Body>
             <Card.Footer className="d-flex">
               <div className="me-auto">
-                {[info.youtube].map((link) => (
-                  link !== '' || null ? (
-                    <Button href={link} className="on-white me-1" variant="secondary">
-                      {link === info.youtube ? 'Youtube' : ''}
-                    </Button>
-                  ) : ''
-                ))}
-                {[info.soundcloud].map((link) => (
-                  link !== '' || null ? (
-                    <Button href={link} className="on-white me-1" variant="secondary">
-                      {link === info.soundcloud ? 'SoundCloud' : ''}
-                    </Button>
-                  ) : ''
-                ))}
-                {[info.instagram].map((link) => (
-                  link !== '' || null ? (
-                    <Button href={link} className="on-white me-1" variant="secondary">
-                      {link === info.instagram ? 'Instagram' : ''}
-                    </Button>
-                  ) : ''
-                ))}
+                { () => { infoIsNullExtras(info.youtube, 'Youtube'); } }
+                { () => { infoIsNullExtras(info.soundcloud, 'SoundCloud'); } }
+                { () => { infoIsNullExtras(info.instagram, 'Instagram'); } }
               </div>
               <Link to="/editprofile"><Button className="blue on-white">Edit</Button></Link>
             </Card.Footer>

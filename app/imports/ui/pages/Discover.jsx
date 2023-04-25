@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Meteor } from 'meteor/meteor';
 import { Accordion, Container, ListGroup } from 'react-bootstrap';
 import { useTracker } from 'meteor/react-meteor-data';
@@ -7,6 +7,7 @@ import UserCard from '../components/UserCard';
 import LoadingSpinner from '../components/LoadingSpinner';
 
 const Discover = () => {
+  const [filter, setFilter] = useState('');
   const instruments = ['Guitar', 'Bass', 'Drums', 'Vocals', 'Piano', 'Strings', 'Winds', 'Percussion', 'Brass', 'Other'];
   const genres = ['Rock', 'Jazz', 'EDM', 'Dubstep', 'Country', 'Pop', 'Classical', 'Rhythm And Blues'];
   const skill = ['Beginner', 'Intermediate', 'Expert', 'Professional'];
@@ -25,7 +26,7 @@ const Discover = () => {
   let jamState = true;
   let seekingState = true;
 
-  const changeInstrumentState = (key) => {
+  const changeInstrumentState = async (key) => {
     const child = document.getElementById('instrument-group').children.item(key);
     if (instrumentState[key] === false) {
       child.classList.add('active');
@@ -93,7 +94,8 @@ const Discover = () => {
       <div id="discover-main">
         <h1>Discover</h1>
         <div id="discover-cards" className="d-flex flex-wrap">
-          {people.map((person) => <UserCard key={person._id} info={person} />)}
+          {/* {people.map((person) => <UserCard key={person._id} info={person} />)} */}
+          { people.filter(person => person.genre === filter || person.instrument === filter || person.skill === filter).map(person => <UserCard key={person._id} info={person} />) }
         </div>
       </div>
       <div id="discover-sidebar" className="p-3">
@@ -110,7 +112,19 @@ const Discover = () => {
                         action
                         key={key}
                         className="active"
-                        onClick={() => { changeInstrumentState(key); }}
+                        onClick={async (e) => {
+                          await changeInstrumentState(key);
+                          setFilter(instrument);
+                          console.log(instrument);
+                          console.log(filter);
+                          console.log(e.target);
+                          console.log(e.target.className.includes('active'));
+                          setTimeout(() => {
+                            if (e.target.className.includes('active')) {
+                              setFilter('');
+                            }
+                          }, 500);
+                        }}
                       >
                         {instrument}
                       </ListGroup.Item>

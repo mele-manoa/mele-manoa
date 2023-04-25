@@ -1,9 +1,9 @@
 import { Selector } from 'testcafe';
 import { navBar } from './navbar.component';
 
-class SignupPage {
+class RegisterPage {
   constructor() {
-    this.pageId = '#signup-page';
+    this.pageId = '#register-page';
     this.pageSelector = Selector(this.pageId);
   }
 
@@ -15,11 +15,11 @@ class SignupPage {
   /** Signs up a new user, then checks to see that they are logged in by checking the navbar. */
   async signupUser(testController, username, password) {
     await this.isDisplayed(testController);
-    await testController.typeText('#signup-form-email', username);
-    await testController.typeText('#signup-form-password', password);
-    await testController.click('#signup-form-submit input.btn.btn-primary');
+    await testController.typeText('#register-form-email', username);
+    await testController.typeText('#register-form-password', password);
+    await testController.click('#register-form-submit input.btn.btn-light');
     await navBar.isLoggedIn(testController, username);
   }
 }
 
-export const signupPage = new SignupPage();
+export const signupPage = new RegisterPage();

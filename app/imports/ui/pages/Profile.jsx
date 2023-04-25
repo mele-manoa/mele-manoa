@@ -27,7 +27,6 @@ const Profile = () => {
           <Card id="profile-card">
             <Card.Body className="d-flex">
               <div className="me-auto">
-
                 <Card.Title>{info.name}</Card.Title>
                 <Card.Title><Badge bg="secondary">{info.instrument}</Badge></Card.Title>
                 <Card.Text>

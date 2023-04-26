@@ -13,17 +13,16 @@ class NavBar {
 
   async gotoSignInPage(testController) {
     await this.ensureLogout(testController);
-    const visible = await Selector('#basic-navbar-nav').visible;
+    const visible = await Selector('#navbar').visible;
     if (!visible) {
       await testController.click('button.navbar-toggler');
     }
-    await testController.click('#login-dropdown');
-    await testController.click('#login-dropdown-sign-in');
+    await testController.click('#signin-nav');
   }
 
   /** Check that the specified user is currently logged in. */
   async isLoggedIn(testController, username) {
-    const visible = await Selector('#basic-navbar-nav').visible;
+    const visible = await Selector('#navbar').visible;
     if (!visible) {
       await testController.click('button.navbar-toggler');
     }
@@ -33,7 +32,7 @@ class NavBar {
 
   /** Check that someone is logged in, then click items to logout. */
   async logout(testController) {
-    const visible = await Selector('#basic-navbar-nav').visible;
+    const visible = await Selector('#navbar').visible;
     if (!visible) {
       await testController.click('button.navbar-toggler');
     }
@@ -45,12 +44,11 @@ class NavBar {
   /** Pull down login menu, go to sign up page. */
   async gotoSignUpPage(testController) {
     await this.ensureLogout(testController);
-    const visible = await Selector('#basic-navbar-nav').visible;
+    const visible = await Selector('#navbar').visible;
     if (!visible) {
       await testController.click('button.navbar-toggler');
     }
-    await testController.click('#login-dropdown');
-    await testController.click('#login-dropdown-sign-up');
+    await testController.click('#register-nav');
   }
 }
 

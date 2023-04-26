@@ -49,10 +49,10 @@ const Register = ({ location }) => {
           <Card>
             <Card.Body>
               <AutoForm schema={bridge} onSubmit={data => submit(data)}>
-                <TextField name="email" placeholder="E-mail address" />
-                <TextField name="password" placeholder="Password" type="password" />
+                <TextField id="register-form-email" name="email" placeholder="E-mail address" />
+                <TextField id="register-form-password" name="password" placeholder="Password" type="password" />
                 <ErrorsField />
-                <input id="signin-form-submit" className="btn btn-light on-white" type="submit" value="Register" />
+                <input id="register-form-submit" className="btn btn-light on-white" type="submit" value="Register" />
               </AutoForm>
               <Alert variant="light" className="mt-3">
                 <Link to="/signin">Already have an account? Sign in here!</Link>

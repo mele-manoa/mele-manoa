@@ -12,7 +12,7 @@ const NavBar = () => {
   }), []);
 
   return (
-    <Navbar className="navbar navbar-light" expand="lg" id="navbar">
+    <Navbar id="navbar" className="navbar navbar-light" expand="lg">
       <Container>
         <Navbar.Brand as={NavLink} to="/">
           <Nav className="justify-content-start navbar-nav">
@@ -24,12 +24,12 @@ const NavBar = () => {
           {currentUser !== '' ? (
             <Nav id="nav-links" className="justify-content-start mt-4 ms-3">
               {currentUser ? ([
-                <Nav.Link id="add-stuff-nav" as={NavLink} to="/profile" key="profile">Profile</Nav.Link>,
-                <Nav.Link id="list-stuff-nav" as={NavLink} to="/discover" key="discover">Discover</Nav.Link>,
-                <Nav.Link id="list-stuff-nav" as={NavLink} to="/groups" key="groups">Groups</Nav.Link>,
+                <Nav.Link id="profile-nav" as={NavLink} to="/profile" key="profile">Profile</Nav.Link>,
+                <Nav.Link id="discover-nav" as={NavLink} to="/discover" key="discover">Discover</Nav.Link>,
+                <Nav.Link id="groups-nav" as={NavLink} to="/groups" key="groups">Groups</Nav.Link>,
               ]) : ''}
               {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
-                <Nav.Link id="list-stuff-admin-nav" as={NavLink} to="/admin" key="admin">Admin</Nav.Link>
+                <Nav.Link id="admin-nav" as={NavLink} to="/admin" key="admin">Admin</Nav.Link>
               ) : ''}
             </Nav>
           ) : (
@@ -39,10 +39,10 @@ const NavBar = () => {
           <Nav className="justify-content-end">
             {currentUser === '' ? (
               <Container>
-                <Button className="btn btn-light" as={NavLink} to="/register">
+                <Button id="register-nav" className="btn btn-light" as={NavLink} to="/register">
                   <strong>Register</strong>
                 </Button>
-                <Button className="btn btn-light mx-3" as={NavLink} to="/signin">
+                <Button id="signin-nav" className="btn btn-light mx-3" as={NavLink} to="/signin">
                   <strong>Sign in</strong>
                 </Button>
               </Container>

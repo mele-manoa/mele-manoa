@@ -1,6 +1,10 @@
 import { landingPage } from './landing.page';
 import { signinPage } from './signin.page';
-import { signoutPage } from './signout.page';
+import { profilePage } from './profile.page';
+import { editProfilePage } from './editProfile.page';
+import { discoverPage } from './discover.page';
+import { groupsPage } from './groups.page';
+
 import { navBar } from './navbar.component';
 
 /* global fixture:false, test:false */
@@ -20,5 +24,30 @@ test('Test that signin and signout work', async (testController) => {
   await signinPage.signin(testController, credentials.username, credentials.password);
   await navBar.isLoggedIn(testController, credentials.username);
   await navBar.logout(testController);
-  await signoutPage.isDisplayed(testController);
+});
+
+test('Test that profile and editProfile page shows up', async (testController) => {
+  await navBar.gotoSignInPage(testController);
+  await signinPage.signin(testController, credentials.username, credentials.password);
+  await navBar.isLoggedIn(testController, credentials.username);
+  await navBar.gotoProfilePage(testController);
+  await profilePage.isDisplayed(testController);
+  await profilePage.gotoEditProfilePage(testController);
+  await editProfilePage.isDisplayed(testController);
+});
+
+test('Test that discover page shows up', async (testController) => {
+  await navBar.gotoSignInPage(testController);
+  await signinPage.signin(testController, credentials.username, credentials.password);
+  await navBar.isLoggedIn(testController, credentials.username);
+  await navBar.gotoDiscoverPage(testController);
+  await discoverPage.isDisplayed(testController);
+});
+
+test('Test that groups page shows up', async (testController) => {
+  await navBar.gotoSignInPage(testController);
+  await signinPage.signin(testController, credentials.username, credentials.password);
+  await navBar.isLoggedIn(testController, credentials.username);
+  await navBar.gotoGroupsPage(testController);
+  await groupsPage.isDisplayed(testController);
 });

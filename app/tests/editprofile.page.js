@@ -1,8 +1,8 @@
 import { Selector } from 'testcafe';
 
-class SignoutPage {
+class EditProfilePage {
   constructor() {
-    this.pageId = '#signout-page';
+    this.pageId = '#edit-profile';
     this.pageSelector = Selector(this.pageId);
   }
 
@@ -12,4 +12,4 @@ class SignoutPage {
   }
 }
 
-export const signoutPage = new SignoutPage();
+export const editProfilePage = new EditProfilePage();

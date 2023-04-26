@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Meteor } from 'meteor/meteor';
 import { Accordion, Container, ListGroup } from 'react-bootstrap';
 import { useTracker } from 'meteor/react-meteor-data';
@@ -8,10 +8,6 @@ import LoadingSpinner from '../components/LoadingSpinner';
 
 const Discover = () => {
   const [filter, setFilter] = useState([]);
-
-  useEffect(() => {
-    console.log(filter, 'active keys');
-  }, [filter]);
   const instruments = ['Guitar', 'Bass', 'Drums', 'Vocals', 'Piano', 'Strings', 'Winds', 'Percussion', 'Brass', 'Other'];
   const genres = ['Rock', 'Jazz', 'EDM', 'Dubstep', 'Country', 'Pop', 'Classical', 'Rhythm And Blues'];
   const skills = ['Beginner', 'Intermediate', 'Expert', 'Professional'];

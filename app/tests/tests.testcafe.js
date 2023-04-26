@@ -1,7 +1,7 @@
 import { landingPage } from './landing.page';
 import { signinPage } from './signin.page';
 import { profilePage } from './profile.page';
-import { editProfilePage } from './editProfile.page';
+import { editProfilePage } from './editprofile.page';
 import { discoverPage } from './discover.page';
 import { groupsPage } from './groups.page';
 

@@ -11,7 +11,7 @@ class ProfilePage {
     await testController.expect(this.pageSelector.exists).ok();
   }
 
-  async gotoEditProfileage(testController) {
+  async gotoEditProfilePage(testController) {
     await testController.click('#edit-profile-button');
   }
 }

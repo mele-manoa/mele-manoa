@@ -17,9 +17,9 @@ class RegisterPage {
     await this.isDisplayed(testController);
     await testController.typeText('#register-form-email', username);
     await testController.typeText('#register-form-password', password);
-    await testController.click('#register-form-submit input.btn.btn-light');
+    await testController.click('#register-form-submit');
     await navBar.isLoggedIn(testController, username);
   }
 }
 
-export const signupPage = new RegisterPage();
+export const registerPage = new RegisterPage();

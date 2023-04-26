@@ -1,8 +1,8 @@
 import { Selector } from 'testcafe';
 
-class ProfilePage {
+class EditProfilePage {
   constructor() {
-    this.pageId = '#profile';
+    this.pageId = '#edit-profile';
     this.pageSelector = Selector(this.pageId);
   }
 
@@ -10,10 +10,6 @@ class ProfilePage {
   async isDisplayed(testController) {
     await testController.expect(this.pageSelector.exists).ok();
   }
-
-  async gotoEditProfileage(testController) {
-    await testController.click('#edit-profile-button');
-  }
 }
 
-export const profilePage = new ProfilePage();
+export const editProfilePage = new EditProfilePage();

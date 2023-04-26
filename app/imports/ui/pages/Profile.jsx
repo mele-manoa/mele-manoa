@@ -74,7 +74,7 @@ const Profile = () => {
                   ) : ''
                 ))}
               </div>
-              <Link to="/editprofile"><Button className="blue on-white">Edit</Button></Link>
+              <Link to="/editprofile"><Button id="edit-profile-button" className="blue on-white">Edit</Button></Link>
             </Card.Footer>
           </Card>
         </Col>

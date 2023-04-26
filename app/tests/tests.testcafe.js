@@ -26,9 +26,9 @@ test('Test that signin and signout work', async (testController) => {
 test('Test that profile and editProfile page shows up', async (testController) => {
   await navBar.gotoProfilePage(testController);
   await profilePage.isDisplayed(testController);
+  await profilePage.gotoEditProfile(testController);
   await editProfilePage.isDisplayed(testController);
 });
-
 
 test('Test that discover page shows up', async (testController) => {
   await landingPage.isDisplayed(testController);

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Container, Accordion, ListGroup } from 'react-bootstrap';
+import { Roles } from 'meteor/alanning:roles';
+import { Container, Accordion, ListGroup, Button } from 'react-bootstrap';
 import { useTracker } from 'meteor/react-meteor-data';
 import GroupCard from '../components/GroupCard';
 import LoadingSpinner from '../components/LoadingSpinner';
@@ -71,6 +72,9 @@ const GroupsPage = () => {
     <Container id="groups" className="d-flex bg-white p-5">
       <div id="groups-main" className="me-auto">
         <h1>Groups</h1>
+        {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
+          <Button id="add-group-button" href="/addgroup" className="on-white">Add Group</Button>
+        ) : ''}
         <div id="groups-cards" className="d-flex flex-wrap">
           {groups.map((group) => <GroupCard key={group._id} info={group} />)}
         </div>

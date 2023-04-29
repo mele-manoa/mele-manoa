@@ -7,10 +7,10 @@ import UserCard from '../components/UserCard';
 import LoadingSpinner from '../components/LoadingSpinner';
 
 const Discover = () => {
-  const [filter, setFilter] = useState('');
+  const [filter, setFilter] = useState([]);
   const instruments = ['Guitar', 'Bass', 'Drums', 'Vocals', 'Piano', 'Strings', 'Winds', 'Percussion', 'Brass', 'Other'];
   const genres = ['Rock', 'Jazz', 'EDM', 'Dubstep', 'Country', 'Pop', 'Classical', 'Rhythm And Blues'];
-  const skill = ['Beginner', 'Intermediate', 'Expert', 'Professional'];
+  const skills = ['Beginner', 'Intermediate', 'Expert', 'Professional'];
   const instrumentState = [];
   for (let i = 0; i < instruments.length; i++) {
     instrumentState[i] = true;
@@ -20,60 +20,75 @@ const Discover = () => {
     genreState[i] = true;
   }
   const skillState = [];
-  for (let i = 0; i < skill.length; i++) {
+  for (let i = 0; i < skills.length; i++) {
     skillState[i] = true;
   }
-  let jamState = true;
-  let seekingState = true;
+  // const jamState = true;
+  // const seekingState = true;
 
-  const changeInstrumentState = async (key) => {
-    const child = document.getElementById('instrument-group').children.item(key);
-    if (instrumentState[key] === false) {
-      child.classList.add('active');
+  const changeInstrumentState = async (instrument) => {
+    const filterCopy = [...filter];
+    if (!filterCopy.includes(instrument)) {
+      filterCopy.push(instrument);
     } else {
-      child.classList.remove('active');
+      const filterCopyIndex = filterCopy.indexOf(instrument);
+      if (filterCopyIndex > -1) {
+        filterCopy.splice(filterCopyIndex, 1);
+      }
     }
-    instrumentState[key] = !instrumentState[key];
+    setFilter(filterCopy);
   };
 
-  const changeGenreState = (key) => {
-    const child = document.getElementById('genre-group').children.item(key);
-    if (genreState[key] === false) {
-      child.classList.add('active');
+  const changeGenreState = (genre) => {
+    const filterCopy = [...filter];
+    if (!filterCopy.includes(genre)) {
+      filterCopy.push(genre);
     } else {
-      child.classList.remove('active');
+      const filterCopyIndex = filterCopy.indexOf(genre);
+      if (filterCopyIndex > -1) {
+        filterCopy.splice(filterCopyIndex, 1);
+      }
     }
-    genreState[key] = !genreState[key];
+    setFilter(filterCopy);
   };
 
-  const changeSkillState = (key) => {
-    const child = document.getElementById('skill-group').children.item(key);
-    if (skillState[key] === false) {
-      child.classList.add('active');
+  const changeSkillState = (skill) => {
+    const filterCopy = [...filter];
+    if (!filterCopy.includes(skill)) {
+      filterCopy.push(skill);
     } else {
-      child.classList.remove('active');
+      const filterCopyIndex = filterCopy.indexOf(skill);
+      if (filterCopyIndex > -1) {
+        filterCopy.splice(filterCopyIndex, 1);
+      }
     }
-    skillState[key] = !skillState[key];
+    setFilter(filterCopy);
   };
 
-  const changeSeekingState = () => {
-    const seeking = document.getElementById('seeking-item');
-    if (seekingState === false) {
-      seeking.classList.add('active');
+  const changeSeekingState = (state) => {
+    const filterCopy = [...filter];
+    if (!filterCopy.includes(state)) {
+      filterCopy.push(state);
     } else {
-      seeking.classList.remove('active');
+      const filterCopyIndex = filterCopy.indexOf(state);
+      if (filterCopyIndex > -1) {
+        filterCopy.splice(filterCopyIndex, 1);
+      }
     }
-    seekingState = !seekingState;
+    setFilter(filterCopy);
   };
 
-  const changeJamState = () => {
-    const jam = document.getElementById('jam-item');
-    if (jamState === false) {
-      jam.classList.add('active');
+  const changeJamState = (state) => {
+    const filterCopy = [...filter];
+    if (!filterCopy.includes(state)) {
+      filterCopy.push(state);
     } else {
-      jam.classList.remove('active');
+      const filterCopyIndex = filterCopy.indexOf(state);
+      if (filterCopyIndex > -1) {
+        filterCopy.splice(filterCopyIndex, 1);
+      }
     }
-    jamState = !jamState;
+    setFilter(filterCopy);
   };
   const { ready, people } = useTracker(() => {
     // Note that this subscription will get cleaned up
@@ -94,9 +109,9 @@ const Discover = () => {
       <div id="discover-main" className="me-auto">
         <h1>Discover</h1>
         <div id="discover-cards" className="d-flex flex-wrap">
-          {/* {people.map((person) => <UserCard key={person._id} info={person} />)} */}
-          {filter ?
-            people.filter(person => person.genre === filter || person.instrument === filter || person.skill === filter)
+          {filter.length ?
+          // eslint-disable-next-line max-len
+            people.filter(person => filter.includes(person.genre) || filter.includes(person.instrument) || filter.includes(person.skill) || (filter.includes('Seeking Band Member') && person.seekingBand) || (filter.includes('Looking for Informal Jam') && person.informalJam))
               .map(person => <UserCard key={person._id} info={person} />)
             :
             people.map((person) => <UserCard key={person._id} info={person} />)}
@@ -115,20 +130,8 @@ const Discover = () => {
                       <ListGroup.Item
                         action
                         key={key}
-                        className="active"
-                        onClick={async (e) => {
-                          await changeInstrumentState(key);
-                          setFilter(instrument);
-                          console.log(instrument);
-                          console.log(filter);
-                          console.log(e.target);
-                          console.log(e.target.className.includes('active'));
-                          setTimeout(() => {
-                            if (e.target.className.includes('active')) {
-                              setFilter('');
-                            }
-                          }, 500);
-                        }}
+                        className={filter.includes(instrument) ? 'active' : ''}
+                        onClick={() => changeInstrumentState(instrument)}
                       >
                         {instrument}
                       </ListGroup.Item>
@@ -144,8 +147,8 @@ const Discover = () => {
                       <ListGroup.Item
                         action
                         key={key}
-                        className="active"
-                        onClick={() => { changeGenreState(key); }}
+                        className={filter.includes(genre) ? 'active' : ''}
+                        onClick={() => { changeGenreState(genre); }}
                       >
                         {genre}
                       </ListGroup.Item>
@@ -157,12 +160,12 @@ const Discover = () => {
                 <Accordion.Header>Skill Level</Accordion.Header>
                 <Accordion.Body className="p-0">
                   <ListGroup id="skill-group" variant="flush">
-                    {skill.map((level, key) => (
+                    {skills.map((level, key) => (
                       <ListGroup.Item
                         action
                         key={key}
-                        className="active"
-                        onClick={() => { changeSkillState(key); }}
+                        className={filter.includes(level) ? 'active' : ''}
+                        onClick={() => { changeSkillState(level); }}
                       >
                         {level}
                       </ListGroup.Item>
@@ -175,16 +178,16 @@ const Discover = () => {
           <ListGroup.Item
             id="jam-item"
             action
-            className="active"
-            onClick={() => { changeJamState(); }}
+            className={filter.includes('Looking for Informal Jam') ? 'active' : ''}
+            onClick={() => { changeJamState('Looking for Informal Jam'); }}
           >
             Looking for Informal Jam
           </ListGroup.Item>
           <ListGroup.Item
             id="seeking-item"
             action
-            className="active"
-            onClick={() => { changeSeekingState(); }}
+            className={filter.includes('Seeking Band Member') ? 'active' : ''}
+            onClick={() => { changeSeekingState('Seeking Band Member'); }}
           >
             Seeking Band Member
           </ListGroup.Item>

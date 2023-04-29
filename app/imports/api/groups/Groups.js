@@ -11,9 +11,13 @@ class GroupsCollection {
       name: String,
       image: String,
       genre: ['Rock', 'Jazz', 'EDM', 'Dubstep', 'Country', 'Pop', 'Classical', 'RhythmAndBlues'],
-      members: [],
       skill: ['Beginner', 'Intermediate', 'Expert', 'Professional'],
-      openToMember: Boolean,
+      members: [],
+      openToMembers: {
+        type: Boolean,
+        allowedValues: [true, false],
+        defaultValue: false,
+      },
     }, { tracker: Tracker });
     this.collection.attachSchema(this.schema);
   }

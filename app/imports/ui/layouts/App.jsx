@@ -14,6 +14,7 @@ import NotAuthorized from '../pages/NotAuthorized';
 import NavBar from '../components/NavBar';
 import LoadingSpinner from '../components/LoadingSpinner';
 import EditProfile from '../pages/EditProfile';
+import AddGroup from '../pages/AddGroup';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 const App = () => (
@@ -29,6 +30,7 @@ const App = () => (
         <Route path="/editprofile" element={<ProtectedRoute><EditProfile /></ProtectedRoute>} />
         <Route path="/discover" element={<ProtectedRoute><Discover /></ProtectedRoute>} />
         <Route path="/groups" element={<ProtectedRoute><Groups /></ProtectedRoute>} />
+        <Route path="/addgroup" element={<ProtectedRoute><AddGroup /></ProtectedRoute>} />
         <Route path="/notauthorized" element={<NotAuthorized />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

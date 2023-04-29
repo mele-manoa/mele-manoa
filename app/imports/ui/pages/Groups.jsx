@@ -1,5 +1,7 @@
 import React from 'react';
-import { Container, Accordion, ListGroup } from 'react-bootstrap';
+import { Meteor } from 'meteor/meteor';
+import { Roles } from 'meteor/alanning:roles';
+import { Container, Accordion, ListGroup, Button } from 'react-bootstrap';
 // import GroupCard from '../components/GroupCard';
 
 const Groups = () => {
@@ -51,6 +53,9 @@ const Groups = () => {
     <Container id="groups" className="d-flex bg-white p-5">
       <div id="groups-main" className="me-auto">
         <h1>Groups</h1>
+        {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
+          <Button id="add-group-button" href="/addgroup" className="on-white">Add Group</Button>
+        ) : ''}
         <div id="groups-cards" className="d-flex flex-wrap" />
       </div>
       <div id="groups-sidebar" className="p-3">

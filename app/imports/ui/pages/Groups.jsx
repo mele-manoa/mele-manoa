@@ -2,9 +2,13 @@ import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { Roles } from 'meteor/alanning:roles';
 import { Container, Accordion, ListGroup, Button } from 'react-bootstrap';
+import { useTracker } from 'meteor/react-meteor-data';
+import GroupCard from '../components/GroupCard';
+import LoadingSpinner from '../components/LoadingSpinner';
+import { Groups } from '../../api/groups/Groups';
 // import GroupCard from '../components/GroupCard';
 
-const Groups = () => {
+const GroupsPage = () => {
   const genres = ['Rock', 'Jazz', 'EDM', 'Dubstep', 'Country', 'Pop', 'Classical', 'Rhythm And Blues'];
   const skill = ['Beginner', 'Intermediate', 'Expert', 'Professional'];
 
@@ -49,14 +53,31 @@ const Groups = () => {
     seekingState = !seekingState;
   };
 
-  return (
+  const { ready, groups } = useTracker(() => {
+    // Note that this subscription will get cleaned up
+    // when your component is unmounted or deps change.
+    // Get access to Stuff documents.
+    const subscription = Meteor.subscribe(Groups.userPublicationName);
+    // Determine if the subscription is ready
+    const rdy = subscription.ready();
+    // Get the Stuff documents
+    const groupInfo = Groups.collection.find({}).fetch();
+    return {
+      groups: groupInfo,
+      ready: rdy,
+    };
+  }, []);
+
+  return (ready ? (
     <Container id="groups" className="d-flex bg-white p-5">
       <div id="groups-main" className="me-auto">
         <h1>Groups</h1>
         {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
           <Button id="add-group-button" href="/addgroup" className="on-white">Add Group</Button>
         ) : ''}
-        <div id="groups-cards" className="d-flex flex-wrap" />
+        <div id="groups-cards" className="d-flex flex-wrap">
+          {groups.map((group) => <GroupCard key={group._id} info={group} />)}
+        </div>
       </div>
       <div id="groups-sidebar" className="p-3">
         <h4>Filter By</h4>
@@ -110,7 +131,7 @@ const Groups = () => {
         </ListGroup>
       </div>
     </Container>
-  );
+  ) : <LoadingSpinner />);
 };
 
-export default Groups;
+export default GroupsPage;

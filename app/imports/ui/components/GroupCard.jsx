@@ -34,8 +34,11 @@ GroupCard.propTypes = {
   info: PropTypes.shape({
     name: PropTypes.string,
     image: PropTypes.string,
-    genre: PropTypes.string,
-    members: PropTypes.arrayOf(String),
+    genre: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.arrayOf(PropTypes.string),
+    ]),
+    members: PropTypes.arrayOf(PropTypes.string).isRequired,
     openToMember: PropTypes.bool,
     _id: PropTypes.string,
   }).isRequired,

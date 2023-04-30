@@ -37,7 +37,7 @@ const Register = ({ location }) => {
   // const { from } = location?.state || { from: { pathname: '/add' } };
   // if correct authentication, redirect to from: page instead of signup screen
   if (redirectToReferer) {
-    return (<Navigate to="/editprofile" />);
+    return (<Navigate to="/registerprofile" />);
   }
   return (
     <Container fluid id="register-page" className="py-3">

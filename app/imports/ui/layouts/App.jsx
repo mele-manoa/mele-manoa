@@ -15,6 +15,7 @@ import NotAuthorized from '../pages/NotAuthorized';
 import NavBar from '../components/NavBar';
 import LoadingSpinner from '../components/LoadingSpinner';
 import EditProfile from '../pages/EditProfile';
+import RegisterProfile from '../pages/RegisterProfile';
 import AddGroup from '../pages/AddGroup';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
@@ -36,6 +37,7 @@ const App = () => {
           <Route path="/home" element={<ProtectedRoute><Landing /></ProtectedRoute>} />
           <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
           <Route path="/editprofile" element={<ProtectedRoute><EditProfile /></ProtectedRoute>} />
+          <Route path="/registerprofile" element={<ProtectedRoute><RegisterProfile /></ProtectedRoute>} />
           <Route path="/discover" element={<ProtectedRoute><Discover /></ProtectedRoute>} />
           <Route path="/groups" element={<ProtectedRoute><Groups /></ProtectedRoute>} />
           <Route path="/addGroup" element={<AdminProtectedRoute ready={ready}><AddGroup /></AdminProtectedRoute>} />

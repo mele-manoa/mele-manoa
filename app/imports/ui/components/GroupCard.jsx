@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Card, Image, Badge } from 'react-bootstrap';
+import { Meteor } from 'meteor/meteor';
+import { Roles } from 'meteor/alanning:roles';
+import { Card, Image, Badge, Button } from 'react-bootstrap';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 const GroupCard = ({ info }) => (
@@ -23,7 +25,12 @@ const GroupCard = ({ info }) => (
           ) : ''}
         </Card.Text>
       </div>
-      <Image id="group-image" className="float-right" src={info.image} thumbnail />
+      <div className="d-flex flex-column">
+        <Image id="group-image" className="float-right" src={info.image} thumbnail />
+        {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
+          <Button id="edit-group-button" href="/editgroup" className="on-white ms-auto mt-auto">Edit</Button>
+        ) : ''}
+      </div>
     </Card.Body>
     <Card.Footer />
   </Card>

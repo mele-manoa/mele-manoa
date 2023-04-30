@@ -1,7 +1,7 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { Roles } from 'meteor/alanning:roles';
-import { Container, Accordion, ListGroup, Button, Badge } from 'react-bootstrap';
+import { Container, Accordion, ListGroup, Button } from 'react-bootstrap';
 import { useTracker } from 'meteor/react-meteor-data';
 import GroupCard from '../components/GroupCard';
 import LoadingSpinner from '../components/LoadingSpinner';

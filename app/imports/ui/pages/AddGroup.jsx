@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+import { Navigate } from 'react-router-dom';
 import { Card, Col, Container, Row, Button } from 'react-bootstrap';
-import { AutoForm, ErrorsField, TextField, SubmitField, SelectField, BoolField, LongTextField } from 'uniforms-bootstrap5';
+import { AutoForm, ErrorsField, TextField, SelectField, BoolField, LongTextField } from 'uniforms-bootstrap5';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import SimpleSchema from 'simpl-schema';
 import swal from 'sweetalert';
@@ -29,7 +31,9 @@ const schema = new SimpleSchema({
 const bridge = new SimpleSchema2Bridge(schema);
 
 /* Renders the AddGroup page for editing a single document. */
-const AddGroup = () => {
+const AddGroup = ({ location }) => {
+  const [redirectToReferer, setRedirectToRef] = useState(false);
+
   const submit = (data, formRef) => {
     // eslint-disable-next-line no-param-reassign
     data.members = data.members.split(',');
@@ -42,12 +46,19 @@ const AddGroup = () => {
         } else {
           swal('Success', 'Group added successfully', 'success');
           formRef.reset();
+          setRedirectToRef(true);
         }
       },
     );
   };
 
   let fRef = null;
+  /* Redirect to groups page after successful registration and login. */
+  const { from } = location?.state || { from: { pathname: '/groups' } };
+  // if correct authentication, redirect to from: page instead of signup screen
+  if (redirectToReferer) {
+    return <Navigate to={from} />;
+  }
   return (
     <Container id="add-group" className="bg-white p-5">
       <Row className="justify-content-center">
@@ -66,7 +77,7 @@ const AddGroup = () => {
                 <BoolField name="openToMembers" appearance="checkbox" />
                 <Row>
                   <Col className="d-flex">
-                    <SubmitField value="Submit" />
+                    <input id="add-group-submit" className="btn btn-light on-white" type="submit" value="Submit" />
                     <Button href="/groups" className="blue on-white ms-3">Cancel</Button>
                   </Col>
                 </Row>
@@ -78,6 +89,17 @@ const AddGroup = () => {
       </Row>
     </Container>
   );
+};
+
+/* Ensure that the React Router location object is available in case we need to redirect. */
+AddGroup.propTypes = {
+  location: PropTypes.shape({
+    state: PropTypes.string,
+  }),
+};
+
+AddGroup.defaultProps = {
+  location: { state: '' },
 };
 
 export default AddGroup;

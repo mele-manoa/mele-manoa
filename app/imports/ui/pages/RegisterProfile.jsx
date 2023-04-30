@@ -1,7 +1,7 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { AutoForm, TextField, SelectField, SubmitField, BoolField, ErrorsField } from 'uniforms-bootstrap5';
-import { Container, Col, Card, Row, Button } from 'react-bootstrap';
+import { Container, Col, Card, Row } from 'react-bootstrap';
 import swal from 'sweetalert';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import SimpleSchema from 'simpl-schema';
@@ -44,8 +44,8 @@ const schema = new SimpleSchema({
 
 const bridge = new SimpleSchema2Bridge(schema);
 
-/* Renders the EditStuff page for editing a single document. */
-const EditProfile = () => {
+/* Renders the Register profile page for editing a single document. */
+const RegisterProfile = () => {
 
   const { ready, email } = useTracker(() => {
     // Ensure that minimongo is populated with all collections prior to running render().
@@ -66,7 +66,7 @@ const EditProfile = () => {
     <Container id="edit-profile" className="bg-white p-5">
       <Row className="justify-content-center">
         <Col xs={10}>
-          <Col><h2>Edit Profile</h2></Col>
+          <Col><h2>Register Profile</h2></Col>
           <AutoForm model={info} schema={bridge} onSubmit={data => submit(data)}>
             <Card>
               <Card.Body>
@@ -95,7 +95,6 @@ const EditProfile = () => {
                 <Row>
                   <Col className="d-flex">
                     <SubmitField value="Submit" />
-                    <Button href="/profile" className="blue on-white ms-3">Cancel</Button>
                   </Col>
                 </Row>
                 <ErrorsField />
@@ -108,4 +107,4 @@ const EditProfile = () => {
   ) : <LoadingSpinner />;
 };
 
-export default EditProfile;
+export default RegisterProfile;

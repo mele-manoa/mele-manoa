@@ -33,11 +33,11 @@ const Register = ({ location }) => {
     });
   };
 
-  /* Display the signup form. Redirect to add page after successful registration and login. */
-  const { from } = location?.state || { from: { pathname: '/add' } };
+  /* Display the signup form. Redirect to edit profile page after successful registration and login. */
+  // const { from } = location?.state || { from: { pathname: '/add' } };
   // if correct authentication, redirect to from: page instead of signup screen
   if (redirectToReferer) {
-    return <Navigate to={from} />;
+    return (<Navigate to="/editprofile" />);
   }
   return (
     <Container fluid id="register-page" className="py-3">

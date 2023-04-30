@@ -53,8 +53,7 @@ const EditProfile = () => {
   }, []);
   const submit = (data) => {
     const { name, image, instrument, genre, skill, informalJam, seekingBand, youtube, soundcloud, instagram } = data;
-    console.log(data);
-    People.collection.update(email, { $set: { name, image, instrument, genre, skill, informalJam, seekingBand, youtube, soundcloud, instagram } }, (error) => (error ?
+    People.collection.update({ email }, { $set: { name, image, instrument, genre, skill, informalJam, seekingBand, youtube, soundcloud, instagram } }, (error) => (error ?
       swal('Error', error.message, 'error') :
       swal('Success', 'Item updated successfully', 'success')));
   };

@@ -126,7 +126,7 @@ const GroupsPage = () => {
             className="active"
             onClick={() => { changeSeekingState(); }}
           >
-            Seeking Band Member
+            Seeking Band Members
           </ListGroup.Item>
         </ListGroup>
       </div>

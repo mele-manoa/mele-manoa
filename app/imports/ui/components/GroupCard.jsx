@@ -18,7 +18,7 @@ const GroupCard = ({ info }) => (
           })}
         </Card.Text>
         <Card.Text>
-          { info.openToMember === true ? (
+          { info.openToMembers === true ? (
             <Badge bg="light" text="dark">Open to New Members</Badge>
           ) : ''}
         </Card.Text>
@@ -39,7 +39,7 @@ GroupCard.propTypes = {
       PropTypes.arrayOf(PropTypes.string),
     ]),
     members: PropTypes.arrayOf(PropTypes.string).isRequired,
-    openToMember: PropTypes.bool,
+    openToMembers: PropTypes.bool,
     _id: PropTypes.string,
   }).isRequired,
 };

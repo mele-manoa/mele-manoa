@@ -24,7 +24,7 @@ class GroupsCollection {
         allowedValues: ['Beginner', 'Intermediate', 'Expert', 'Professional'],
         defaultValue: 'Beginner',
       },
-      openToMember: {
+      openToMembers: {
         type: Boolean,
         allowedValues: [true, false],
         defaultValue: false,

@@ -28,15 +28,11 @@ const schema = new SimpleSchema({
 });
 const bridge = new SimpleSchema2Bridge(schema);
 
-function processMembers(membersList) {
-  
-}
-
 /* Renders the AddGroup page for editing a single document. */
 const AddGroup = () => {
   const submit = (data, formRef) => {
     // eslint-disable-next-line no-param-reassign
-    data.members = processMembers(data.members);
+    data.members = data.members.split(',');
     const { name, image, genre, skill, members, openToMembers } = data;
     Groups.collection.insert(
       { name, image, genre, skill, members, openToMembers },
@@ -62,7 +58,7 @@ const AddGroup = () => {
               <Card.Body>
                 <TextField name="name" />
                 <TextField name="image" help="Enter image URL" />
-                <LongTextField name="members" />
+                <LongTextField name="members" help="Enter a list of your group members as 'Name: Instrument, Name: Instrument'. For example, 'John Foo: Guitar, James Bar: Piano'" />
                 <Row>
                   <Col><SelectField name="genre" /></Col>
                   <Col><SelectField name="skill" /></Col>

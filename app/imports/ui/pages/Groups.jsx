@@ -1,7 +1,7 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { Roles } from 'meteor/alanning:roles';
-import { Container, Accordion, ListGroup, Button } from 'react-bootstrap';
+import { Container, Accordion, ListGroup, Button, Badge } from 'react-bootstrap';
 import { useTracker } from 'meteor/react-meteor-data';
 import GroupCard from '../components/GroupCard';
 import LoadingSpinner from '../components/LoadingSpinner';
@@ -71,10 +71,12 @@ const GroupsPage = () => {
   return (ready ? (
     <Container id="groups" className="d-flex bg-white p-5">
       <div id="groups-main" className="me-auto">
-        <h1>Groups</h1>
-        {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
-          <Button id="add-group-button" href="/addgroup" className="on-white">Add Group</Button>
-        ) : ''}
+        <h1>
+          Groups
+          {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
+            <Button id="add-group-button" href="/addgroup" className="on-white ms-4">Add Group</Button>
+          ) : ''}
+        </h1>
         <div id="groups-cards" className="d-flex flex-wrap">
           {groups.map((group) => <GroupCard key={group._id} info={group} />)}
         </div>
@@ -126,7 +128,7 @@ const GroupsPage = () => {
             className="active"
             onClick={() => { changeSeekingState(); }}
           >
-            Seeking Band Member
+            Seeking Band Members
           </ListGroup.Item>
         </ListGroup>
       </div>

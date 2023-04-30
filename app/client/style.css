@@ -65,7 +65,7 @@ h1, h2, h3, h4, h5 {
   background-color: #6BACD4;
 }
 
-#discover, #profile, #groups, #edit-profile, #add-groups {
+#discover, #profile, #groups, #edit-profile, #add-group {
   min-height: calc(100vh - 80px);
 }
 
@@ -73,6 +73,7 @@ h1, h2, h3, h4, h5 {
   border-color: white;
   background-color: rgba(0, 0, 0, 0.6);
   color: white;
+  font-family: 'ABeeZee', sans-serif;
 }
 
 #root .btn:hover {

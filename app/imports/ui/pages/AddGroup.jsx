@@ -55,7 +55,6 @@ const AddGroup = ({ location }) => {
   let fRef = null;
   /* Redirect to groups page after successful registration and login. */
   const { from } = location?.state || { from: { pathname: '/groups' } };
-  // if correct authentication, redirect to from: page instead of signup screen
   if (redirectToReferer) {
     return <Navigate to={from} />;
   }

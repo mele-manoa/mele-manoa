@@ -16,7 +16,7 @@ class GroupsCollection {
       },
       members: {
         type: Array,
-        defaultValue: ['John Doe'], // Add a default member here
+        defaultValue: [],
       },
       'members.$': String, // Define the array items as strings
       skill: {

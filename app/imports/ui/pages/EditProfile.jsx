@@ -12,7 +12,11 @@ import LoadingSpinner from '../components/LoadingSpinner';
 const schema = new SimpleSchema({
   name: String,
   image: String,
-  instrument: String,
+  instrument: {
+    type: String,
+    allowedValues: ['Guitar', 'Bass', 'Drums', 'Vocals', 'Piano', 'Strings', 'Winds', 'Percussion', 'Brass', 'Other'],
+    defaultValue: 'Other',
+  },
   genre: {
     type: String,
     allowedValues: ['Rock', 'Jazz', 'EDM', 'Dubstep', 'Country', 'Pop', 'Classical', 'RhythmAndBlues'],
@@ -68,7 +72,7 @@ const EditProfile = () => {
               <Card.Body>
                 <Row>
                   <Col><TextField name="name" /></Col>
-                  <Col><TextField name="instrument" /></Col>
+                  <Col><SelectField name="instrument" /></Col>
                 </Row>
                 <Row>
                   <Col><TextField name="image" help="Enter image URL" /></Col>

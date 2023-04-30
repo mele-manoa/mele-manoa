@@ -35,8 +35,10 @@ const EditGroup = ({ location }) => {
   // console.log('EditGroup', doc, ready);
   // On successful submit, insert the data.
   const submit = (data, formRef) => {
-    // eslint-disable-next-line no-param-reassign
-    data.members = data.members.split(',');
+    if (typeof (data.members) === 'string') {
+      // eslint-disable-next-line no-param-reassign
+      data.members = data.members.split(',');
+    }
     const { name, image, genre, skill, members, openToMembers } = data;
     Groups.collection.update(
       _id,

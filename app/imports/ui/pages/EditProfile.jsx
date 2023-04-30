@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Navigate } from 'react-router-dom';
 import { Meteor } from 'meteor/meteor';
-import { AutoForm, TextField, SelectField, SubmitField, BoolField, ErrorsField } from 'uniforms-bootstrap5';
+import { AutoForm, TextField, SelectField, BoolField, ErrorsField } from 'uniforms-bootstrap5';
 import { Container, Col, Card, Row, Button } from 'react-bootstrap';
 import swal from 'sweetalert';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';

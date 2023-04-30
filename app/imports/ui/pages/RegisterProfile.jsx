@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+import { Navigate } from 'react-router-dom';
 import { Meteor } from 'meteor/meteor';
 import { AutoForm, TextField, SelectField, SubmitField, BoolField, ErrorsField } from 'uniforms-bootstrap5';
 import { Container, Col, Card, Row } from 'react-bootstrap';
@@ -45,7 +47,8 @@ const schema = new SimpleSchema({
 const bridge = new SimpleSchema2Bridge(schema);
 
 /* Renders the Register profile page for editing a single document. */
-const RegisterProfile = () => {
+const RegisterProfile = ({ location }) => {
+  const [redirectToReferer, setRedirectToRef] = useState(false);
 
   const { ready, email } = useTracker(() => {
     // Ensure that minimongo is populated with all collections prior to running render().
@@ -55,19 +58,30 @@ const RegisterProfile = () => {
       email: Meteor.user()?.username,
     };
   }, []);
-  const submit = (data) => {
+  const submit = (data, formRef) => {
     const { _id, name, image, instrument, genre, skill, informalJam, seekingBand, youtube, soundcloud, instagram } = data;
-    People.collection.update(_id, { $set: { name, image, instrument, genre, skill, informalJam, seekingBand, youtube, soundcloud, instagram } }, (error) => (error ?
-      swal('Error', error.message, 'error') :
-      swal('Success', 'Item updated successfully', 'success')));
+    People.collection.update(_id, { $set: { name, image, instrument, genre, skill, informalJam, seekingBand, youtube, soundcloud, instagram } }, (error) => {
+      if (error) {
+        swal('Error', error.message, 'error');
+      } else {
+        formRef.reset();
+        setRedirectToRef(true);
+      }
+    });
   };
+  let fRef = null;
+  /* Redirect to profile page */
+  const { from } = location?.state || { from: { pathname: '/profile' } };
+  if (redirectToReferer) {
+    return <Navigate to={from} />;
+  }
   const info = People.collection.findOne({ email });
   return ready ? (
     <Container id="edit-profile" className="bg-white p-5">
       <Row className="justify-content-center">
         <Col xs={10}>
           <Col><h2>Register Profile</h2></Col>
-          <AutoForm model={info} schema={bridge} onSubmit={data => submit(data)}>
+          <AutoForm ref={ref => { fRef = ref; }} model={info} schema={bridge} onSubmit={data => submit(data, fRef)}>
             <Card>
               <Card.Body>
                 <Row>
@@ -105,6 +119,17 @@ const RegisterProfile = () => {
       </Row>
     </Container>
   ) : <LoadingSpinner />;
+};
+
+/* Ensure that the React Router location object is available in case we need to redirect. */
+RegisterProfile.propTypes = {
+  location: PropTypes.shape({
+    state: PropTypes.string,
+  }),
+};
+
+RegisterProfile.defaultProps = {
+  location: { state: '' },
 };
 
 export default RegisterProfile;

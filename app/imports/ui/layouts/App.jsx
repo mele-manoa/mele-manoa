@@ -42,7 +42,7 @@ const App = () => {
           <Route path="/discover" element={<ProtectedRoute><Discover /></ProtectedRoute>} />
           <Route path="/groups" element={<ProtectedRoute><Groups /></ProtectedRoute>} />
           <Route path="/addGroup" element={<AdminProtectedRoute ready={ready}><AddGroup /></AdminProtectedRoute>} />
-          <Route path="/editGroup" element={<AdminProtectedRoute ready={ready}><EditGroup /></AdminProtectedRoute>} />
+          <Route path="/editGroup/:_id" element={<AdminProtectedRoute ready={ready}><EditGroup /></AdminProtectedRoute>} />
           <Route path="/notauthorized" element={<NotAuthorized />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

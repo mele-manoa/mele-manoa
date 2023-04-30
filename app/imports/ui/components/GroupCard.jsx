@@ -28,7 +28,7 @@ const GroupCard = ({ info }) => (
       <div className="d-flex flex-column">
         <Image id="group-image" className="float-right" src={info.image} thumbnail />
         {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
-          <Button id="edit-group-button" href="/editgroup" className="on-white ms-auto mt-auto">Edit</Button>
+          <Button id="edit-group-button" href={`/editgroup/${info._id}`} className="on-white ms-auto mt-auto">Edit</Button>
         ) : ''}
       </div>
     </Card.Body>

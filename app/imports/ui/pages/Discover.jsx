@@ -11,27 +11,13 @@ const Discover = () => {
   const instruments = ['Guitar', 'Bass', 'Drums', 'Vocals', 'Piano', 'Strings', 'Winds', 'Percussion', 'Brass', 'Other'];
   const genres = ['Rock', 'Jazz', 'EDM', 'Dubstep', 'Country', 'Pop', 'Classical', 'Rhythm And Blues'];
   const skills = ['Beginner', 'Intermediate', 'Expert', 'Professional'];
-  const instrumentState = [];
-  for (let i = 0; i < instruments.length; i++) {
-    instrumentState[i] = true;
-  }
-  const genreState = [];
-  for (let i = 0; i < genres.length; i++) {
-    genreState[i] = true;
-  }
-  const skillState = [];
-  for (let i = 0; i < skills.length; i++) {
-    skillState[i] = true;
-  }
-  // const jamState = true;
-  // const seekingState = true;
 
-  const changeInstrumentState = async (instrument) => {
+  const changeState = async (item) => {
     const filterCopy = [...filter];
-    if (!filterCopy.includes(instrument)) {
-      filterCopy.push(instrument);
+    if (!filterCopy.includes(item)) {
+      filterCopy.push(item);
     } else {
-      const filterCopyIndex = filterCopy.indexOf(instrument);
+      const filterCopyIndex = filterCopy.indexOf(item);
       if (filterCopyIndex > -1) {
         filterCopy.splice(filterCopyIndex, 1);
       }
@@ -39,57 +25,6 @@ const Discover = () => {
     setFilter(filterCopy);
   };
 
-  const changeGenreState = (genre) => {
-    const filterCopy = [...filter];
-    if (!filterCopy.includes(genre)) {
-      filterCopy.push(genre);
-    } else {
-      const filterCopyIndex = filterCopy.indexOf(genre);
-      if (filterCopyIndex > -1) {
-        filterCopy.splice(filterCopyIndex, 1);
-      }
-    }
-    setFilter(filterCopy);
-  };
-
-  const changeSkillState = (skill) => {
-    const filterCopy = [...filter];
-    if (!filterCopy.includes(skill)) {
-      filterCopy.push(skill);
-    } else {
-      const filterCopyIndex = filterCopy.indexOf(skill);
-      if (filterCopyIndex > -1) {
-        filterCopy.splice(filterCopyIndex, 1);
-      }
-    }
-    setFilter(filterCopy);
-  };
-
-  const changeSeekingState = (state) => {
-    const filterCopy = [...filter];
-    if (!filterCopy.includes(state)) {
-      filterCopy.push(state);
-    } else {
-      const filterCopyIndex = filterCopy.indexOf(state);
-      if (filterCopyIndex > -1) {
-        filterCopy.splice(filterCopyIndex, 1);
-      }
-    }
-    setFilter(filterCopy);
-  };
-
-  const changeJamState = (state) => {
-    const filterCopy = [...filter];
-    if (!filterCopy.includes(state)) {
-      filterCopy.push(state);
-    } else {
-      const filterCopyIndex = filterCopy.indexOf(state);
-      if (filterCopyIndex > -1) {
-        filterCopy.splice(filterCopyIndex, 1);
-      }
-    }
-    setFilter(filterCopy);
-  };
   const { ready, people } = useTracker(() => {
     // Note that this subscription will get cleaned up
     // when your component is unmounted or deps change.
@@ -131,7 +66,7 @@ const Discover = () => {
                         action
                         key={key}
                         className={filter.includes(instrument) ? 'active' : ''}
-                        onClick={() => changeInstrumentState(instrument)}
+                        onClick={() => changeState(instrument)}
                       >
                         {instrument}
                       </ListGroup.Item>
@@ -148,7 +83,7 @@ const Discover = () => {
                         action
                         key={key}
                         className={filter.includes(genre) ? 'active' : ''}
-                        onClick={() => { changeGenreState(genre); }}
+                        onClick={() => { changeState(genre); }}
                       >
                         {genre}
                       </ListGroup.Item>
@@ -165,7 +100,7 @@ const Discover = () => {
                         action
                         key={key}
                         className={filter.includes(level) ? 'active' : ''}
-                        onClick={() => { changeSkillState(level); }}
+                        onClick={() => { changeState(level); }}
                       >
                         {level}
                       </ListGroup.Item>
@@ -179,7 +114,7 @@ const Discover = () => {
             id="jam-item"
             action
             className={filter.includes('Looking for Informal Jam') ? 'active' : ''}
-            onClick={() => { changeJamState('Looking for Informal Jam'); }}
+            onClick={() => { changeState('Looking for Informal Jam'); }}
           >
             Looking for Informal Jam
           </ListGroup.Item>
@@ -187,7 +122,7 @@ const Discover = () => {
             id="seeking-item"
             action
             className={filter.includes('Seeking Band Member') ? 'active' : ''}
-            onClick={() => { changeSeekingState('Seeking Band Member'); }}
+            onClick={() => { changeState('Seeking Band Member'); }}
           >
             Seeking Band Member
           </ListGroup.Item>

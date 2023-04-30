@@ -91,7 +91,6 @@ const RegisterProfile = () => {
                 <Row>
                   <Col className="d-flex">
                     <SubmitField value="Submit" />
-                    <Button href="/profile" className="blue on-white ms-3">Cancel</Button>
                   </Col>
                 </Row>
                 <ErrorsField />

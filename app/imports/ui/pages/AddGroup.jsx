@@ -28,9 +28,15 @@ const schema = new SimpleSchema({
 });
 const bridge = new SimpleSchema2Bridge(schema);
 
+function processMembers(membersList) {
+  
+}
+
 /* Renders the AddGroup page for editing a single document. */
 const AddGroup = () => {
   const submit = (data, formRef) => {
+    // eslint-disable-next-line no-param-reassign
+    data.members = processMembers(data.members);
     const { name, image, genre, skill, members, openToMembers } = data;
     Groups.collection.insert(
       { name, image, genre, skill, members, openToMembers },

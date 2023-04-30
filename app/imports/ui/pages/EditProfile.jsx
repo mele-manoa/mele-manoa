@@ -11,40 +11,7 @@ import { useTracker } from 'meteor/react-meteor-data';
 import { People } from '../../api/people/People';
 import LoadingSpinner from '../components/LoadingSpinner';
 
-const schema = new SimpleSchema({
-  name: String,
-  image: String,
-  instrument: {
-    type: String,
-    allowedValues: ['Guitar', 'Bass', 'Drums', 'Vocals', 'Piano', 'Strings', 'Winds', 'Percussion', 'Brass', 'Other'],
-    defaultValue: 'Other',
-  },
-  genre: {
-    type: String,
-    allowedValues: ['Rock', 'Jazz', 'EDM', 'Dubstep', 'Country', 'Pop', 'Classical', 'RhythmAndBlues'],
-    defaultValue: 'Rock',
-  },
-  skill: {
-    type: String,
-    allowedValues: ['Beginner', 'Intermediate', 'Expert', 'Professional'],
-    defaultValue: 'Beginner',
-  },
-  informalJam: {
-    type: Boolean,
-    allowedValues: [true, false],
-    defaultValue: false,
-  },
-  seekingBand: {
-    type: Boolean,
-    allowedValues: [true, false],
-    defaultValue: false,
-  },
-  youtube: { type: String, optional: true },
-  soundcloud: { type: String, optional: true },
-  instagram: { type: String, optional: true },
-});
-
-const bridge = new SimpleSchema2Bridge(schema);
+const bridge = new SimpleSchema2Bridge(People.schema);
 
 /* Renders the EditStuff page for editing a single document. */
 const EditProfile = ({ location }) => {

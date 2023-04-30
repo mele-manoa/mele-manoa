@@ -65,7 +65,7 @@ h1, h2, h3, h4, h5 {
   background-color: #6BACD4;
 }
 
-#discover, #profile, #groups, #edit-profile, #add-group {
+#discover, #profile, #groups, #edit-profile, #add-group, #edit-group {
   min-height: calc(100vh - 80px);
 }
 
@@ -173,4 +173,8 @@ h1, h2, h3, h4, h5 {
 
 #group-card-info {
   width: 200px;
+}
+
+#edit-group-button {
+  width: 60px;
 }

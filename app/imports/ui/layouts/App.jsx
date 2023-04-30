@@ -17,6 +17,7 @@ import LoadingSpinner from '../components/LoadingSpinner';
 import EditProfile from '../pages/EditProfile';
 import RegisterProfile from '../pages/RegisterProfile';
 import AddGroup from '../pages/AddGroup';
+import EditGroup from '../pages/EditGroup';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 const App = () => {
@@ -41,6 +42,7 @@ const App = () => {
           <Route path="/discover" element={<ProtectedRoute><Discover /></ProtectedRoute>} />
           <Route path="/groups" element={<ProtectedRoute><Groups /></ProtectedRoute>} />
           <Route path="/addGroup" element={<AdminProtectedRoute ready={ready}><AddGroup /></AdminProtectedRoute>} />
+          <Route path="/editGroup/:_id" element={<AdminProtectedRoute ready={ready}><EditGroup /></AdminProtectedRoute>} />
           <Route path="/notauthorized" element={<NotAuthorized />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

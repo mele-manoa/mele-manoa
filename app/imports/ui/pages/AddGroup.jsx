@@ -16,11 +16,6 @@ const schema = new SimpleSchema({
     allowedValues: ['Rock', 'Jazz', 'EDM', 'Dubstep', 'Country', 'Pop', 'Classical', 'RhythmAndBlues'],
     defaultValue: 'Rock',
   },
-  skill: {
-    type: String,
-    allowedValues: ['Beginner', 'Intermediate', 'Expert', 'Professional'],
-    defaultValue: 'Beginner',
-  },
   members: [String],
   openToMembers: {
     type: Boolean,
@@ -37,9 +32,9 @@ const AddGroup = ({ location }) => {
   const submit = (data, formRef) => {
     // eslint-disable-next-line no-param-reassign
     data.members = data.members.split(',');
-    const { name, image, genre, skill, members, openToMembers } = data;
+    const { name, image, genre, members, openToMembers } = data;
     Groups.collection.insert(
-      { name, image, genre, skill, members, openToMembers },
+      { name, image, genre, members, openToMembers },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');
@@ -71,7 +66,6 @@ const AddGroup = ({ location }) => {
                 <LongTextField name="members" help="Enter a list of your group members as 'Name: Instrument, Name: Instrument'. For example, 'John Foo: Guitar, James Bar: Piano'" />
                 <Row>
                   <Col><SelectField name="genre" /></Col>
-                  <Col><SelectField name="skill" /></Col>
                 </Row>
                 <BoolField name="openToMembers" appearance="checkbox" />
                 <Row>

@@ -8,9 +8,9 @@ import LoadingSpinner from '../components/LoadingSpinner';
 
 const Discover = () => {
   const [filter, setFilter] = useState([]);
-  const instruments = ['Guitar', 'Bass', 'Drums', 'Vocals', 'Piano', 'Strings', 'Winds', 'Percussion', 'Brass', 'Other'];
-  const genres = ['Rock', 'Jazz', 'EDM', 'Dubstep', 'Country', 'Pop', 'Classical', 'Rhythm And Blues'];
-  const skills = ['Beginner', 'Intermediate', 'Expert', 'Professional'];
+  const instruments = People.schema._schema.instrument.type.definitions[0].allowedValues;
+  const genres = People.schema._schema.genre.type.definitions[0].allowedValues;
+  const skills = People.schema._schema.skill.type.definitions[0].allowedValues;
 
   const changeState = async (item) => {
     const filterCopy = [...filter];

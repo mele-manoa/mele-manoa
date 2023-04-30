@@ -3,36 +3,55 @@ import { Card, Col, Container, Row, Button } from 'react-bootstrap';
 import { AutoForm, ErrorsField, TextField, SubmitField, SelectField, BoolField, LongTextField } from 'uniforms-bootstrap5';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import SimpleSchema from 'simpl-schema';
+import swal from 'sweetalert';
+import { Groups } from '../../api/groups/Groups';
 
-/* Renders the EditStuff page for editing a single document. */
+const schema = new SimpleSchema({
+  name: String,
+  image: String,
+  genre: {
+    type: String,
+    allowedValues: ['Rock', 'Jazz', 'EDM', 'Dubstep', 'Country', 'Pop', 'Classical', 'RhythmAndBlues'],
+    defaultValue: 'Rock',
+  },
+  skill: {
+    type: String,
+    allowedValues: ['Beginner', 'Intermediate', 'Expert', 'Professional'],
+    defaultValue: 'Beginner',
+  },
+  members: [String],
+  openToMembers: {
+    type: Boolean,
+    allowedValues: [true, false],
+    defaultValue: false,
+  },
+});
+const bridge = new SimpleSchema2Bridge(schema);
+
+/* Renders the AddGroup page for editing a single document. */
 const AddGroup = () => {
-  const schema = new SimpleSchema({
-    name: String,
-    image: String,
-    genre: {
-      type: String,
-      allowedValues: ['Rock', 'Jazz', 'EDM', 'Dubstep', 'Country', 'Pop', 'Classical', 'RhythmAndBlues'],
-      defaultValue: 'Rock',
-    },
-    skill: {
-      type: String,
-      allowedValues: ['Beginner', 'Intermediate', 'Expert', 'Professional'],
-      defaultValue: 'Beginner',
-    },
-    members: [String],
-    openToMembers: {
-      type: Boolean,
-      allowedValues: [true, false],
-      defaultValue: false,
-    },
-  });
-  const bridge = new SimpleSchema2Bridge(schema);
+  const submit = (data, formRef) => {
+    const { name, image, genre, skill, members, openToMembers } = data;
+    Groups.collection.insert(
+      { name, image, genre, skill, members, openToMembers },
+      (error) => {
+        if (error) {
+          swal('Error', error.message, 'error');
+        } else {
+          swal('Success', 'Group added successfully', 'success');
+          formRef.reset();
+        }
+      },
+    );
+  };
+
+  let fRef = null;
   return (
     <Container id="add-group" className="bg-white p-5">
       <Row className="justify-content-center">
         <Col xs={10}>
           <Col><h2>Add Group</h2></Col>
-          <AutoForm schema={bridge} onSubmit={console.log('submit')}>
+          <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => submit(data, fRef)}>
             <Card>
               <Card.Body>
                 <TextField name="name" />

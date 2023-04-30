@@ -19,11 +19,6 @@ class GroupsCollection {
         defaultValue: [],
       },
       'members.$': String, // Define the array items as strings
-      skill: {
-        type: String,
-        allowedValues: ['Beginner', 'Intermediate', 'Expert', 'Professional'],
-        defaultValue: 'Beginner',
-      },
       openToMembers: {
         type: Boolean,
         allowedValues: [true, false],

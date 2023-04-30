@@ -39,10 +39,10 @@ const EditGroup = ({ location }) => {
       // eslint-disable-next-line no-param-reassign
       data.members = data.members.split(',');
     }
-    const { name, image, genre, skill, members, openToMembers } = data;
+    const { name, image, genre, members, openToMembers } = data;
     Groups.collection.update(
       _id,
-      { $set: { name, image, genre, skill, members, openToMembers } },
+      { $set: { name, image, genre, members, openToMembers } },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');
@@ -74,7 +74,6 @@ const EditGroup = ({ location }) => {
                 <LongTextField name="members" help="Enter a list of your group members as 'Name: Instrument, Name: Instrument'. For example, 'John Foo: Guitar, James Bar: Piano'" />
                 <Row>
                   <Col><SelectField name="genre" /></Col>
-                  <Col><SelectField name="skill" /></Col>
                 </Row>
                 <BoolField name="openToMembers" appearance="checkbox" />
                 <Row>

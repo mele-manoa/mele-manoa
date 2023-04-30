@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Navigate } from 'react-router-dom';
 import swal from 'sweetalert';
-import { Card, Col, Container, Row } from 'react-bootstrap';
-import { AutoForm, ErrorsField, HiddenField, NumField, SelectField, SubmitField, TextField } from 'uniforms-bootstrap5';
+import { Button, Card, Col, Container, Row } from 'react-bootstrap';
+import { AutoForm, BoolField, ErrorsField, LongTextField, SelectField, TextField } from 'uniforms-bootstrap5';
 import { Meteor } from 'meteor/meteor';
 import { useTracker } from 'meteor/react-meteor-data';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
@@ -60,19 +60,28 @@ const EditGroup = ({ location }) => {
     return <Navigate to={from} />;
   }
   return ready ? (
-    <Container className="py-3">
+    <Container id="edit-group" className="bg-white p-5">
       <Row className="justify-content-center">
-        <Col xs={5}>
-          <Col className="text-center"><h2>Edit Stuff</h2></Col>
+        <Col xs={10}>
+          <Col><h2>Edit Group</h2></Col>
           <AutoForm ref={ref => { fRef = ref; }} model={doc} schema={bridge} onSubmit={data => submit(data, fRef)}>
             <Card>
               <Card.Body>
                 <TextField name="name" />
-                <NumField name="quantity" decimal={null} />
-                <SelectField name="condition" />
-                <SubmitField value="Submit" />
+                <TextField name="image" help="Enter image URL" />
+                <LongTextField name="members" help="Enter a list of your group members as 'Name: Instrument, Name: Instrument'. For example, 'John Foo: Guitar, James Bar: Piano'" />
+                <Row>
+                  <Col><SelectField name="genre" /></Col>
+                  <Col><SelectField name="skill" /></Col>
+                </Row>
+                <BoolField name="openToMembers" appearance="checkbox" />
+                <Row>
+                  <Col className="d-flex">
+                    <input id="add-group-submit" className="btn btn-light on-white" type="submit" value="Submit" />
+                    <Button href="/groups" className="blue on-white ms-3">Cancel</Button>
+                  </Col>
+                </Row>
                 <ErrorsField />
-                <HiddenField name="owner" />
               </Card.Body>
             </Card>
           </AutoForm>

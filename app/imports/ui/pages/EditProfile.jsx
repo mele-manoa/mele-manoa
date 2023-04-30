@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+import { Navigate } from 'react-router-dom';
 import { Meteor } from 'meteor/meteor';
-import { AutoForm, TextField, SelectField, SubmitField, BoolField, ErrorsField } from 'uniforms-bootstrap5';
+import { AutoForm, TextField, SelectField, BoolField, ErrorsField } from 'uniforms-bootstrap5';
 import { Container, Col, Card, Row, Button } from 'react-bootstrap';
 import swal from 'sweetalert';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
@@ -45,7 +47,8 @@ const schema = new SimpleSchema({
 const bridge = new SimpleSchema2Bridge(schema);
 
 /* Renders the EditStuff page for editing a single document. */
-const EditProfile = () => {
+const EditProfile = ({ location }) => {
+  const [redirectToReferer, setRedirectToRef] = useState(false);
 
   const { ready, email } = useTracker(() => {
     // Ensure that minimongo is populated with all collections prior to running render().
@@ -55,19 +58,31 @@ const EditProfile = () => {
       email: Meteor.user()?.username,
     };
   }, []);
-  const submit = (data) => {
+  const submit = (data, formRef) => {
     const { _id, name, image, instrument, genre, skill, informalJam, seekingBand, youtube, soundcloud, instagram } = data;
-    People.collection.update(_id, { $set: { name, image, instrument, genre, skill, informalJam, seekingBand, youtube, soundcloud, instagram } }, (error) => (error ?
-      swal('Error', error.message, 'error') :
-      swal('Success', 'Item updated successfully', 'success')));
+    People.collection.update(_id, { $set: { name, image, instrument, genre, skill, informalJam, seekingBand, youtube, soundcloud, instagram } }, (error) => {
+      if (error) {
+        swal('Error', error.message, 'error');
+      } else {
+        swal('Success', 'Profile updated successfully', 'success');
+        formRef.reset();
+        setRedirectToRef(true);
+      }
+    });
   };
+  let fRef = null;
+  /* Redirect to profile page */
+  const { from } = location?.state || { from: { pathname: '/profile' } };
+  if (redirectToReferer) {
+    return <Navigate to={from} />;
+  }
   const info = People.collection.findOne({ email });
   return ready ? (
     <Container id="edit-profile" className="bg-white p-5">
       <Row className="justify-content-center">
         <Col xs={10}>
           <Col><h2>Edit Profile</h2></Col>
-          <AutoForm model={info} schema={bridge} onSubmit={data => submit(data)}>
+          <AutoForm ref={ref => { fRef = ref; }} model={info} schema={bridge} onSubmit={data => submit(data, fRef)}>
             <Card>
               <Card.Body>
                 <Row>
@@ -94,7 +109,7 @@ const EditProfile = () => {
                 </Row>
                 <Row>
                   <Col className="d-flex">
-                    <SubmitField value="Submit" />
+                    <input id="add-group-submit" className="btn btn-light on-white" type="submit" value="Submit" />
                     <Button href="/profile" className="blue on-white ms-3">Cancel</Button>
                   </Col>
                 </Row>
@@ -106,6 +121,17 @@ const EditProfile = () => {
       </Row>
     </Container>
   ) : <LoadingSpinner />;
+};
+
+/* Ensure that the React Router location object is available in case we need to redirect. */
+EditProfile.propTypes = {
+  location: PropTypes.shape({
+    state: PropTypes.string,
+  }),
+};
+
+EditProfile.defaultProps = {
+  location: { state: '' },
 };
 
 export default EditProfile;

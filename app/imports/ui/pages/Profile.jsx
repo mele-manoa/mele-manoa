@@ -1,6 +1,6 @@
 import React from 'react';
-import { Card, Col, Container, Row, Badge, Button, Image } from 'react-bootstrap';
-import { XLg, CheckLg } from 'react-bootstrap-icons';
+import { Card, Col, Container, Row, Badge, Button, Image, OverlayTrigger, Tooltip } from 'react-bootstrap';
+import { XLg, CheckLg, Youtube, CloudyFill, Instagram } from 'react-bootstrap-icons';
 import { Link } from 'react-router-dom';
 import { Meteor } from 'meteor/meteor';
 import { useTracker } from 'meteor/react-meteor-data';
@@ -59,27 +59,28 @@ const Profile = () => {
         <Col xs={4}>
           <h3>Media</h3>
           <Card id="profile-media">
-            {[info.youtube].map((link) => (
-              link !== '' || null ? (
-                <Button href={link} className="on-white me-1" variant="secondary">
-                  {link === info.youtube ? 'Youtube' : ''}
-                </Button>
-              ) : ''
-            ))}
-            {[info.soundcloud].map((link) => (
-              link !== '' || null ? (
-                <Button href={link} className="on-white me-1" variant="secondary">
-                  {link === info.soundcloud ? 'SoundCloud' : ''}
-                </Button>
-              ) : ''
-            ))}
-            {[info.instagram].map((link) => (
-              link !== '' || null ? (
-                <Button href={link} className="on-white me-1" variant="secondary">
-                  {link === info.instagram ? 'Instagram' : ''}
-                </Button>
-              ) : 'None at the moment, why not add some of your social medias?'
-            ))}
+            <Card.Header className="p-3">
+              { [info.youtube, info.soundcloud, info.instagram].map((link) => (
+                (link !== undefined) ? (
+                  <Card className="mb-3">
+                    <Card.Body>
+                      <strong className="me-2">
+                        { link === info.youtube ? ('Youtube') : '' }
+                        { link === info.soundcloud ? ('SoundCloud') : '' }
+                        { link === info.instagram ? ('Instagram') : '' }
+                      </strong>
+                      <Button href={link} className="on-white me-1" variant="secondary">
+                        { link === info.youtube ? (<Youtube />) : '' }
+                        { link === info.soundcloud ? (<CloudyFill />) : '' }
+                        { link === info.instagram ? (<Instagram />) : '' }
+                      </Button>
+                    </Card.Body>
+                  </Card>
+                ) : (
+                  ''
+                )
+              ))}
+            </Card.Header>
           </Card>
         </Col>
       </Row>

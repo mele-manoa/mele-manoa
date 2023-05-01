@@ -109,7 +109,7 @@ h1, h2, h3, h4, h5 {
 
 /* -------------------------- PROFILE -------------------------- */
 
-#profile-card {
+#profile-card, #profile-media {
   height: 400px;
 }
 
@@ -117,11 +117,6 @@ h1, h2, h3, h4, h5 {
   max-width: 300px;
   height: fit-content;
   max-height: 300px;
-}
-
-#profile-groups {
-  height: calc(100vh - 270px);
-  overflow: auto;
 }
 
 /* -------------------------- DISCOVER -------------------------- */

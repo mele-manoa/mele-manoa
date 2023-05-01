@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Meteor } from 'meteor/meteor';
 import { Roles } from 'meteor/alanning:roles';
 import { Container, Accordion, ListGroup, Button } from 'react-bootstrap';
@@ -9,6 +9,7 @@ import { Groups } from '../../api/groups/Groups';
 // import GroupCard from '../components/GroupCard';
 
 const GroupsPage = () => {
+  const [filter, setFilter] = useState([]);
   const genres = ['Rock', 'Metal', 'Jazz', 'R&B', 'Reggae', 'Indie', 'Country', 'Pop', 'Latin', 'Classical', 'Electronic', 'Other'];
 
   const genreState = [];
@@ -18,24 +19,30 @@ const GroupsPage = () => {
 
   let seekingState = true;
 
-  const changeGenreState = (key) => {
-    const child = document.getElementById('genre-group').children.item(key);
-    if (genreState[key] === false) {
-      child.classList.add('active');
+  const changeGenreState = (genre) => {
+    const filterCopy = [...filter];
+    if (!filterCopy.includes(genre)) {
+      filterCopy.push(genre);
     } else {
-      child.classList.remove('active');
+      const filterCopyIndex = filterCopy.indexOf(genre);
+      if (filterCopyIndex > -1) {
+        filterCopy.splice(filterCopyIndex, 1);
+      }
     }
-    genreState[key] = !genreState[key];
+    setFilter(filterCopy);
   };
 
-  const changeSeekingState = () => {
-    const seeking = document.getElementById('seeking-item');
-    if (seekingState === false) {
-      seeking.classList.add('active');
+  const changeSeekingState = (state) => {
+    const filterCopy = [...filter];
+    if (!filterCopy.includes(state)) {
+      filterCopy.push(state);
     } else {
-      seeking.classList.remove('active');
+      const filterCopyIndex = filterCopy.indexOf(state);
+      if (filterCopyIndex > -1) {
+        filterCopy.splice(filterCopyIndex, 1);
+      }
     }
-    seekingState = !seekingState;
+    setFilter(filterCopy);
   };
 
   const { ready, groups } = useTracker(() => {
@@ -63,7 +70,10 @@ const GroupsPage = () => {
           ) : ''}
         </h1>
         <div id="groups-cards" className="d-flex flex-wrap">
-          {groups.map((group) => <GroupCard key={group._id} info={group} />)}
+          {filter.length ?
+            groups.filter(groups => filter.includes(groups.genre) || (filter.includes('Seeking Band Member') && groups.openToMembers)).map((group) => <GroupCard key={group._id} info={group} />) :
+            groups.map((groups) => <GroupCard key={groups._id} info={groups}/>)
+          }
         </div>
       </div>
       <div id="groups-sidebar" className="p-3">
@@ -79,8 +89,8 @@ const GroupsPage = () => {
                       <ListGroup.Item
                         action
                         key={key}
-                        className="active"
-                        onClick={() => { changeGenreState(key); }}
+                        className={filter.includes(genre) ? 'active' : ''}
+                        onClick={() => { changeGenreState(genre); }}
                       >
                         {genre}
                       </ListGroup.Item>
@@ -93,8 +103,8 @@ const GroupsPage = () => {
           <ListGroup.Item
             id="seeking-item"
             action
-            className="active"
-            onClick={() => { changeSeekingState(); }}
+            className={filter.includes('Seeking Band Member') ? 'active' : ''}
+            onClick={() => { changeSeekingState('Seeking Band Member'); }}
           >
             Seeking Band Members
           </ListGroup.Item>

@@ -40,7 +40,7 @@ const GroupsPage = () => {
   }, []);
 
   return (ready ? (
-    <Container id="groups" className="d-flex bg-white page-body p-5">
+    <Container id="groups" className="d-flex bg-white p-5">
       <div id="groups-main" className="me-auto">
         <h1>
           Groups

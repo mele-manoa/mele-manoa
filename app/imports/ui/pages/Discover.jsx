@@ -9,7 +9,7 @@ import LoadingSpinner from '../components/LoadingSpinner';
 const Discover = () => {
   const [filter, setFilter] = useState([]);
   const instruments = ['Guitar', 'Bass', 'Drums', 'Vocals', 'Piano', 'Strings', 'Winds', 'Percussion', 'Brass', 'Other'];
-  const genres = ['Rock', 'Jazz', 'EDM', 'Dubstep', 'Country', 'Pop', 'Classical', 'Rhythm And Blues'];
+  const genres = ['Rock', 'Metal', 'Jazz', 'R&B', 'Reggae', 'Indie', 'Country', 'Pop', 'Latin', 'Classical', 'Electronic', 'Other'];
   const skills = ['Beginner', 'Intermediate', 'Expert', 'Professional'];
   const instrumentState = [];
   for (let i = 0; i < instruments.length; i++) {

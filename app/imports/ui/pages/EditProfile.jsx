@@ -6,7 +6,6 @@ import { AutoForm, TextField, SelectField, BoolField, ErrorsField } from 'unifor
 import { Container, Col, Card, Row, Button } from 'react-bootstrap';
 import swal from 'sweetalert';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
-import SimpleSchema from 'simpl-schema';
 import { useTracker } from 'meteor/react-meteor-data';
 import { People } from '../../api/people/People';
 import LoadingSpinner from '../components/LoadingSpinner';

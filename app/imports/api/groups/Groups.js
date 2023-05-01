@@ -11,7 +11,7 @@ class GroupsCollection {
       image: String,
       genre: {
         type: String,
-        allowedValues: ['Rock', 'Jazz', 'EDM', 'Dubstep', 'Country', 'Pop', 'Classical', 'RhythmAndBlues'],
+        allowedValues: ['Rock', 'Metal', 'Jazz', 'R&B', 'Reggae', 'Indie', 'Country', 'Pop', 'Latin', 'Classical', 'Electronic', 'Other'],
         defaultValue: 'Rock',
       },
       members: {

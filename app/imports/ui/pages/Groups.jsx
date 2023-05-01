@@ -9,7 +9,7 @@ import { Groups } from '../../api/groups/Groups';
 // import GroupCard from '../components/GroupCard';
 
 const GroupsPage = () => {
-  const genres = ['Rock', 'Jazz', 'EDM', 'Dubstep', 'Country', 'Pop', 'Classical', 'Rhythm And Blues'];
+  const genres = ['Rock', 'Metal', 'Jazz', 'R&B', 'Reggae', 'Indie', 'Country', 'Pop', 'Latin', 'Classical', 'Electronic', 'Other'];
 
   const genreState = [];
   for (let i = 0; i < genres.length; i++) {

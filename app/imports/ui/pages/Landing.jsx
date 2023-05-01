@@ -42,7 +42,7 @@ const Landing = () => {
           </Nav>
         </Row>
       </Container>
-      <Container fluid id="info" className="mt-5">
+      <Container fluid id="landing-info" className="mt-5">
         <Container className="py-5">
           <h1>What is Mele Manoa?</h1>
           <p>

@@ -54,7 +54,7 @@ const AddGroup = ({ location }) => {
     return <Navigate to={from} />;
   }
   return (
-    <Container id="add-group" className="bg-white p-5">
+    <Container id="add-group" className="bg-white page-body p-5">
       <Row className="justify-content-center">
         <Col xs={10}>
           <Col><h2>Add Group</h2></Col>

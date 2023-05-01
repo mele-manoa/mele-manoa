@@ -10,7 +10,7 @@ import { AutoForm, ErrorsField, TextField } from 'uniforms-bootstrap5';
 /**
  * SignUp component is similar to signin component, but we create a new user instead.
  */
-const Register = ({ location }) => {
+const Register = () => {
   const [error, setError] = useState('');
   const [redirectToReferer, setRedirectToRef] = useState(false);
 
@@ -34,7 +34,6 @@ const Register = ({ location }) => {
   };
 
   /* Display the signup form. Redirect to edit profile page after successful registration and login. */
-  // const { from } = location?.state || { from: { pathname: '/add' } };
   // if correct authentication, redirect to from: page instead of signup screen
   if (redirectToReferer) {
     return (<Navigate to="/registerprofile" />);

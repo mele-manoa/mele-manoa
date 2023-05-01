@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Navigate } from 'react-router-dom';
 import { Meteor } from 'meteor/meteor';
-import { AutoForm, TextField, SelectField, SubmitField, BoolField, ErrorsField } from 'uniforms-bootstrap5';
+import { AutoForm, TextField, SelectField, SubmitField, BoolField, ErrorsField, HiddenField } from 'uniforms-bootstrap5';
 import { Container, Col, Card, Row } from 'react-bootstrap';
 import swal from 'sweetalert';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
@@ -25,8 +25,8 @@ const RegisterProfile = ({ location }) => {
     };
   }, []);
   const submit = (data, formRef) => {
-    const { _id, name, image, instrument, genre, skill, informalJam, seekingBand, youtube, soundcloud, instagram } = data;
-    People.collection.update(_id, { $set: { name, image, instrument, genre, skill, informalJam, seekingBand, youtube, soundcloud, instagram } }, (error) => {
+    const { name, image, instrument, genre, skill, informalJam, seekingBand, youtube, soundcloud, instagram } = data;
+    People.collection.insert({ email, name, image, instrument, genre, skill, informalJam, seekingBand, youtube, soundcloud, instagram }, (error) => {
       if (error) {
         swal('Error', error.message, 'error');
       } else {
@@ -50,6 +50,7 @@ const RegisterProfile = ({ location }) => {
           <AutoForm ref={ref => { fRef = ref; }} model={info} schema={bridge} onSubmit={data => submit(data, fRef)}>
             <Card>
               <Card.Body>
+                <HiddenField name="email" value={email} />
                 <Row>
                   <Col><TextField name="name" /></Col>
                   <Col><SelectField name="instrument" /></Col>

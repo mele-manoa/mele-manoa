@@ -19,7 +19,7 @@ const Profile = () => {
   }, []);
   const info = People.collection.findOne({ email });
   return ready ? (
-    <Container id="profile" className="bg-white p-5">
+    <Container id="profile" className="bg-white page-body p-5">
       <h1>Profile</h1>
       <Row>
         <Col xs={8}>

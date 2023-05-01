@@ -77,7 +77,7 @@ const RegisterProfile = ({ location }) => {
   }
   const info = People.collection.findOne({ email });
   return ready ? (
-    <Container id="edit-profile" className="bg-white p-5">
+    <Container id="edit-profile" className="bg-white page-body p-5">
       <Row className="justify-content-center">
         <Col xs={10}>
           <Col><h2>Register Profile</h2></Col>

@@ -11,7 +11,7 @@
       "name": "Default Admin",
       "image": "https://cdn.pixabay.com/photo/2021/02/12/13/43/among-us-6008615__340.png",
       "instrument": "Other",
-      "genre": "Dubstep",
+      "genre": "Electronic",
       "skill": "Professional",
       "informalJam": "true",
       "seekingBand": "true"
@@ -52,8 +52,21 @@
       "image": "https://cdn.pixabay.com/photo/2021/02/12/13/43/among-us-6008615__340.png",
       "genre": "Jazz",
       "members": [],
-      "skill": "Intermediate",
       "openToMembers": "true"
+    },
+    {
+      "name": "My Band 2",
+      "image": "https://cdn.pixabay.com/photo/2021/02/12/13/43/among-us-6008615__340.png",
+      "genre": "Country",
+      "members": [],
+      "openToMembers": "true"
+    },
+    {
+      "name": "My Band 3",
+      "image": "https://cdn.pixabay.com/photo/2021/02/12/13/43/among-us-6008615__340.png",
+      "genre": "Rock",
+      "members": [],
+      "openToMembers": "false"
     }
   ]
 }

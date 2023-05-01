@@ -27,7 +27,9 @@ const UserCard = ({ info }) => (
     </Card.Body>
     <Card.Footer>
       { [info.youtube, info.soundcloud, info.instagram].map((link) => (
-        (link !== undefined) ? (
+        (link !== '') || (link !== null) || (link !== undefined) ? (
+          ''
+        ) : (
           <OverlayTrigger
             overlay={(
               <Tooltip>
@@ -43,8 +45,6 @@ const UserCard = ({ info }) => (
               { link === info.instagram ? (<Instagram />) : '' }
             </Button>
           </OverlayTrigger>
-        ) : (
-          ''
         )
       ))}
     </Card.Footer>

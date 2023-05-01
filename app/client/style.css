@@ -2,8 +2,6 @@
 @import url("https://fonts.googleapis.com/css?family=Crete+Round");
 @import url('https://fonts.googleapis.com/css2?family=ABeeZee&display=swap');
 
-/* -------------------------- GENERAL -------------------------- */
-
 /* Set up some CSS variables to theme the application. */
 :root {
   --matr-navbar-bg: #e3f2fd;
@@ -27,7 +25,6 @@ h1, h2, h3, h4, h5 {
 
 #root a {
   color: #343434;
-  text-decoration: none;
 }
 
 /* Define custom styles */
@@ -36,6 +33,40 @@ h1, h2, h3, h4, h5 {
   color: var(--bs-dark);
   padding-top: 10px;
   padding-bottom: 20px;
+}
+
+#nav-links {
+  border-bottom: white 1px solid;
+  width: 50vw;
+  color: white;
+  font-size: 18px;
+}
+
+#nav-links a {
+  color: white;
+  padding: 0 30px 0 10px;
+}
+
+#nav-links a:hover { color: #343434; }
+
+#landing {
+  overflow: auto;
+}
+
+#landing-center {
+  height: 600px;
+}
+
+#landing h1, #landing p, #signin-page h2, #register-page h2 {
+  color: white;
+}
+
+#info {
+  background-color: #6BACD4;
+}
+
+#discover, #profile, #groups, #edit-profile, #add-group, #edit-group {
+  min-height: calc(100vh - 80px);
 }
 
 #root .btn {
@@ -64,53 +95,11 @@ h1, h2, h3, h4, h5 {
   border-color: rgba(0, 0, 0, 0.6);
 }
 
-/* -------------------------- NAVIGATION BAR -------------------------- */
-
 #navbar {
   background-color: #6BACD4;
 }
 
-#nav-links {
-  border-bottom: white 1px solid;
-  width: 50vw;
-  color: white;
-  font-size: 18px;
-}
-
-#nav-links a {
-  color: white;
-  padding: 0 30px 0 10px;
-}
-
-#nav-links a:hover { color: #343434; }
-
-/* -------------------------- LANDING PAGE -------------------------- */
-
-#landing {
-  overflow: auto;
-}
-
-#landing-center {
-  height: 600px;
-}
-
-#landing h1, #landing p, #signin-page h2, #register-page h2 {
-  color: white;
-}
-
-#landing-info {
-  background-color: #6BACD4;
-}
-
-/* -------------------------- PAGES -------------------------- */
-
-#root .page-body {
-  min-height: calc(100vh - 80px);
-}
-
-/* -------------------------- PROFILE -------------------------- */
-
-#profile-card, #profile-media {
+#profile-card {
   height: 400px;
 }
 
@@ -120,7 +109,11 @@ h1, h2, h3, h4, h5 {
   max-height: 300px;
 }
 
-/* -------------------------- DISCOVER -------------------------- */
+#profile-groups {
+  height: calc(100vh - 270px);
+  overflow: auto;
+}
+
 
 #discover-main, #groups-main {
   max-width: calc(85vw - 300px);
@@ -149,8 +142,6 @@ h1, h2, h3, h4, h5 {
 #user-card-info {
   width: 200px;
 }
-
-/* -------------------------- GROUPS -------------------------- */
 
 #groups .accordion-button, #discover .accordion-button {
   background-color: rgba(107, 171, 212, 0.1);

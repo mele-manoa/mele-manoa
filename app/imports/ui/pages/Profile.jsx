@@ -28,6 +28,7 @@ const Profile = () => {
             <Card.Body className="d-flex">
               <div className="me-auto">
                 <Card.Title>{info.name}</Card.Title>
+                <Card.Text>{email}</Card.Text>
                 <Card.Title><Badge bg="secondary">{info.instrument}</Badge></Card.Title>
                 <Card.Text>
                   Preferred Genre: {info.genre} <br />

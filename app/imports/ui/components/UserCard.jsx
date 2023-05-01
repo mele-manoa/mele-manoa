@@ -9,6 +9,7 @@ const UserCard = ({ info }) => (
     <Card.Body className="d-flex">
       <div id="user-card-info" className="me-3">
         <Card.Title>{info.name}</Card.Title>
+        <Card.Text>{info.email}</Card.Text>
         <Card.Text><Badge bg="secondary">{info.instrument}</Badge></Card.Text>
         <Card.Text>
           Preferred Genre: {info.genre} <br />
@@ -54,6 +55,7 @@ const UserCard = ({ info }) => (
 // Require a document to be passed to this component.
 UserCard.propTypes = {
   info: PropTypes.shape({
+    email: PropTypes.string,
     name: PropTypes.string,
     image: PropTypes.string,
     instrument: PropTypes.string,

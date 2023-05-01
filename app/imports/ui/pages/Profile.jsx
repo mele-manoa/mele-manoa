@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card, Col, Container, Row, Badge, Button, Image } from 'react-bootstrap';
-import { XLg, CheckLg } from 'react-bootstrap-icons';
+import { XLg, CheckLg, Youtube, CloudyFill, Instagram } from 'react-bootstrap-icons';
 import { Link } from 'react-router-dom';
 import { Meteor } from 'meteor/meteor';
 import { useTracker } from 'meteor/react-meteor-data';

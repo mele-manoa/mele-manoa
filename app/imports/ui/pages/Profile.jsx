@@ -19,7 +19,7 @@ const Profile = () => {
   }, []);
   const info = People.collection.findOne({ email });
   return ready ? (
-    <Container id="profile" className="bg-white p-5">
+    <Container id="profile" className="bg-white page-body p-5">
       <h1>Profile</h1>
       <Row>
         <Col xs={8}>
@@ -51,36 +51,47 @@ const Profile = () => {
               <Image id="profile-image" className="float-right" src={info.image} thumbnail />
             </Card.Body>
             <Card.Footer className="d-flex">
-              <div className="me-auto">
-                {[info.youtube].map((link) => (
-                  link !== '' || null ? (
-                    <Button href={link} className="on-white me-1" variant="secondary">
-                      {link === info.youtube ? 'Youtube' : ''}
-                    </Button>
-                  ) : ''
-                ))}
-                {[info.soundcloud].map((link) => (
-                  link !== '' || null ? (
-                    <Button href={link} className="on-white me-1" variant="secondary">
-                      {link === info.soundcloud ? 'SoundCloud' : ''}
-                    </Button>
-                  ) : ''
-                ))}
-                {[info.instagram].map((link) => (
-                  link !== '' || null ? (
-                    <Button href={link} className="on-white me-1" variant="secondary">
-                      {link === info.instagram ? 'Instagram' : ''}
-                    </Button>
-                  ) : ''
-                ))}
-              </div>
+              <div className="me-auto" />
               <Link to="/editprofile"><Button id="edit-profile-button" className="blue on-white">Edit</Button></Link>
             </Card.Footer>
           </Card>
         </Col>
         <Col xs={4}>
-          <h3>Groups</h3>
-          <Card id="profile-groups" />
+          <h3>Media</h3>
+          <Card id="profile-media">
+            <Card.Header className="p-3">
+              { [info.youtube, info.soundcloud, info.instagram].map((link) => (
+                (link !== undefined) ? (
+                  <Card className="mb-3 on-white">
+                    <Link to={link}>
+                      <Card.Body>
+                        { link === info.youtube ? (
+                          <Card.Text>
+                            <Youtube className="me-2" style={{ fontSize: '30px' }} />
+                            <strong>  Youtube</strong>
+                          </Card.Text>
+                        ) : '' }
+                        { link === info.soundcloud ? (
+                          <Card.Text>
+                            <CloudyFill className="me-2" style={{ fontSize: '30px' }} />
+                            <strong>  SoundCloud</strong>
+                          </Card.Text>
+                        ) : '' }
+                        { link === info.instagram ? (
+                          <Card.Text>
+                            <Instagram className="me-2" style={{ fontSize: '30px' }} />
+                            <strong>  Instagram</strong>
+                          </Card.Text>
+                        ) : '' }
+                      </Card.Body>
+                    </Link>
+                  </Card>
+                ) : (
+                  ''
+                )
+              ))}
+            </Card.Header>
+          </Card>
         </Col>
       </Row>
     </Container>

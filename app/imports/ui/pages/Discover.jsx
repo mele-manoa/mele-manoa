@@ -40,7 +40,7 @@ const Discover = () => {
     };
   }, []);
   return (ready ? (
-    <Container id="discover" className="d-flex bg-white page-body p-5">
+    <Container id="discover" className="d-flex bg-white p-5">
       <div id="discover-main" className="me-auto">
         <h1>Discover</h1>
         <div id="discover-cards" className="d-flex flex-wrap">

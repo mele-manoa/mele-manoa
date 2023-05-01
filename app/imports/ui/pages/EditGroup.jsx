@@ -62,7 +62,7 @@ const EditGroup = ({ location }) => {
     return <Navigate to={from} />;
   }
   return ready ? (
-    <Container id="edit-group" className="bg-white page-body p-5">
+    <Container id="edit-group" className="bg-white p-5">
       <Row className="justify-content-center">
         <Col xs={10}>
           <Col><h2>Edit Group</h2></Col>

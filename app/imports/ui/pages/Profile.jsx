@@ -62,19 +62,29 @@ const Profile = () => {
             <Card.Header className="p-3">
               { [info.youtube, info.soundcloud, info.instagram].map((link) => (
                 (link !== undefined) ? (
-                  <Card className="mb-3">
-                    <Card.Body>
-                      <strong className="me-2">
-                        { link === info.youtube ? ('Youtube') : '' }
-                        { link === info.soundcloud ? ('SoundCloud') : '' }
-                        { link === info.instagram ? ('Instagram') : '' }
-                      </strong>
-                      <Button href={link} className="on-white me-1" variant="secondary">
-                        { link === info.youtube ? (<Youtube />) : '' }
-                        { link === info.soundcloud ? (<CloudyFill />) : '' }
-                        { link === info.instagram ? (<Instagram />) : '' }
-                      </Button>
-                    </Card.Body>
+                  <Card className="mb-3 on-white">
+                    <Link to={link}>
+                      <Card.Body>
+                        { link === info.youtube ? (
+                          <Card.Text>
+                            <Youtube className="me-2" style={{ fontSize: '30px' }} />
+                            <strong>  Youtube</strong>
+                          </Card.Text>
+                        ) : '' }
+                        { link === info.soundcloud ? (
+                          <Card.Text>
+                            <CloudyFill className="me-2" style={{ fontSize: '30px' }} />
+                            <strong>  SoundCloud</strong>
+                          </Card.Text>
+                        ) : '' }
+                        { link === info.instagram ? (
+                          <Card.Text>
+                            <Instagram className="me-2" style={{ fontSize: '30px' }} />
+                            <strong>  Instagram</strong>
+                          </Card.Text>
+                        ) : '' }
+                      </Card.Body>
+                    </Link>
                   </Card>
                 ) : (
                   ''

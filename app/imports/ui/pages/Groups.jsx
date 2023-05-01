@@ -6,38 +6,17 @@ import { useTracker } from 'meteor/react-meteor-data';
 import GroupCard from '../components/GroupCard';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { Groups } from '../../api/groups/Groups';
-// import GroupCard from '../components/GroupCard';
 
 const GroupsPage = () => {
   const [filter, setFilter] = useState([]);
-  const genres = ['Rock', 'Metal', 'Jazz', 'R&B', 'Reggae', 'Indie', 'Country', 'Pop', 'Latin', 'Classical', 'Electronic', 'Other'];
+  const genres = Groups.schema._schema.genre.type.definitions[0].allowedValues;
 
-  const genreState = [];
-  for (let i = 0; i < genres.length; i++) {
-    genreState[i] = true;
-  }
-
-  let seekingState = true;
-
-  const changeGenreState = (genre) => {
+  const changeState = (item) => {
     const filterCopy = [...filter];
-    if (!filterCopy.includes(genre)) {
-      filterCopy.push(genre);
+    if (!filterCopy.includes(item)) {
+      filterCopy.push(item);
     } else {
-      const filterCopyIndex = filterCopy.indexOf(genre);
-      if (filterCopyIndex > -1) {
-        filterCopy.splice(filterCopyIndex, 1);
-      }
-    }
-    setFilter(filterCopy);
-  };
-
-  const changeSeekingState = (state) => {
-    const filterCopy = [...filter];
-    if (!filterCopy.includes(state)) {
-      filterCopy.push(state);
-    } else {
-      const filterCopyIndex = filterCopy.indexOf(state);
+      const filterCopyIndex = filterCopy.indexOf(item);
       if (filterCopyIndex > -1) {
         filterCopy.splice(filterCopyIndex, 1);
       }
@@ -70,9 +49,10 @@ const GroupsPage = () => {
           ) : ''}
         </h1>
         <div id="groups-cards" className="d-flex flex-wrap">
-          {filter.length ?
-            groups.filter(groups => filter.includes(groups.genre) || (filter.includes('Seeking Band Member') && groups.openToMembers)).map((group) => <GroupCard key={group._id} info={group} />) :
-            groups.map((groups) => <GroupCard key={groups._id} info={groups}/>)
+          {
+            filter.length ? groups.filter(group => filter.includes(group.genre)
+              || (filter.includes('Seeking Band Member') && group.openToMembers)).map((group) => <GroupCard key={group._id} info={group} />) :
+              groups.map((group) => <GroupCard key={group._id} info={group} />)
           }
         </div>
       </div>
@@ -90,7 +70,7 @@ const GroupsPage = () => {
                         action
                         key={key}
                         className={filter.includes(genre) ? 'active' : ''}
-                        onClick={() => { changeGenreState(genre); }}
+                        onClick={() => { changeState(genre); }}
                       >
                         {genre}
                       </ListGroup.Item>
@@ -104,7 +84,7 @@ const GroupsPage = () => {
             id="seeking-item"
             action
             className={filter.includes('Seeking Band Member') ? 'active' : ''}
-            onClick={() => { changeSeekingState('Seeking Band Member'); }}
+            onClick={() => { changeState('Seeking Band Member'); }}
           >
             Seeking Band Members
           </ListGroup.Item>

@@ -142,7 +142,7 @@ h1, h2, h3, h4, h5 {
 
 #user-card {
   width: 400px;
-  height: 300px;
+  min-height: 300px;
 }
 
 #user-image {
@@ -177,7 +177,7 @@ h1, h2, h3, h4, h5 {
 
 #group-card {
   width: 400px;
-  height: 300px;
+  min-height: 300px;
 }
 
 #group-image {

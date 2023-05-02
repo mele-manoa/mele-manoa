@@ -9,16 +9,17 @@
   "defaultPeople": [
     { "email": "admin@foo.com",
       "name": "Default Admin",
-      "image": "https://cdn.pixabay.com/photo/2021/02/12/13/43/among-us-6008615__340.png",
+      "image": "/images/admin.png",
       "instrument": "Other",
       "genre": "Electronic",
       "skill": "Professional",
       "informalJam": "true",
-      "seekingBand": "true"
+      "seekingBand": "true",
+      "soundcloud": "www.soundcloud.com"
     },
     { "email": "john@foo.com",
       "name": "John Foo",
-      "image": "/",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/JohnMayerin2019.jpg/440px-JohnMayerin2019.jpg",
       "instrument": "Guitar",
       "genre": "Rock",
       "skill": "Intermediate",
@@ -26,20 +27,38 @@
       "seekingBand": "false",
       "youtube": "www.youtube.com"
     },
-    { "email": "takatat9@hawaii.edu",
-      "name": "Tevin",
-      "image": "/",
-      "instrument": "Drums",
-      "genre": "Jazz",
+    { "email": "dean@foo.com",
+      "name": "Dean",
+      "image": "https://bloximages.newyork1.vip.townnews.com/thealmanac.net/content/tncms/assets/v3/editorial/1/e4/1e418d30-2940-53e7-b2af-c9958a62c37b/5a0b41470f72e.image.jpg?resize=667%2C500",
+      "instrument": "Vocals",
+      "genre": "Pop",
       "skill": "Expert",
       "informalJam": "true",
       "seekingBand": "false"
     },
-    { "email": "kendalo@hawaii.edu",
-      "name": "Kendal",
-      "image": "/",
+    { "email": "derek@foo.com",
+      "name": "Derek",
+      "image": "https://www.betterteam.com/images/drummer-job-description-5996x3374-2020125.jpeg?crop=21:16,smart&width=420&dpr=2",
       "instrument": "Other",
       "genre": "Country",
+      "skill": "Expert",
+      "informalJam": "true",
+      "seekingBand": "true"
+    },
+    { "email": "jason@foo.com",
+      "name": "Jason",
+      "image": "https://www.rncm.ac.uk/uploads/WBP_Jazz_Trumpet_2019.jpg",
+      "instrument": "Brass",
+      "genre": "Classical",
+      "skill": "Intermediate",
+      "informalJam": "true",
+      "seekingBand": "false"
+    },
+    { "email": "kristine@foo.com",
+      "name": "Kristine",
+      "image": "/images/pianomusician.png",
+      "instrument": "Piano",
+      "genre": "R&B",
       "skill": "Expert",
       "informalJam": "true",
       "seekingBand": "true"
@@ -49,24 +68,61 @@
   "defaultGroups": [
     {
       "name": "My Band",
-      "image": "https://cdn.pixabay.com/photo/2021/02/12/13/43/among-us-6008615__340.png",
+      "image": "https://www.msmnyc.edu/wp-content/uploads/2019/01/27514443438_24515a4e5f_k.jpg",
       "genre": "Jazz",
-      "members": [],
+      "members": [
+        "James", "Thomas", "Daniel"
+      ],
       "openToMembers": "true"
     },
     {
-      "name": "My Band 2",
-      "image": "https://cdn.pixabay.com/photo/2021/02/12/13/43/among-us-6008615__340.png",
+      "name": "Country Band",
+      "image": "https://s24477.pcdn.co/wp-content/uploads/2023/02/129314352_web1_Chris_1.jpg",
       "genre": "Country",
-      "members": [],
+      "members": ["Oliver", "David"],
       "openToMembers": "true"
     },
     {
-      "name": "My Band 3",
-      "image": "https://cdn.pixabay.com/photo/2021/02/12/13/43/among-us-6008615__340.png",
+      "name": "Rock Band",
+      "image": "/images/rockband.png",
       "genre": "Rock",
-      "members": [],
-      "openToMembers": "false"
+      "members": ["Elizabeth", "Benjamin", "Michael"],
+      "openToMembers": "true"
+    },
+    {
+      "name": "R&B Band",
+      "image": "https://www.colum.edu/img/academics/initiatives/fine-performing-arts/student-ensembles.jpg",
+      "genre": "R&B",
+      "members": ["Joseph", "Alice", "Jean"],
+      "openToMembers": "true"
+    },
+    {
+      "name": "Indie Band",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/EOTR010918-112_%2845144652195%29.jpg/600px-EOTR010918-112_%2845144652195%29.jpg",
+      "genre": "Indie",
+      "members": ["Jacob", "Kyson", "Matt"],
+      "openToMembers": "true"
+    },
+    {
+      "name": "Classical Band",
+      "image": "http://music.fullcoll.edu/mediaserver/1594023a278994_2000.jpg",
+      "genre": "Classical",
+      "members": ["Evelyn", "Sophia", "Arthur"],
+      "openToMembers": "true"
+    },
+    {
+      "name": "Reggae Band",
+      "image": "https://www.kenosha.com/wp-content/uploads/2022/07/LPL22-6-980x654.jpg",
+      "genre": "Reggae",
+      "members": ["Samuel", "Mason", "Lyee"],
+      "openToMembers": "true"
+    },
+    {
+      "name": "Pop Band",
+      "image": "/images/pop.png",
+      "genre": "Pop",
+      "members": ["Jordan", "Ian"],
+      "openToMembers": "true"
     }
   ]
 }

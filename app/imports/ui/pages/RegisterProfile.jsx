@@ -69,7 +69,7 @@ const RegisterProfile = ({ location }) => {
                   </Col>
                 </Row>
                 <Row>
-                  <Col><TextField name="youtube" /></Col>
+                  <Col><TextField name="youtube" help="Enter URL starting with 'https://'" /></Col>
                   <Col><TextField name="soundcloud" /></Col>
                   <Col><TextField name="instagram" /></Col>
                 </Row>

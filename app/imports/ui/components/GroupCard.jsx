@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Meteor } from 'meteor/meteor';
 import { Roles } from 'meteor/alanning:roles';
-import { Card, Image, Badge, Button } from 'react-bootstrap';
+import { Card, Image, Badge, Button, Stack } from 'react-bootstrap';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 const GroupCard = ({ info }) => (
@@ -25,12 +25,14 @@ const GroupCard = ({ info }) => (
           ) : ''}
         </Card.Text>
       </div>
-      <div className="d-flex flex-column">
-        <Image id="group-image" className="float-right" src={info.image} thumbnail />
+      <Stack>
+        { info.image ? (
+          <Image id="group-image" className="float-right" src={info.image} thumbnail />
+        ) : ''}
         {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
           <Button id="edit-group-button" href={`/editgroup/${info._id}`} className="on-white ms-auto mt-auto">Edit</Button>
         ) : ''}
-      </div>
+      </Stack>
     </Card.Body>
     <Card.Footer />
   </Card>

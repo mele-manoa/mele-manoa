@@ -9,7 +9,7 @@ class PeopleCollection {
     this.schema = new SimpleSchema({
       email: String,
       name: String,
-      image: String,
+      image: { type: String, optional: true },
       instrument: {
         type: String,
         allowedValues: ['Guitar', 'Bass', 'Drums', 'Vocals', 'Piano', 'Strings', 'Winds', 'Percussion', 'Brass', 'Other'],

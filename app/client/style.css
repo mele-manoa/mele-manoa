@@ -27,7 +27,6 @@ h1, h2, h3, h4, h5 {
 
 #root a {
   color: #343434;
-  text-decoration: none;
 }
 
 /* Define custom styles */
@@ -112,6 +111,11 @@ h1, h2, h3, h4, h5 {
 
 #profile-card, #profile-media {
   height: 400px;
+}
+
+#profile-media a {
+  color: #343434;
+  text-decoration: none;
 }
 
 #profile-image {

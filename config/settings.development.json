@@ -16,8 +16,7 @@
       "genre": "Electronic",
       "skill": "Professional",
       "informalJam": "true",
-      "seekingBand": "true",
-      "soundcloud": "www.soundcloud.com"
+      "seekingBand": "true"
     },
     { "email": "john@foo.com",
       "name": "John Foo",

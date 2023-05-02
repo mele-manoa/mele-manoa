@@ -2,8 +2,10 @@
   "defaultAccounts": [
     { "email": "admin@foo.com", "password": "changeme", "role": "admin" },
     { "email": "john@foo.com", "password": "changeme" },
-    { "email": "takatat9@hawaii.edu", "password": "gobows" },
-    { "email": "kendalo@hawaii.edu", "password": "changeme2" }
+    { "email": "dean@foo.com", "password": "changeme" },
+    { "email": "derek@foo.com", "password": "changeme" },
+    { "email": "jason@foo.com", "password": "changeme" },
+    { "email": "kristine@foo.com", "password": "changeme" }
   ],
 
   "defaultPeople": [

@@ -38,7 +38,7 @@ const Profile = () => {
                   {info.informalJam === true ? (
                     <Badge bg="success" className="me-1"><CheckLg /></Badge>
                   ) : (
-                    <Badge bg="warning" className="me-1"><XLg /></Badge>
+                    <Badge bg="danger" className="me-1"><XLg /></Badge>
                   )}
                   Open to Informal Jam <br />
                   {info.seekingBand === true ? (

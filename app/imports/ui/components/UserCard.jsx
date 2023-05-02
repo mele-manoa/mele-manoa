@@ -9,7 +9,7 @@ const UserCard = ({ info }) => (
     <Card.Body className="d-flex">
       <div id="user-card-info" className="me-3">
         <Card.Title>{info.name}</Card.Title>
-        <Card.Subtitle className="mb-2 text-muted"><i>{info.email}</i></Card.Subtitle>
+        <Card.Subtitle className="mb-2 text-muted" style={{ fontSize: '14px' }}><i>{info.email}</i></Card.Subtitle>
         <Card.Text><Badge bg="secondary">{info.instrument}</Badge></Card.Text>
         <Card.Text>
           Preferred Genre: {info.genre} <br />

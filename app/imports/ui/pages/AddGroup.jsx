@@ -4,26 +4,10 @@ import { Navigate } from 'react-router-dom';
 import { Card, Col, Container, Row, Button } from 'react-bootstrap';
 import { AutoForm, ErrorsField, TextField, SelectField, BoolField, LongTextField } from 'uniforms-bootstrap5';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
-import SimpleSchema from 'simpl-schema';
 import swal from 'sweetalert';
 import { Groups } from '../../api/groups/Groups';
 
-const schema = new SimpleSchema({
-  name: String,
-  image: String,
-  genre: {
-    type: String,
-    allowedValues: ['Rock', 'Metal', 'Jazz', 'R&B', 'Reggae', 'Indie', 'Country', 'Pop', 'Latin', 'Classical', 'Electronic', 'Other'],
-    defaultValue: 'Rock',
-  },
-  members: [String],
-  openToMembers: {
-    type: Boolean,
-    allowedValues: [true, false],
-    defaultValue: false,
-  },
-});
-const bridge = new SimpleSchema2Bridge(schema);
+const bridge = new SimpleSchema2Bridge(Groups.schema);
 
 /* Renders the AddGroup page for editing a single document. */
 const AddGroup = ({ location }) => {

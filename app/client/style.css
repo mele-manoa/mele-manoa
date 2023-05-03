@@ -93,7 +93,7 @@ h1, h2, h3, h4, h5 {
   height: 600px;
 }
 
-#landing h1, #landing h3, #landing p, #signin-page h2, #register-page h2 {
+#landing h1, #landing h3, #landing h4, #landing p, #landing a, #signin-page h2, #register-page h2 {
   color: white;
 }
 
@@ -101,9 +101,27 @@ h1, h2, h3, h4, h5 {
   background-color: #6BACD4;
 }
 
+#landing-footer {
+  border-top: white solid 1px;
+}
+
+#landing-github-card {
+  background-color: #212529;
+  text-decoration: none;
+}
+
+#landing-github-card:hover {
+  background-color: #394047;
+}
+
 #landing img {
   width: 500px;
   margin-bottom: 25px;
+}
+
+#landing ul {
+  color: white;
+  list-style: none;
 }
 
 /* -------------------------- PAGES -------------------------- */

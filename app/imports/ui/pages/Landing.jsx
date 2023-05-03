@@ -1,8 +1,9 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { useTracker } from 'meteor/react-meteor-data';
-import { Button, Col, Container, Row, Nav, Image, Stack } from 'react-bootstrap';
+import { Button, Col, Container, Row, Nav, Image, Stack, Card, Link } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
+import { Github } from 'react-bootstrap-icons';
 
 /* A simple static component to render some text for the landing page. */
 const Landing = () => {
@@ -95,6 +96,30 @@ const Landing = () => {
             member. Edit group is very similar, just press on a group’s edit button to edit their information.
           </p>
           <p>Thank you so much for using Mele Manoa!</p>
+        </Container>
+        <Container id="landing-footer" className="py-5">
+          <Row>
+            <Col>
+              <h4>Mele Manoa is created, designed, and maintained by:</h4>
+              <ul>
+                <li>- <a href="https://github.com/kendalo-tech">Kendal Oya</a></li>
+                <li>- <a href="https://github.com/tevin-takata">Tevin Takata</a></li>
+                <li>- <a href="https://github.com/YeeunS">Yeeun Shin</a></li>
+                <li>- <a href="https://github.com/IGraceH">Isabelle Hu</a></li>
+              </ul>
+            </Col>
+            <Col>
+              <a href="https://github.com/mele-manoa">
+                <Card id="landing-github-card" className="float-end mt-4" border="light">
+                  <Card.Body className="p-4 pe-5">
+                    <Card.Text>
+                      <Github size={64} className="me-3" />View Mele Manoa on GitHub
+                    </Card.Text>
+                  </Card.Body>
+                </Card>
+              </a>
+            </Col>
+          </Row>
         </Container>
       </Container>
     </Container>

@@ -42,7 +42,7 @@ const Landing = () => {
           </Nav>
         </Row>
       </Container>
-      <Container fluid id="landing-info" className="mt-5">
+      <Container fluid id="landing-info" className="mt-5 .bg-gradient">
         <Container className="py-5">
           <h1>What is Mele Manoa?</h1>
           <Stack className="figure float-end ps-4">
@@ -63,9 +63,9 @@ const Landing = () => {
           </p>
           <h3>User Guide</h3>
           <p>
-            If this is your first
-            time here, after registration you will also be prompted to fill in some information about yourself. This
-            will allow other musicians of UH to find out about you and see who you are on Mele Manoa.
+            If this is your first time here,
+            after registration you will also be prompted to fill in some information about yourself.
+            This will allow other musicians of UH to find out about you and see who you are on Mele Manoa.
           </p>
           <p>
             All this information will also appear on your profile, which you can edit at any time. You can put in your

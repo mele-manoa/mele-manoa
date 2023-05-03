@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Navigate } from 'react-router-dom';
 import { Meteor } from 'meteor/meteor';
-import { AutoForm, TextField, SelectField, SubmitField, BoolField, ErrorsField, HiddenField } from 'uniforms-bootstrap5';
+import { AutoForm, TextField, SelectField, BoolField, ErrorsField, HiddenField } from 'uniforms-bootstrap5';
 import { Container, Col, Card, Row } from 'react-bootstrap';
 import swal from 'sweetalert';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
@@ -75,7 +75,7 @@ const RegisterProfile = ({ location }) => {
                 </Row>
                 <Row>
                   <Col className="d-flex">
-                    <SubmitField value="Submit" />
+                    <input id="register-profile-submit" className="btn btn-light on-white" type="submit" value="Submit" />
                   </Col>
                 </Row>
                 <ErrorsField />
